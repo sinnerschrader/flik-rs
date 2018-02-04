@@ -1,0 +1,10 @@
+[package]
+authors = ["Mario Nebl <hello@mario-nebl.de>"]
+name = "flik-rs"
+version = "0.1.0"
+
+[dependencies]
+clap = "2.29.2"
+
+[dev-dependencies]
+assert_cli = "0.5.4"
