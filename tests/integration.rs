@@ -13,11 +13,11 @@ mod integration {
     }
 
     #[test]
-    fn with_hello() {
+    fn with_login() {
         assert_cli::Assert::main_binary()
-            .with_args(&["hello"])
+            .with_args(&["login"])
             .stdout()
-            .contains("Hello, world")
+            .contains("not implemented yet")
             .unwrap();
     }
 }
