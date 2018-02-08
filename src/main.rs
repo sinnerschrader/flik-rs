@@ -1,8 +1,8 @@
+extern crate flik_rs;
 extern crate clap;
-mod lib;
 
 use clap::{App, SubCommand, Arg}; 
-use lib::*;
+use flik_rs::*;
 
 fn main() {
     let matches = App::new("flik")
