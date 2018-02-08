@@ -1,6 +1,7 @@
 use std::io::{self, Write};
 #[macro_use] extern crate text_io;
 extern crate rpassword;
+extern crate keyring;
 
 pub fn login() -> String {
     print!("username: ");
@@ -8,8 +9,15 @@ pub fn login() -> String {
     let username: String = read!("{}\n");
     println!("entered: {}", username);
 
-    let pass = rpassword::prompt_password_stdout("Password: ").unwrap();
-    println!("Your password is {}", pass);
+    let password;
+    let keyring = keyring::Keyring::new("flik-rs", &username);
+    match keyring.get_password() {
+        Ok(v) => println!("password from keyring: {:?}", v),
+        Err(_e) => {
+            password = rpassword::prompt_password_stdout("password: ").unwrap();
+            keyring.set_password(&password).unwrap();
+        },
+    }
 
     String::from("login not implemented yet") }
 
