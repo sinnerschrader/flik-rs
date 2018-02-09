@@ -4,16 +4,13 @@ extern crate keyring;
 
 pub fn login() -> String {
     let username = rprompt::prompt_reply_stdout("username: ").unwrap();
-    let password;
-
+    
     let keyring = keyring::Keyring::new("flik-rs", &username);
-    match keyring.get_password() {
-        Ok(v) => password = v,
-        Err(_e) => {
-            password = rpassword::prompt_password_stdout("password: ").unwrap();
-            keyring.set_password(&password).unwrap();
-        },
-    }
+    let password = match keyring.get_password() {
+        Ok(v) => v,
+        Err(_e) => rpassword::prompt_password_stdout("password: ").unwrap(),
+    };
+    keyring.set_password(&password).unwrap();
 
     println!("{}/{}", username, password);
     String::from("login not implemented yet") }
