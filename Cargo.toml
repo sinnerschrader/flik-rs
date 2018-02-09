@@ -7,7 +7,7 @@ version = "0.1.0"
 clap = "2.29.2"
 keyring = "0.6.0"
 rpassword = "2.0.0"
-text_io = "0.1.7"
+rprompt = "1.0.3"
 
 [dev-dependencies]
 assert_cli = "0.5.4"

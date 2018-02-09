@@ -1,24 +1,21 @@
-use std::io::{self, Write};
-#[macro_use] extern crate text_io;
 extern crate rpassword;
+extern crate rprompt;
 extern crate keyring;
 
 pub fn login() -> String {
-    print!("username: ");
-    io::stdout().flush().unwrap();
-    let username: String = read!("{}\n");
-    println!("entered: {}", username);
-
+    let username = rprompt::prompt_reply_stdout("username: ").unwrap();
     let password;
+
     let keyring = keyring::Keyring::new("flik-rs", &username);
     match keyring.get_password() {
-        Ok(v) => println!("password from keyring: {:?}", v),
+        Ok(v) => password = v,
         Err(_e) => {
             password = rpassword::prompt_password_stdout("password: ").unwrap();
             keyring.set_password(&password).unwrap();
         },
     }
 
+    println!("{}/{}", username, password);
     String::from("login not implemented yet") }
 
 #[cfg(test)]
