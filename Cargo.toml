@@ -6,8 +6,15 @@ version = "0.1.0"
 [dependencies]
 clap = "2.29.2"
 keyring = "0.6.0"
+hyper = "0.11.18"
+reqwest = "0.8.4"
 rpassword = "2.0.0"
 rprompt = "1.0.3"
+xmltree = "0.8.0"
 
 [dev-dependencies]
 assert_cli = "0.5.4"
+
+[profile.release]
+lto = true
+panic = 'abort'
