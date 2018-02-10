@@ -17,4 +17,3 @@ assert_cli = "0.5.4"
 
 [profile.release]
 lto = true
-panic = 'abort'

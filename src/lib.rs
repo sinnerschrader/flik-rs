@@ -47,6 +47,7 @@ pub fn login() -> String {
         password.text = Some(<String>::from("123456"));
     }
 
+    // TODO https://stackoverflow.com/a/41069910
     let mut output = String::new();
     request_body.write(unsafe { output.as_mut_vec() }).unwrap();
 
