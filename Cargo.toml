@@ -8,3 +8,11 @@ clap = "2.29.2"
 
 [dev-dependencies]
 assert_cli = "0.5.4"
+
+[lib]
+name = "flik_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "flik"
+path = "src/main.rs"
