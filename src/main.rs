@@ -11,8 +11,12 @@ fn main() {
     let serr = |a: &String| {
         io::stderr().write(a.as_bytes()).unwrap();
     };
+    let sin = || -> String {
+        String::new()
+    };
 
-    let result = app(std::env::args().collect(), &sout, serr);
+
+    let result = app(std::env::args().collect(),sin, &sout, serr);
     sout(&String::from("\n"));
     std::process::exit(result);
 }
