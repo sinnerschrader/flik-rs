@@ -6,15 +6,16 @@ pub fn app<In: FnMut() -> String,Out: FnMut(&String), Err: FnMut(&String)>(
     mut sout: Out,
     mut serr: Err,
 ) -> i32 {
-    let matches = App::new("flik")
+    let result_matches = App::new("flik")
         .subcommand(SubCommand::with_name("hello"))
         .subcommand(SubCommand::with_name("request_password"))
         .get_matches_from_safe(argv);
 
-    match matches {
+    match result_matches {
         Ok(val) => {
-            let result = match val.subcommand_matches("hello") {
-                Some(_) => flik("Hello"),
+            let result = match val.subcommand() {
+                ("hello", Some(_sub_m)) =>  flik("Hello"),
+                ("request_password", Some(_sub_m)) => get_password(sin),
                 _ => flik(""),
             };
             sout(&result);
@@ -25,6 +26,10 @@ pub fn app<In: FnMut() -> String,Out: FnMut(&String), Err: FnMut(&String)>(
             1337
         }
     }
+}
+
+fn get_password<In: FnMut() -> String>(mut sin: In) -> String {
+    sin()
 }
 
 fn flik(input: &str) -> String {
