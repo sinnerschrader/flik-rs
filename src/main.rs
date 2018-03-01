@@ -12,9 +12,10 @@ fn main() {
         io::stderr().write(a.as_bytes()).unwrap();
     };
     let sin = || -> String {
-        String::new()
+        let mut input: String = String::new();
+        io::stdin().read_line(&mut input).expect("reading stdin failed!");
+        input
     };
-
 
     let result = app(std::env::args().collect(),sin, &sout, serr);
     sout(&String::from("\n"));

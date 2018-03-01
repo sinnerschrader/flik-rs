@@ -20,4 +20,14 @@ mod integration {
             .contains("Hello, world")
             .unwrap();
     }
+
+    #[test]
+    fn with_request_password() {
+        assert_cli::Assert::main_binary()
+            .with_args(&["request_password"])
+            .stdin("set password\n")
+            .stdout()
+            .is("set password\n")
+            .unwrap();
+    }
 }

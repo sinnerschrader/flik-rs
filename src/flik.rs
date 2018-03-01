@@ -2,7 +2,7 @@ use clap::{App, SubCommand};
 
 pub fn app<In: FnMut() -> String,Out: FnMut(&String), Err: FnMut(&String)>(
     argv: Vec<String>,
-    mut sin: In,
+    sin: In,
     mut sout: Out,
     mut serr: Err,
 ) -> i32 {
