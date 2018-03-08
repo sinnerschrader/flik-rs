@@ -27,7 +27,7 @@ mod integration {
             .with_args(&["request_password"])
             .stdin("set password\n")
             .stdout()
-            .is("set password\n")
+            .is("Enter password: set password\n")
             .unwrap();
     }
 }

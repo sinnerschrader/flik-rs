@@ -135,6 +135,7 @@ version = "0.1.0"
 dependencies = [
  "assert_cli 0.5.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "clap 2.29.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rpassword 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -229,6 +230,22 @@ dependencies = [
  "kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "winapi 0.2.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "rpassword"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.2.36 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rprompt 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "winapi 0.2.8 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "rprompt"
+version = "1.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "rustc-demangle"
@@ -444,6 +461,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum redox_syscall 0.1.37 (registry+https://github.com/rust-lang/crates.io-index)" = "0d92eecebad22b767915e4d529f89f28ee96dbbf5a4810d2b844373f136417fd"
 "checksum redox_termios 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "7e891cfe48e9100a70a3b6eb652fef28920c117d366339687bd5576160db0f76"
 "checksum remove_dir_all 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "b5d2f806b0fcdabd98acd380dc8daef485e22bcb7cddc811d1337967f2528cf5"
+"checksum rpassword 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)" = "b273c91bd242ca03ad6d71c143b6f17a48790e61f21a6c78568fa2b6774a24a4"
+"checksum rprompt 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "1601f32bc5858aae3cbfa1c645c96c4d820cc5c16be0194f089560c00b6eb625"
 "checksum rustc-demangle 0.1.5 (registry+https://github.com/rust-lang/crates.io-index)" = "aee45432acc62f7b9a108cc054142dac51f979e69e71ddce7d6fc7adf29e817e"
 "checksum same-file 0.1.3 (registry+https://github.com/rust-lang/crates.io-index)" = "d931a44fdaa43b8637009e7632a02adc4f2b2e0733c08caa4cf00e8da4a117a7"
 "checksum semver 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)" = "bee2bc909ab2d8d60dab26e8cad85b25d795b14603a0dcb627b78b9d30b6454b"

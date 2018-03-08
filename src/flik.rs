@@ -1,8 +1,8 @@
 use clap::{App, SubCommand};
 
-pub fn app<In: FnMut() -> String,Out: FnMut(&String), Err: FnMut(&String)>(
+pub fn app<In: FnMut(bool) -> String, Out: FnMut(&String), Err: FnMut(&String)>(
     argv: Vec<String>,
-    sin: In,
+    mut sin: In,
     mut sout: Out,
     mut serr: Err,
 ) -> i32 {
@@ -14,8 +14,11 @@ pub fn app<In: FnMut() -> String,Out: FnMut(&String), Err: FnMut(&String)>(
     match result_matches {
         Ok(val) => {
             let result = match val.subcommand() {
-                ("hello", Some(_sub_m)) =>  flik("Hello"),
-                ("request_password", Some(_sub_m)) => get_password(sin),
+                ("hello", Some(_sub_m)) => flik("Hello"),
+                ("request_password", Some(_sub_m)) => {
+                    sout(&String::from("Enter password: "));
+                    sin(true)
+                }
                 _ => flik(""),
             };
             sout(&result);
@@ -26,10 +29,6 @@ pub fn app<In: FnMut() -> String,Out: FnMut(&String), Err: FnMut(&String)>(
             1337
         }
     }
-}
-
-fn get_password<In: FnMut() -> String>(mut sin: In) -> String {
-    sin()
 }
 
 fn flik(input: &str) -> String {
@@ -64,9 +63,7 @@ mod tests {
             let serr = |a: &String| {
                 serr_str += a;
             };
-            let sin = || -> String {
-                String::from("none")
-            };
+            let sin = |secured: bool| -> String { String::from("none") };
 
             let result = app(
                 vec![String::from("flik"), String::from("hello")],
@@ -90,11 +87,9 @@ mod tests {
             let serr = |a: &String| {
                 serr_str += a;
             };
-            let sin = || -> String {
-                String::from("none")
-            };
+            let sin = |secured: bool| -> String { String::from("none") };
 
-            let result = app(vec![String::from("flik")],sin , sout, serr);
+            let result = app(vec![String::from("flik")], sin, sout, serr);
             assert_eq!(0, result);
         }
         assert_eq!(sout_str, "Sorry, come again");
@@ -104,7 +99,7 @@ mod tests {
     fn with_stdin_args() {
         let mut sout_str = String::new();
         let mut serr_str = String::new();
-        let mut called :i32 = 0;
+        let mut called: i32 = 0;
         {
             let sout = |a: &String| {
                 sout_str += a;
@@ -112,18 +107,18 @@ mod tests {
             let serr = |a: &String| {
                 serr_str += a;
             };
-            let sin = || -> String {
+            let sin = |secured: bool| -> String {
                 called += 1;
-                String::from("set password")
+                String::from("Enter password: set password")
             };
 
-            let result = app(
+            app(
                 vec![String::from("flik"), String::from("request_password")],
                 sin,
                 sout,
                 serr,
             );
         }
-        assert_eq!(1,called);
+        assert_eq!(1, called);
     }
 }
