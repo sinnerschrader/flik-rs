@@ -15,3 +15,7 @@ Compile library files:
 Create create libary with the name libsoap.a:
 
 `ar ruv libsoap.a *.o`
+
+## Create C Bindings with bindgen
+
+How to install: 
