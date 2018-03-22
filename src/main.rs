@@ -4,27 +4,8 @@ extern crate rpassword;
 
 use std::io::{self, Write};
 use flik_lib::app;
-use libc::{c_char, c_int, c_long};
 
-#[repr(C)]
-struct soap;
-
-#[repr(C)]
-struct _ns3__LoginRequestParameter;
-
-#[repr(C)]
-struct _ns3__session;
-
-#[link(name = "blueant")]
-extern "C" {
-    fn soap_call___ns1__Login(
-        soap: *const soap,
-        soap_endpoint: *const c_char,
-        soap_action: *const c_char,
-        ns3__LoginRequestParameter: *const _ns3__LoginRequestParameter,
-        ns3__session: *mut _ns3__session,
-    ) -> c_int;
-}
+mod binding;
 
 fn main() {
     unsafe {

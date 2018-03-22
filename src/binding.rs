@@ -120,7 +120,8 @@ pub const SOAP_NAMESPACE_OF_ns2: &'static [u8; 45usize] =
     b"http://exception.blueant.axis.proventis.net/\0";
 pub const SOAP_NAMESPACE_OF_ns3: &'static [u8; 40usize] =
     b"http://base.blueant.axis.proventis.net/\0";
-pub const GSOAP_VERSION: u32 = 20828;
+pub const GSOAP_VERSION: u32 = 20863;
+pub const SOAP_BINARY_BUFLEN: u32 = 128;
 pub const _FEATURES_H: u32 = 1;
 pub const _DEFAULT_SOURCE: u32 = 1;
 pub const __USE_ISOC11: u32 = 1;
@@ -138,20 +139,26 @@ pub const __USE_XOPEN2K8: u32 = 1;
 pub const _ATFILE_SOURCE: u32 = 1;
 pub const __USE_MISC: u32 = 1;
 pub const __USE_ATFILE: u32 = 1;
-pub const __USE_REENTRANT: u32 = 1;
 pub const __USE_FORTIFY_LEVEL: u32 = 0;
+pub const __GLIBC_USE_DEPRECATED_GETS: u32 = 0;
 pub const _STDC_PREDEF_H: u32 = 1;
 pub const __STDC_IEC_559__: u32 = 1;
 pub const __STDC_IEC_559_COMPLEX__: u32 = 1;
-pub const __STDC_ISO_10646__: u32 = 201505;
+pub const __STDC_ISO_10646__: u32 = 201706;
 pub const __STDC_NO_THREADS__: u32 = 1;
 pub const __GNU_LIBRARY__: u32 = 6;
 pub const __GLIBC__: u32 = 2;
-pub const __GLIBC_MINOR__: u32 = 23;
+pub const __GLIBC_MINOR__: u32 = 26;
 pub const _SYS_CDEFS_H: u32 = 1;
+pub const __glibc_c99_flexarr_available: u32 = 1;
 pub const __WORDSIZE: u32 = 64;
 pub const __WORDSIZE_TIME64_COMPAT32: u32 = 1;
 pub const __SYSCALL_WORDSIZE: u32 = 64;
+pub const __HAVE_GENERIC_SELECTION: u32 = 1;
+pub const __GLIBC_USE_LIB_EXT2: u32 = 0;
+pub const __GLIBC_USE_IEC_60559_BFP_EXT: u32 = 0;
+pub const __GLIBC_USE_IEC_60559_FUNCS_EXT: u32 = 0;
+pub const __GLIBC_USE_IEC_60559_TYPES_EXT: u32 = 0;
 pub const _STDLIB_H: u32 = 1;
 pub const WNOHANG: u32 = 1;
 pub const WUNTRACED: u32 = 2;
@@ -162,9 +169,28 @@ pub const WNOWAIT: u32 = 16777216;
 pub const __WNOTHREAD: u32 = 536870912;
 pub const __WALL: u32 = 1073741824;
 pub const __WCLONE: u32 = 2147483648;
-pub const __ENUM_IDTYPE_T: u32 = 1;
 pub const __W_CONTINUED: u32 = 65535;
 pub const __WCOREFLAG: u32 = 128;
+pub const __HAVE_FLOAT128: u32 = 0;
+pub const __HAVE_DISTINCT_FLOAT128: u32 = 0;
+pub const __ldiv_t_defined: u32 = 1;
+pub const __lldiv_t_defined: u32 = 1;
+pub const RAND_MAX: u32 = 2147483647;
+pub const EXIT_FAILURE: u32 = 1;
+pub const EXIT_SUCCESS: u32 = 0;
+pub const _SYS_TYPES_H: u32 = 1;
+pub const _BITS_TYPES_H: u32 = 1;
+pub const _BITS_TYPESIZES_H: u32 = 1;
+pub const __OFF_T_MATCHES_OFF64_T: u32 = 1;
+pub const __INO_T_MATCHES_INO64_T: u32 = 1;
+pub const __RLIM_T_MATCHES_RLIM64_T: u32 = 1;
+pub const __FD_SETSIZE: u32 = 1024;
+pub const __clock_t_defined: u32 = 1;
+pub const __clockid_t_defined: u32 = 1;
+pub const __time_t_defined: u32 = 1;
+pub const __timer_t_defined: u32 = 1;
+pub const _BITS_STDINT_INTN_H: u32 = 1;
+pub const __BIT_TYPES_DEFINED__: u32 = 1;
 pub const _ENDIAN_H: u32 = 1;
 pub const __LITTLE_ENDIAN: u32 = 1234;
 pub const __BIG_ENDIAN: u32 = 4321;
@@ -176,46 +202,37 @@ pub const BIG_ENDIAN: u32 = 4321;
 pub const PDP_ENDIAN: u32 = 3412;
 pub const BYTE_ORDER: u32 = 1234;
 pub const _BITS_BYTESWAP_H: u32 = 1;
-pub const _BITS_TYPES_H: u32 = 1;
-pub const _BITS_TYPESIZES_H: u32 = 1;
-pub const __OFF_T_MATCHES_OFF64_T: u32 = 1;
-pub const __INO_T_MATCHES_INO64_T: u32 = 1;
-pub const __FD_SETSIZE: u32 = 1024;
-pub const __ldiv_t_defined: u32 = 1;
-pub const __lldiv_t_defined: u32 = 1;
-pub const RAND_MAX: u32 = 2147483647;
-pub const EXIT_FAILURE: u32 = 1;
-pub const EXIT_SUCCESS: u32 = 0;
-pub const _SYS_TYPES_H: u32 = 1;
-pub const __clock_t_defined: u32 = 1;
-pub const __time_t_defined: u32 = 1;
-pub const __clockid_t_defined: u32 = 1;
-pub const __timer_t_defined: u32 = 1;
-pub const __BIT_TYPES_DEFINED__: u32 = 1;
+pub const _BITS_UINTN_IDENTITY_H: u32 = 1;
 pub const _SYS_SELECT_H: u32 = 1;
 pub const __FD_ZERO_STOS: &'static [u8; 6usize] = b"stosq\0";
-pub const _SIGSET_H_types: u32 = 1;
+pub const __sigset_t_defined: u32 = 1;
+pub const __timeval_defined: u32 = 1;
 pub const __timespec_defined: u32 = 1;
-pub const _STRUCT_TIMEVAL: u32 = 1;
 pub const FD_SETSIZE: u32 = 1024;
 pub const _SYS_SYSMACROS_H: u32 = 1;
-pub const _BITS_PTHREADTYPES_H: u32 = 1;
-pub const __SIZEOF_PTHREAD_ATTR_T: u32 = 56;
+pub const _BITS_SYSMACROS_H: u32 = 1;
+pub const _BITS_PTHREADTYPES_COMMON_H: u32 = 1;
+pub const _THREAD_SHARED_TYPES_H: u32 = 1;
+pub const _BITS_PTHREADTYPES_ARCH_H: u32 = 1;
 pub const __SIZEOF_PTHREAD_MUTEX_T: u32 = 40;
+pub const __SIZEOF_PTHREAD_ATTR_T: u32 = 56;
+pub const __SIZEOF_PTHREAD_RWLOCK_T: u32 = 56;
+pub const __SIZEOF_PTHREAD_BARRIER_T: u32 = 32;
 pub const __SIZEOF_PTHREAD_MUTEXATTR_T: u32 = 4;
 pub const __SIZEOF_PTHREAD_COND_T: u32 = 48;
 pub const __SIZEOF_PTHREAD_CONDATTR_T: u32 = 4;
-pub const __SIZEOF_PTHREAD_RWLOCK_T: u32 = 56;
 pub const __SIZEOF_PTHREAD_RWLOCKATTR_T: u32 = 8;
-pub const __SIZEOF_PTHREAD_BARRIER_T: u32 = 32;
 pub const __SIZEOF_PTHREAD_BARRIERATTR_T: u32 = 4;
-pub const __have_pthread_attr_t: u32 = 1;
-pub const __PTHREAD_MUTEX_HAVE_PREV: u32 = 1;
+pub const __PTHREAD_MUTEX_LOCK_ELISION: u32 = 1;
+pub const __PTHREAD_MUTEX_NUSERS_AFTER_KIND: u32 = 0;
+pub const __PTHREAD_MUTEX_USE_UNION: u32 = 0;
 pub const __PTHREAD_RWLOCK_INT_FLAGS_SHARED: u32 = 1;
+pub const __PTHREAD_MUTEX_HAVE_PREV: u32 = 1;
+pub const __have_pthread_attr_t: u32 = 1;
 pub const _ALLOCA_H: u32 = 1;
 pub const _STDIO_H: u32 = 1;
-pub const __FILE_defined: u32 = 1;
 pub const ____FILE_defined: u32 = 1;
+pub const __FILE_defined: u32 = 1;
 pub const _G_config_h: u32 = 1;
 pub const ____mbstate_t_defined: u32 = 1;
 pub const _G_HAVE_MMAP: u32 = 1;
@@ -281,13 +298,16 @@ pub const SEEK_SET: u32 = 0;
 pub const SEEK_CUR: u32 = 1;
 pub const SEEK_END: u32 = 2;
 pub const P_tmpdir: &'static [u8; 5usize] = b"/tmp\0";
+pub const _BITS_STDIO_LIM_H: u32 = 1;
 pub const L_tmpnam: u32 = 20;
 pub const TMP_MAX: u32 = 238328;
 pub const FILENAME_MAX: u32 = 4096;
 pub const L_ctermid: u32 = 9;
 pub const FOPEN_MAX: u32 = 16;
 pub const _STRING_H: u32 = 1;
-pub const _XLOCALE_H: u32 = 1;
+pub const _BITS_TYPES_LOCALE_T_H: u32 = 1;
+pub const _BITS_TYPES___LOCALE_T_H: u32 = 1;
+pub const _STRINGS_H: u32 = 1;
 pub const _CTYPE_H: u32 = 1;
 pub const _LIBC_LIMITS_H_: u32 = 1;
 pub const MB_LEN_MAX: u32 = 16;
@@ -369,10 +389,12 @@ pub const CHARCLASS_NAME_MAX: u32 = 2048;
 pub const RE_DUP_MAX: u32 = 32767;
 pub const _MATH_H: u32 = 1;
 pub const _BITS_LIBM_SIMD_DECL_STUBS_H: u32 = 1;
-pub const _MATH_H_MATHDEF: u32 = 1;
+pub const __FP_LOGB0_IS_MIN: u32 = 1;
+pub const __FP_LOGBNAN_IS_MIN: u32 = 1;
 pub const FP_ILOGB0: i32 = -2147483648;
 pub const FP_ILOGBNAN: i32 = -2147483648;
 pub const __MATH_DECLARING_DOUBLE: u32 = 1;
+pub const __MATH_DECLARING_FLOATN: u32 = 0;
 pub const __MATH_DECLARE_LDOUBLE: u32 = 1;
 pub const FP_NAN: u32 = 0;
 pub const FP_INFINITE: u32 = 1;
@@ -402,6 +424,7 @@ pub const M_2_SQRTPI: f64 = 1.1283791670955126;
 pub const M_SQRT2: f64 = 1.4142135623730951;
 pub const M_SQRT1_2: f64 = 0.7071067811865476;
 pub const _ERRNO_H: u32 = 1;
+pub const _BITS_ERRNO_H: u32 = 1;
 pub const EPERM: u32 = 1;
 pub const ENOENT: u32 = 2;
 pub const ESRCH: u32 = 3;
@@ -551,11 +574,11 @@ pub const CLOCK_REALTIME_ALARM: u32 = 8;
 pub const CLOCK_BOOTTIME_ALARM: u32 = 9;
 pub const CLOCK_TAI: u32 = 11;
 pub const TIMER_ABSTIME: u32 = 1;
+pub const __struct_tm_defined: u32 = 1;
+pub const __itimerspec_defined: u32 = 1;
 pub const TIME_UTC: u32 = 1;
 pub const _SYS_SOCKET_H: u32 = 1;
-pub const _SYS_UIO_H: u32 = 1;
-pub const _BITS_UIO_H: u32 = 1;
-pub const UIO_MAXIOV: u32 = 1024;
+pub const __iovec_defined: u32 = 1;
 pub const PF_UNSPEC: u32 = 0;
 pub const PF_LOCAL: u32 = 1;
 pub const PF_UNIX: u32 = 1;
@@ -600,7 +623,10 @@ pub const PF_CAIF: u32 = 37;
 pub const PF_ALG: u32 = 38;
 pub const PF_NFC: u32 = 39;
 pub const PF_VSOCK: u32 = 40;
-pub const PF_MAX: u32 = 41;
+pub const PF_KCM: u32 = 41;
+pub const PF_QIPCRTR: u32 = 42;
+pub const PF_SMC: u32 = 43;
+pub const PF_MAX: u32 = 44;
 pub const AF_UNSPEC: u32 = 0;
 pub const AF_LOCAL: u32 = 1;
 pub const AF_UNIX: u32 = 1;
@@ -645,7 +671,10 @@ pub const AF_CAIF: u32 = 37;
 pub const AF_ALG: u32 = 38;
 pub const AF_NFC: u32 = 39;
 pub const AF_VSOCK: u32 = 40;
-pub const AF_MAX: u32 = 41;
+pub const AF_KCM: u32 = 41;
+pub const AF_QIPCRTR: u32 = 42;
+pub const AF_SMC: u32 = 43;
+pub const AF_MAX: u32 = 44;
 pub const SOL_RAW: u32 = 255;
 pub const SOL_DECNET: u32 = 261;
 pub const SOL_X25: u32 = 262;
@@ -653,6 +682,21 @@ pub const SOL_PACKET: u32 = 263;
 pub const SOL_ATM: u32 = 264;
 pub const SOL_AAL: u32 = 265;
 pub const SOL_IRDA: u32 = 266;
+pub const SOL_NETBEUI: u32 = 267;
+pub const SOL_LLC: u32 = 268;
+pub const SOL_DCCP: u32 = 269;
+pub const SOL_NETLINK: u32 = 270;
+pub const SOL_TIPC: u32 = 271;
+pub const SOL_RXRPC: u32 = 272;
+pub const SOL_PPPOL2TP: u32 = 273;
+pub const SOL_BLUETOOTH: u32 = 274;
+pub const SOL_PNPIPE: u32 = 275;
+pub const SOL_RDS: u32 = 276;
+pub const SOL_IUCV: u32 = 277;
+pub const SOL_CAIF: u32 = 278;
+pub const SOL_ALG: u32 = 279;
+pub const SOL_NFC: u32 = 280;
+pub const SOL_KCM: u32 = 281;
 pub const SOMAXCONN: u32 = 128;
 pub const _BITS_SOCKADDR_H: u32 = 1;
 pub const _SS_SIZE: u32 = 128;
@@ -720,48 +764,20 @@ pub const SO_BPF_EXTENSIONS: u32 = 48;
 pub const SO_INCOMING_CPU: u32 = 49;
 pub const SO_ATTACH_BPF: u32 = 50;
 pub const SO_DETACH_BPF: u32 = 27;
-pub const _STRINGS_H: u32 = 1;
-pub const _SYS_TIME_H: u32 = 1;
+pub const SO_ATTACH_REUSEPORT_CBPF: u32 = 51;
+pub const SO_ATTACH_REUSEPORT_EBPF: u32 = 52;
+pub const SO_CNX_ADVICE: u32 = 53;
+pub const SCM_TIMESTAMPING_OPT_STATS: u32 = 54;
+pub const SO_MEMINFO: u32 = 55;
+pub const SO_INCOMING_NAPI_ID: u32 = 56;
+pub const SO_COOKIE: u32 = 57;
+pub const SCM_TIMESTAMPING_PKTINFO: u32 = 58;
+pub const SO_PEERGROUPS: u32 = 59;
+pub const SO_ZEROCOPY: u32 = 60;
+pub const __osockaddr_defined: u32 = 1;
 pub const _NETINET_IN_H: u32 = 1;
-pub const _STDINT_H: u32 = 1;
-pub const _BITS_WCHAR_H: u32 = 1;
-pub const INT8_MIN: i32 = -128;
-pub const INT16_MIN: i32 = -32768;
-pub const INT32_MIN: i32 = -2147483648;
-pub const INT8_MAX: u32 = 127;
-pub const INT16_MAX: u32 = 32767;
-pub const INT32_MAX: u32 = 2147483647;
-pub const UINT8_MAX: u32 = 255;
-pub const UINT16_MAX: u32 = 65535;
-pub const UINT32_MAX: u32 = 4294967295;
-pub const INT_LEAST8_MIN: i32 = -128;
-pub const INT_LEAST16_MIN: i32 = -32768;
-pub const INT_LEAST32_MIN: i32 = -2147483648;
-pub const INT_LEAST8_MAX: u32 = 127;
-pub const INT_LEAST16_MAX: u32 = 32767;
-pub const INT_LEAST32_MAX: u32 = 2147483647;
-pub const UINT_LEAST8_MAX: u32 = 255;
-pub const UINT_LEAST16_MAX: u32 = 65535;
-pub const UINT_LEAST32_MAX: u32 = 4294967295;
-pub const INT_FAST8_MIN: i32 = -128;
-pub const INT_FAST16_MIN: i64 = -9223372036854775808;
-pub const INT_FAST32_MIN: i64 = -9223372036854775808;
-pub const INT_FAST8_MAX: u32 = 127;
-pub const INT_FAST16_MAX: u64 = 9223372036854775807;
-pub const INT_FAST32_MAX: u64 = 9223372036854775807;
-pub const UINT_FAST8_MAX: u32 = 255;
-pub const UINT_FAST16_MAX: i32 = -1;
-pub const UINT_FAST32_MAX: i32 = -1;
-pub const INTPTR_MIN: i64 = -9223372036854775808;
-pub const INTPTR_MAX: u64 = 9223372036854775807;
-pub const UINTPTR_MAX: i32 = -1;
-pub const PTRDIFF_MIN: i64 = -9223372036854775808;
-pub const PTRDIFF_MAX: u64 = 9223372036854775807;
-pub const SIG_ATOMIC_MIN: i32 = -2147483648;
-pub const SIG_ATOMIC_MAX: u32 = 2147483647;
-pub const SIZE_MAX: i32 = -1;
-pub const WINT_MIN: u32 = 0;
-pub const WINT_MAX: u32 = 4294967295;
+pub const _BITS_STDINT_UINTN_H: u32 = 1;
+pub const __USE_KERNEL_IPV6_DEFS: u32 = 0;
 pub const IP_OPTIONS: u32 = 4;
 pub const IP_HDRINCL: u32 = 3;
 pub const IP_TOS: u32 = 1;
@@ -809,6 +825,7 @@ pub const IP_MINTTL: u32 = 21;
 pub const IP_NODEFRAG: u32 = 22;
 pub const IP_CHECKSUM: u32 = 23;
 pub const IP_BIND_ADDRESS_NO_PORT: u32 = 24;
+pub const IP_RECVFRAGSIZE: u32 = 25;
 pub const IP_PMTUDISC_DONT: u32 = 0;
 pub const IP_PMTUDISC_WANT: u32 = 1;
 pub const IP_PMTUDISC_DO: u32 = 2;
@@ -844,6 +861,7 @@ pub const IPV6_JOIN_ANYCAST: u32 = 27;
 pub const IPV6_LEAVE_ANYCAST: u32 = 28;
 pub const IPV6_IPSEC_POLICY: u32 = 34;
 pub const IPV6_XFRM_POLICY: u32 = 35;
+pub const IPV6_HDRINCL: u32 = 36;
 pub const IPV6_RECVPKTINFO: u32 = 49;
 pub const IPV6_PKTINFO: u32 = 50;
 pub const IPV6_RECVHOPLIMIT: u32 = 51;
@@ -860,6 +878,14 @@ pub const IPV6_PATHMTU: u32 = 61;
 pub const IPV6_DONTFRAG: u32 = 62;
 pub const IPV6_RECVTCLASS: u32 = 66;
 pub const IPV6_TCLASS: u32 = 67;
+pub const IPV6_AUTOFLOWLABEL: u32 = 70;
+pub const IPV6_ADDR_PREFERENCES: u32 = 72;
+pub const IPV6_MINHOPCOUNT: u32 = 73;
+pub const IPV6_ORIGDSTADDR: u32 = 74;
+pub const IPV6_RECVORIGDSTADDR: u32 = 74;
+pub const IPV6_TRANSPARENT: u32 = 75;
+pub const IPV6_UNICAST_IF: u32 = 76;
+pub const IPV6_RECVFRAGSIZE: u32 = 77;
 pub const IPV6_ADD_MEMBERSHIP: u32 = 20;
 pub const IPV6_DROP_MEMBERSHIP: u32 = 21;
 pub const IPV6_RXHOPOPTS: u32 = 54;
@@ -918,6 +944,47 @@ pub const TCP_NOTSENT_LOWAT: u32 = 25;
 pub const TCP_CC_INFO: u32 = 26;
 pub const TCP_SAVE_SYN: u32 = 27;
 pub const TCP_SAVED_SYN: u32 = 28;
+pub const TCP_REPAIR_WINDOW: u32 = 29;
+pub const TCP_FASTOPEN_CONNECT: u32 = 30;
+pub const _STDINT_H: u32 = 1;
+pub const _BITS_WCHAR_H: u32 = 1;
+pub const INT8_MIN: i32 = -128;
+pub const INT16_MIN: i32 = -32768;
+pub const INT32_MIN: i32 = -2147483648;
+pub const INT8_MAX: u32 = 127;
+pub const INT16_MAX: u32 = 32767;
+pub const INT32_MAX: u32 = 2147483647;
+pub const UINT8_MAX: u32 = 255;
+pub const UINT16_MAX: u32 = 65535;
+pub const UINT32_MAX: u32 = 4294967295;
+pub const INT_LEAST8_MIN: i32 = -128;
+pub const INT_LEAST16_MIN: i32 = -32768;
+pub const INT_LEAST32_MIN: i32 = -2147483648;
+pub const INT_LEAST8_MAX: u32 = 127;
+pub const INT_LEAST16_MAX: u32 = 32767;
+pub const INT_LEAST32_MAX: u32 = 2147483647;
+pub const UINT_LEAST8_MAX: u32 = 255;
+pub const UINT_LEAST16_MAX: u32 = 65535;
+pub const UINT_LEAST32_MAX: u32 = 4294967295;
+pub const INT_FAST8_MIN: i32 = -128;
+pub const INT_FAST16_MIN: i64 = -9223372036854775808;
+pub const INT_FAST32_MIN: i64 = -9223372036854775808;
+pub const INT_FAST8_MAX: u32 = 127;
+pub const INT_FAST16_MAX: u64 = 9223372036854775807;
+pub const INT_FAST32_MAX: u64 = 9223372036854775807;
+pub const UINT_FAST8_MAX: u32 = 255;
+pub const UINT_FAST16_MAX: i32 = -1;
+pub const UINT_FAST32_MAX: i32 = -1;
+pub const INTPTR_MIN: i64 = -9223372036854775808;
+pub const INTPTR_MAX: u64 = 9223372036854775807;
+pub const UINTPTR_MAX: i32 = -1;
+pub const PTRDIFF_MIN: i64 = -9223372036854775808;
+pub const PTRDIFF_MAX: u64 = 9223372036854775807;
+pub const SIG_ATOMIC_MIN: i32 = -2147483648;
+pub const SIG_ATOMIC_MAX: u32 = 2147483647;
+pub const SIZE_MAX: i32 = -1;
+pub const WINT_MIN: u32 = 0;
+pub const WINT_MAX: u32 = 4294967295;
 pub const TH_FIN: u32 = 1;
 pub const TH_SYN: u32 = 2;
 pub const TH_RST: u32 = 4;
@@ -1101,6 +1168,8 @@ pub const F_OK: u32 = 0;
 pub const L_SET: u32 = 0;
 pub const L_INCR: u32 = 1;
 pub const L_XTND: u32 = 2;
+pub const _GETOPT_POSIX_H: u32 = 1;
+pub const _GETOPT_CORE_H: u32 = 1;
 pub const F_ULOCK: u32 = 0;
 pub const F_LOCK: u32 = 1;
 pub const F_TLOCK: u32 = 2;
@@ -1177,11 +1246,6 @@ pub const POSIX_FADV_SEQUENTIAL: u32 = 2;
 pub const POSIX_FADV_WILLNEED: u32 = 3;
 pub const POSIX_FADV_DONTNEED: u32 = 4;
 pub const POSIX_FADV_NOREUSE: u32 = 5;
-pub const AT_FDCWD: i32 = -100;
-pub const AT_SYMLINK_NOFOLLOW: u32 = 256;
-pub const AT_REMOVEDIR: u32 = 512;
-pub const AT_SYMLINK_FOLLOW: u32 = 1024;
-pub const AT_EACCESS: u32 = 512;
 pub const _BITS_STAT_H: u32 = 1;
 pub const _STAT_VER_KERNEL: u32 = 0;
 pub const _STAT_VER_LINUX: u32 = 1;
@@ -1226,6 +1290,11 @@ pub const S_IROTH: u32 = 4;
 pub const S_IWOTH: u32 = 2;
 pub const S_IXOTH: u32 = 1;
 pub const S_IRWXO: u32 = 7;
+pub const AT_FDCWD: i32 = -100;
+pub const AT_SYMLINK_NOFOLLOW: u32 = 256;
+pub const AT_REMOVEDIR: u32 = 512;
+pub const AT_SYMLINK_FOLLOW: u32 = 1024;
+pub const AT_EACCESS: u32 = 512;
 pub const SOAP_SHUT_WR: u32 = 1;
 pub const SOAP_SHUT_RDWR: u32 = 2;
 pub const SOAP_LONG_FORMAT: &'static [u8; 4usize] = b"%ld\0";
@@ -1248,6 +1317,7 @@ pub const SOAP_HDRLEN: u32 = 8192;
 pub const SOAP_TMPLEN: u32 = 1024;
 pub const SOAP_MAXDIMS: u32 = 16;
 pub const SOAP_MAXPTRS: u32 = 4;
+pub const SOAP_MAXALLOCSIZE: u32 = 0;
 pub const SOAP_MAXLOGS: u32 = 3;
 pub const SOAP_INDEX_RECV: u32 = 0;
 pub const SOAP_INDEX_SENT: u32 = 1;
@@ -1259,7 +1329,10 @@ pub const SOAP_MAXKEEPALIVE: u32 = 100;
 pub const SOAP_MAXARRAYSIZE: u32 = 100000;
 pub const SOAP_MAXDIMESIZE: u32 = 8388608;
 pub const SOAP_MAXINFLATESIZE: u32 = 1048576;
-pub const SOAP_MINDEFLATERATIO: f64 = 0.001;
+pub const SOAP_MINDEFLATERATIO: f64 = 0.0009689922480620155;
+pub const SOAP_MAXLEVEL: u32 = 10000;
+pub const SOAP_MAXLENGTH: u32 = 0;
+pub const SOAP_MAXOCCURS: u32 = 100000;
 pub const SOAP_EOF: i32 = -1;
 pub const SOAP_ERR: i32 = -1;
 pub const SOAP_OK: u32 = 0;
@@ -1312,6 +1385,10 @@ pub const SOAP_PATTERN: u32 = 46;
 pub const SOAP_FD_EXCEEDED: u32 = 47;
 pub const SOAP_UTF_ERROR: u32 = 48;
 pub const SOAP_NTLM_ERROR: u32 = 49;
+pub const SOAP_LEVEL: u32 = 50;
+pub const SOAP_FIXED: u32 = 51;
+pub const SOAP_EMPTY: u32 = 52;
+pub const SOAP_END_TAG: u32 = 53;
 pub const SOAP_STOP: u32 = 1000;
 pub const SOAP_FORM: u32 = 1001;
 pub const SOAP_HTML: u32 = 1002;
@@ -1322,6 +1399,8 @@ pub const SOAP_GET: u32 = 2002;
 pub const SOAP_PUT: u32 = 2003;
 pub const SOAP_DEL: u32 = 2004;
 pub const SOAP_CONNECT: u32 = 2005;
+pub const SOAP_HEAD: u32 = 2006;
+pub const SOAP_OPTIONS: u32 = 2007;
 pub const SOAP_DIME_CF: u32 = 1;
 pub const SOAP_DIME_ME: u32 = 2;
 pub const SOAP_DIME_MB: u32 = 4;
@@ -1342,6 +1421,7 @@ pub const SOAP_IO_LENGTH: u32 = 8;
 pub const SOAP_IO_KEEPALIVE: u32 = 16;
 pub const SOAP_ENC: u32 = 4095;
 pub const SOAP_ENC_LATIN: u32 = 32;
+pub const SOAP_ENC_PLAIN: u32 = 64;
 pub const SOAP_ENC_XML: u32 = 64;
 pub const SOAP_ENC_DIME: u32 = 128;
 pub const SOAP_ENC_MIME: u32 = 256;
@@ -1359,7 +1439,7 @@ pub const SOAP_XML_NOTYPE: u32 = 524288;
 pub const SOAP_DOM_TREE: u32 = 1048576;
 pub const SOAP_DOM_NODE: u32 = 2097152;
 pub const SOAP_DOM_ASIS: u32 = 4194304;
-pub const SOAP_RESERVED: u32 = 8388608;
+pub const SOAP_XML_CANONICAL_NA: u32 = 8388608;
 pub const SOAP_C_NOIOB: u32 = 16777216;
 pub const SOAP_C_UTFSTRING: u32 = 33554432;
 pub const SOAP_C_MBSTRING: u32 = 67108864;
@@ -1387,15 +1467,16 @@ pub const SOAP_SSL_DEFAULT: u32 = 1;
 pub const SOAP_NONE: u32 = 0;
 pub const SOAP_INIT: u32 = 1;
 pub const SOAP_COPY: u32 = 2;
-pub const SOAP_BEGIN: u32 = 0;
-pub const SOAP_IN_ENVELOPE: u32 = 2;
-pub const SOAP_IN_HEADER: u32 = 3;
-pub const SOAP_END_HEADER: u32 = 4;
-pub const SOAP_NO_BODY: u32 = 5;
-pub const SOAP_IN_BODY: u32 = 6;
-pub const SOAP_END_BODY: u32 = 7;
-pub const SOAP_END_ENVELOPE: u32 = 8;
-pub const SOAP_END: u32 = 9;
+pub const SOAP_END: u32 = 0;
+pub const SOAP_BEGIN_SEND: u32 = 1;
+pub const SOAP_BEGIN_RECV: u32 = 2;
+pub const SOAP_IN_ENVELOPE: u32 = 3;
+pub const SOAP_IN_HEADER: u32 = 4;
+pub const SOAP_END_HEADER: u32 = 5;
+pub const SOAP_NO_BODY: u32 = 6;
+pub const SOAP_IN_BODY: u32 = 7;
+pub const SOAP_END_BODY: u32 = 8;
+pub const SOAP_END_ENVELOPE: u32 = 9;
 pub const SOAP_SEC_BEGIN: u32 = 1;
 pub const SOAP_SEC_SIGN: u32 = 2;
 pub const SOAP_SEC_DECRYPT: u32 = 3;
@@ -1458,8 +1539,8 @@ pub const SOAP_TYPE_SOAP_ENV__Header: u32 = 108;
 pub const SOAP_TYPE_SOAP_ENV__Code: u32 = 109;
 pub const SOAP_TYPE_SOAP_ENV__Reason: u32 = 111;
 pub const SOAP_TYPE_SOAP_ENV__Fault: u32 = 112;
-pub const SOAP_TYPE__QName: u32 = 5;
-pub const SOAP_TYPE__XML: u32 = 6;
+pub const SOAP_TYPE__XML: u32 = 5;
+pub const SOAP_TYPE__QName: u32 = 6;
 pub const SOAP_TYPE_xsd__date: u32 = 8;
 pub const SOAP_TYPE_ns3__id: u32 = 10;
 pub const SOAP_TYPE_ns3__optionalInt: u32 = 11;
@@ -1509,316 +1590,6 @@ pub const SOAP_TYPE_PointerTons3__T_USCOREIdList: u32 = 26;
 pub const SOAP_TYPE_PointerTons3__T_USCOREForeignKey: u32 = 21;
 pub const SOAP_TYPE_string: u32 = 4;
 pub type wchar_t = ::std::os::raw::c_int;
-pub const idtype_t_P_ALL: idtype_t = 0;
-pub const idtype_t_P_PID: idtype_t = 1;
-pub const idtype_t_P_PGID: idtype_t = 2;
-pub type idtype_t = u32;
-pub type __u_char = ::std::os::raw::c_uchar;
-pub type __u_short = ::std::os::raw::c_ushort;
-pub type __u_int = ::std::os::raw::c_uint;
-pub type __u_long = ::std::os::raw::c_ulong;
-pub type __int8_t = ::std::os::raw::c_schar;
-pub type __uint8_t = ::std::os::raw::c_uchar;
-pub type __int16_t = ::std::os::raw::c_short;
-pub type __uint16_t = ::std::os::raw::c_ushort;
-pub type __int32_t = ::std::os::raw::c_int;
-pub type __uint32_t = ::std::os::raw::c_uint;
-pub type __int64_t = ::std::os::raw::c_long;
-pub type __uint64_t = ::std::os::raw::c_ulong;
-pub type __quad_t = ::std::os::raw::c_long;
-pub type __u_quad_t = ::std::os::raw::c_ulong;
-pub type __dev_t = ::std::os::raw::c_ulong;
-pub type __uid_t = ::std::os::raw::c_uint;
-pub type __gid_t = ::std::os::raw::c_uint;
-pub type __ino_t = ::std::os::raw::c_ulong;
-pub type __ino64_t = ::std::os::raw::c_ulong;
-pub type __mode_t = ::std::os::raw::c_uint;
-pub type __nlink_t = ::std::os::raw::c_ulong;
-pub type __off_t = ::std::os::raw::c_long;
-pub type __off64_t = ::std::os::raw::c_long;
-pub type __pid_t = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __fsid_t {
-    pub __val: [::std::os::raw::c_int; 2usize],
-}
-#[test]
-fn bindgen_test_layout___fsid_t() {
-    assert_eq!(
-        ::std::mem::size_of::<__fsid_t>(),
-        8usize,
-        concat!("Size of: ", stringify!(__fsid_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<__fsid_t>(),
-        4usize,
-        concat!("Alignment of ", stringify!(__fsid_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<__fsid_t>())).__val as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__fsid_t),
-            "::",
-            stringify!(__val)
-        )
-    );
-}
-pub type __clock_t = ::std::os::raw::c_long;
-pub type __rlim_t = ::std::os::raw::c_ulong;
-pub type __rlim64_t = ::std::os::raw::c_ulong;
-pub type __id_t = ::std::os::raw::c_uint;
-pub type __time_t = ::std::os::raw::c_long;
-pub type __useconds_t = ::std::os::raw::c_uint;
-pub type __suseconds_t = ::std::os::raw::c_long;
-pub type __daddr_t = ::std::os::raw::c_int;
-pub type __key_t = ::std::os::raw::c_int;
-pub type __clockid_t = ::std::os::raw::c_int;
-pub type __timer_t = *mut ::std::os::raw::c_void;
-pub type __blksize_t = ::std::os::raw::c_long;
-pub type __blkcnt_t = ::std::os::raw::c_long;
-pub type __blkcnt64_t = ::std::os::raw::c_long;
-pub type __fsblkcnt_t = ::std::os::raw::c_ulong;
-pub type __fsblkcnt64_t = ::std::os::raw::c_ulong;
-pub type __fsfilcnt_t = ::std::os::raw::c_ulong;
-pub type __fsfilcnt64_t = ::std::os::raw::c_ulong;
-pub type __fsword_t = ::std::os::raw::c_long;
-pub type __ssize_t = ::std::os::raw::c_long;
-pub type __syscall_slong_t = ::std::os::raw::c_long;
-pub type __syscall_ulong_t = ::std::os::raw::c_ulong;
-pub type __loff_t = __off64_t;
-pub type __qaddr_t = *mut __quad_t;
-pub type __caddr_t = *mut ::std::os::raw::c_char;
-pub type __intptr_t = ::std::os::raw::c_long;
-pub type __socklen_t = ::std::os::raw::c_uint;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union wait {
-    pub w_status: ::std::os::raw::c_int,
-    pub __wait_terminated: wait__bindgen_ty_1,
-    pub __wait_stopped: wait__bindgen_ty_2,
-    _bindgen_union_align: u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct wait__bindgen_ty_1 {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize], u8>,
-    pub __bindgen_align: [u32; 0usize],
-}
-#[test]
-fn bindgen_test_layout_wait__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<wait__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(wait__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<wait__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(wait__bindgen_ty_1))
-    );
-}
-impl wait__bindgen_ty_1 {
-    #[inline]
-    pub fn __w_termsig(&self) -> ::std::os::raw::c_uint {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 7u8) as u32) }
-    }
-    #[inline]
-    pub fn set___w_termsig(&mut self, val: ::std::os::raw::c_uint) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(0usize, 7u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn __w_coredump(&self) -> ::std::os::raw::c_uint {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(7usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set___w_coredump(&mut self, val: ::std::os::raw::c_uint) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(7usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn __w_retcode(&self) -> ::std::os::raw::c_uint {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 8u8) as u32) }
-    }
-    #[inline]
-    pub fn set___w_retcode(&mut self, val: ::std::os::raw::c_uint) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(8usize, 8u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        __w_termsig: ::std::os::raw::c_uint,
-        __w_coredump: ::std::os::raw::c_uint,
-        __w_retcode: ::std::os::raw::c_uint,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 7u8, {
-            let __w_termsig: u32 = unsafe { ::std::mem::transmute(__w_termsig) };
-            __w_termsig as u64
-        });
-        __bindgen_bitfield_unit.set(7usize, 1u8, {
-            let __w_coredump: u32 = unsafe { ::std::mem::transmute(__w_coredump) };
-            __w_coredump as u64
-        });
-        __bindgen_bitfield_unit.set(8usize, 8u8, {
-            let __w_retcode: u32 = unsafe { ::std::mem::transmute(__w_retcode) };
-            __w_retcode as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct wait__bindgen_ty_2 {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize], u8>,
-    pub __bindgen_align: [u32; 0usize],
-}
-#[test]
-fn bindgen_test_layout_wait__bindgen_ty_2() {
-    assert_eq!(
-        ::std::mem::size_of::<wait__bindgen_ty_2>(),
-        4usize,
-        concat!("Size of: ", stringify!(wait__bindgen_ty_2))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<wait__bindgen_ty_2>(),
-        4usize,
-        concat!("Alignment of ", stringify!(wait__bindgen_ty_2))
-    );
-}
-impl wait__bindgen_ty_2 {
-    #[inline]
-    pub fn __w_stopval(&self) -> ::std::os::raw::c_uint {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 8u8) as u32) }
-    }
-    #[inline]
-    pub fn set___w_stopval(&mut self, val: ::std::os::raw::c_uint) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(0usize, 8u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn __w_stopsig(&self) -> ::std::os::raw::c_uint {
-        unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 8u8) as u32) }
-    }
-    #[inline]
-    pub fn set___w_stopsig(&mut self, val: ::std::os::raw::c_uint) {
-        unsafe {
-            let val: u32 = ::std::mem::transmute(val);
-            self._bitfield_1.set(8usize, 8u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        __w_stopval: ::std::os::raw::c_uint,
-        __w_stopsig: ::std::os::raw::c_uint,
-    ) -> __BindgenBitfieldUnit<[u8; 4usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 8u8, {
-            let __w_stopval: u32 = unsafe { ::std::mem::transmute(__w_stopval) };
-            __w_stopval as u64
-        });
-        __bindgen_bitfield_unit.set(8usize, 8u8, {
-            let __w_stopsig: u32 = unsafe { ::std::mem::transmute(__w_stopsig) };
-            __w_stopsig as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[test]
-fn bindgen_test_layout_wait() {
-    assert_eq!(
-        ::std::mem::size_of::<wait>(),
-        4usize,
-        concat!("Size of: ", stringify!(wait))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<wait>(),
-        4usize,
-        concat!("Alignment of ", stringify!(wait))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<wait>())).w_status as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(wait),
-            "::",
-            stringify!(w_status)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<wait>())).__wait_terminated as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(wait),
-            "::",
-            stringify!(__wait_terminated)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<wait>())).__wait_stopped as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(wait),
-            "::",
-            stringify!(__wait_stopped)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union __WAIT_STATUS {
-    pub __uptr: *mut wait,
-    pub __iptr: *mut ::std::os::raw::c_int,
-    _bindgen_union_align: u64,
-}
-#[test]
-fn bindgen_test_layout___WAIT_STATUS() {
-    assert_eq!(
-        ::std::mem::size_of::<__WAIT_STATUS>(),
-        8usize,
-        concat!("Size of: ", stringify!(__WAIT_STATUS))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<__WAIT_STATUS>(),
-        8usize,
-        concat!("Alignment of ", stringify!(__WAIT_STATUS))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<__WAIT_STATUS>())).__uptr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__WAIT_STATUS),
-            "::",
-            stringify!(__uptr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<__WAIT_STATUS>())).__iptr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__WAIT_STATUS),
-            "::",
-            stringify!(__iptr)
-        )
-    );
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct div_t {
@@ -2017,6 +1788,88 @@ extern "C" {
 extern "C" {
     pub fn a64l(__s: *const ::std::os::raw::c_char) -> ::std::os::raw::c_long;
 }
+pub type __u_char = ::std::os::raw::c_uchar;
+pub type __u_short = ::std::os::raw::c_ushort;
+pub type __u_int = ::std::os::raw::c_uint;
+pub type __u_long = ::std::os::raw::c_ulong;
+pub type __int8_t = ::std::os::raw::c_schar;
+pub type __uint8_t = ::std::os::raw::c_uchar;
+pub type __int16_t = ::std::os::raw::c_short;
+pub type __uint16_t = ::std::os::raw::c_ushort;
+pub type __int32_t = ::std::os::raw::c_int;
+pub type __uint32_t = ::std::os::raw::c_uint;
+pub type __int64_t = ::std::os::raw::c_long;
+pub type __uint64_t = ::std::os::raw::c_ulong;
+pub type __quad_t = ::std::os::raw::c_long;
+pub type __u_quad_t = ::std::os::raw::c_ulong;
+pub type __intmax_t = ::std::os::raw::c_long;
+pub type __uintmax_t = ::std::os::raw::c_ulong;
+pub type __dev_t = ::std::os::raw::c_ulong;
+pub type __uid_t = ::std::os::raw::c_uint;
+pub type __gid_t = ::std::os::raw::c_uint;
+pub type __ino_t = ::std::os::raw::c_ulong;
+pub type __ino64_t = ::std::os::raw::c_ulong;
+pub type __mode_t = ::std::os::raw::c_uint;
+pub type __nlink_t = ::std::os::raw::c_ulong;
+pub type __off_t = ::std::os::raw::c_long;
+pub type __off64_t = ::std::os::raw::c_long;
+pub type __pid_t = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __fsid_t {
+    pub __val: [::std::os::raw::c_int; 2usize],
+}
+#[test]
+fn bindgen_test_layout___fsid_t() {
+    assert_eq!(
+        ::std::mem::size_of::<__fsid_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(__fsid_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__fsid_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(__fsid_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__fsid_t>())).__val as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__fsid_t),
+            "::",
+            stringify!(__val)
+        )
+    );
+}
+pub type __clock_t = ::std::os::raw::c_long;
+pub type __rlim_t = ::std::os::raw::c_ulong;
+pub type __rlim64_t = ::std::os::raw::c_ulong;
+pub type __id_t = ::std::os::raw::c_uint;
+pub type __time_t = ::std::os::raw::c_long;
+pub type __useconds_t = ::std::os::raw::c_uint;
+pub type __suseconds_t = ::std::os::raw::c_long;
+pub type __daddr_t = ::std::os::raw::c_int;
+pub type __key_t = ::std::os::raw::c_int;
+pub type __clockid_t = ::std::os::raw::c_int;
+pub type __timer_t = *mut ::std::os::raw::c_void;
+pub type __blksize_t = ::std::os::raw::c_long;
+pub type __blkcnt_t = ::std::os::raw::c_long;
+pub type __blkcnt64_t = ::std::os::raw::c_long;
+pub type __fsblkcnt_t = ::std::os::raw::c_ulong;
+pub type __fsblkcnt64_t = ::std::os::raw::c_ulong;
+pub type __fsfilcnt_t = ::std::os::raw::c_ulong;
+pub type __fsfilcnt64_t = ::std::os::raw::c_ulong;
+pub type __fsword_t = ::std::os::raw::c_long;
+pub type __ssize_t = ::std::os::raw::c_long;
+pub type __syscall_slong_t = ::std::os::raw::c_long;
+pub type __syscall_ulong_t = ::std::os::raw::c_ulong;
+pub type __loff_t = __off64_t;
+pub type __qaddr_t = *mut __quad_t;
+pub type __caddr_t = *mut ::std::os::raw::c_char;
+pub type __intptr_t = ::std::os::raw::c_long;
+pub type __socklen_t = ::std::os::raw::c_uint;
+pub type __sig_atomic_t = ::std::os::raw::c_int;
 pub type u_char = __u_char;
 pub type u_short = __u_short;
 pub type u_int = __u_int;
@@ -2038,8 +1891,8 @@ pub type daddr_t = __daddr_t;
 pub type caddr_t = __caddr_t;
 pub type key_t = __key_t;
 pub type clock_t = __clock_t;
-pub type time_t = __time_t;
 pub type clockid_t = __clockid_t;
+pub type time_t = __time_t;
 pub type timer_t = __timer_t;
 pub type ulong = ::std::os::raw::c_ulong;
 pub type ushort = ::std::os::raw::c_ushort;
@@ -2049,7 +1902,6 @@ pub type u_int16_t = ::std::os::raw::c_ushort;
 pub type u_int32_t = ::std::os::raw::c_uint;
 pub type u_int64_t = ::std::os::raw::c_ulong;
 pub type register_t = ::std::os::raw::c_long;
-pub type __sig_atomic_t = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __sigset_t {
@@ -2079,45 +1931,6 @@ fn bindgen_test_layout___sigset_t() {
     );
 }
 pub type sigset_t = __sigset_t;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct timespec {
-    pub tv_sec: __time_t,
-    pub tv_nsec: __syscall_slong_t,
-}
-#[test]
-fn bindgen_test_layout_timespec() {
-    assert_eq!(
-        ::std::mem::size_of::<timespec>(),
-        16usize,
-        concat!("Size of: ", stringify!(timespec))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<timespec>(),
-        8usize,
-        concat!("Alignment of ", stringify!(timespec))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<timespec>())).tv_sec as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(timespec),
-            "::",
-            stringify!(tv_sec)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<timespec>())).tv_nsec as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(timespec),
-            "::",
-            stringify!(tv_nsec)
-        )
-    );
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct timeval {
@@ -2154,6 +1967,45 @@ fn bindgen_test_layout_timeval() {
             stringify!(timeval),
             "::",
             stringify!(tv_usec)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct timespec {
+    pub tv_sec: __time_t,
+    pub tv_nsec: __syscall_slong_t,
+}
+#[test]
+fn bindgen_test_layout_timespec() {
+    assert_eq!(
+        ::std::mem::size_of::<timespec>(),
+        16usize,
+        concat!("Size of: ", stringify!(timespec))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<timespec>(),
+        8usize,
+        concat!("Alignment of ", stringify!(timespec))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<timespec>())).tv_sec as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(timespec),
+            "::",
+            stringify!(tv_sec)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<timespec>())).tv_nsec as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(timespec),
+            "::",
+            stringify!(tv_nsec)
         )
     );
 }
@@ -2208,59 +2060,181 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn gnu_dev_major(__dev: ::std::os::raw::c_ulonglong) -> ::std::os::raw::c_uint;
+    pub fn gnu_dev_major(__dev: __dev_t) -> ::std::os::raw::c_uint;
 }
 extern "C" {
-    pub fn gnu_dev_minor(__dev: ::std::os::raw::c_ulonglong) -> ::std::os::raw::c_uint;
+    pub fn gnu_dev_minor(__dev: __dev_t) -> ::std::os::raw::c_uint;
 }
 extern "C" {
     pub fn gnu_dev_makedev(
         __major: ::std::os::raw::c_uint,
         __minor: ::std::os::raw::c_uint,
-    ) -> ::std::os::raw::c_ulonglong;
+    ) -> __dev_t;
 }
 pub type blksize_t = __blksize_t;
 pub type blkcnt_t = __blkcnt_t;
 pub type fsblkcnt_t = __fsblkcnt_t;
 pub type fsfilcnt_t = __fsfilcnt_t;
-pub type pthread_t = ::std::os::raw::c_ulong;
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union pthread_attr_t {
-    pub __size: [::std::os::raw::c_char; 56usize],
-    pub __align: ::std::os::raw::c_long,
-    _bindgen_union_align: [u64; 7usize],
+#[derive(Debug, Copy, Clone)]
+pub struct __pthread_rwlock_arch_t {
+    pub __readers: ::std::os::raw::c_uint,
+    pub __writers: ::std::os::raw::c_uint,
+    pub __wrphase_futex: ::std::os::raw::c_uint,
+    pub __writers_futex: ::std::os::raw::c_uint,
+    pub __pad3: ::std::os::raw::c_uint,
+    pub __pad4: ::std::os::raw::c_uint,
+    pub __cur_writer: ::std::os::raw::c_int,
+    pub __shared: ::std::os::raw::c_int,
+    pub __rwelision: ::std::os::raw::c_schar,
+    pub __pad1: [::std::os::raw::c_uchar; 7usize],
+    pub __pad2: ::std::os::raw::c_ulong,
+    pub __flags: ::std::os::raw::c_uint,
 }
 #[test]
-fn bindgen_test_layout_pthread_attr_t() {
+fn bindgen_test_layout___pthread_rwlock_arch_t() {
     assert_eq!(
-        ::std::mem::size_of::<pthread_attr_t>(),
+        ::std::mem::size_of::<__pthread_rwlock_arch_t>(),
         56usize,
-        concat!("Size of: ", stringify!(pthread_attr_t))
+        concat!("Size of: ", stringify!(__pthread_rwlock_arch_t))
     );
     assert_eq!(
-        ::std::mem::align_of::<pthread_attr_t>(),
+        ::std::mem::align_of::<__pthread_rwlock_arch_t>(),
         8usize,
-        concat!("Alignment of ", stringify!(pthread_attr_t))
+        concat!("Alignment of ", stringify!(__pthread_rwlock_arch_t))
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_attr_t>())).__size as *const _ as usize },
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__readers as *const _ as usize
+        },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_attr_t),
+            stringify!(__pthread_rwlock_arch_t),
             "::",
-            stringify!(__size)
+            stringify!(__readers)
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_attr_t>())).__align as *const _ as usize },
-        0usize,
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__writers as *const _ as usize
+        },
+        4usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_attr_t),
+            stringify!(__pthread_rwlock_arch_t),
             "::",
-            stringify!(__align)
+            stringify!(__writers)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__wrphase_futex as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__wrphase_futex)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__writers_futex as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__writers_futex)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__pad3 as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__pad3)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__pad4 as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__pad4)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__cur_writer as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__cur_writer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__shared as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__shared)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__rwelision as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__rwelision)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__pad1 as *const _ as usize },
+        33usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__pad1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__pad2 as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__pad2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_rwlock_arch_t>())).__flags as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_rwlock_arch_t),
+            "::",
+            stringify!(__flags)
         )
     );
 }
@@ -2305,16 +2279,8 @@ fn bindgen_test_layout___pthread_internal_list() {
 }
 pub type __pthread_list_t = __pthread_internal_list;
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub union pthread_mutex_t {
-    pub __data: pthread_mutex_t___pthread_mutex_s,
-    pub __size: [::std::os::raw::c_char; 40usize],
-    pub __align: ::std::os::raw::c_long,
-    _bindgen_union_align: [u64; 5usize],
-}
-#[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct pthread_mutex_t___pthread_mutex_s {
+pub struct __pthread_mutex_s {
     pub __lock: ::std::os::raw::c_int,
     pub __count: ::std::os::raw::c_uint,
     pub __owner: ::std::os::raw::c_int,
@@ -2325,168 +2291,365 @@ pub struct pthread_mutex_t___pthread_mutex_s {
     pub __list: __pthread_list_t,
 }
 #[test]
-fn bindgen_test_layout_pthread_mutex_t___pthread_mutex_s() {
+fn bindgen_test_layout___pthread_mutex_s() {
     assert_eq!(
-        ::std::mem::size_of::<pthread_mutex_t___pthread_mutex_s>(),
+        ::std::mem::size_of::<__pthread_mutex_s>(),
         40usize,
-        concat!("Size of: ", stringify!(pthread_mutex_t___pthread_mutex_s))
+        concat!("Size of: ", stringify!(__pthread_mutex_s))
     );
     assert_eq!(
-        ::std::mem::align_of::<pthread_mutex_t___pthread_mutex_s>(),
+        ::std::mem::align_of::<__pthread_mutex_s>(),
         8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(pthread_mutex_t___pthread_mutex_s)
-        )
+        concat!("Alignment of ", stringify!(__pthread_mutex_s))
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__lock as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__lock as *const _ as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__lock)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__count as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__count as *const _ as usize },
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__count)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__owner as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__owner as *const _ as usize },
         8usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__owner)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__nusers as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__nusers as *const _ as usize },
         12usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__nusers)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__kind as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__kind as *const _ as usize },
         16usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__kind)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__spins as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__spins as *const _ as usize },
         20usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__spins)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__elision as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__elision as *const _ as usize },
         22usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__elision)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_mutex_t___pthread_mutex_s>())).__list as *const _
-                as usize
-        },
+        unsafe { &(*(::std::ptr::null::<__pthread_mutex_s>())).__list as *const _ as usize },
         24usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t___pthread_mutex_s),
+            stringify!(__pthread_mutex_s),
             "::",
             stringify!(__list)
         )
     );
 }
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct __pthread_cond_s {
+    pub __bindgen_anon_1: __pthread_cond_s__bindgen_ty_1,
+    pub __bindgen_anon_2: __pthread_cond_s__bindgen_ty_2,
+    pub __g_refs: [::std::os::raw::c_uint; 2usize],
+    pub __g_size: [::std::os::raw::c_uint; 2usize],
+    pub __g1_orig_size: ::std::os::raw::c_uint,
+    pub __wrefs: ::std::os::raw::c_uint,
+    pub __g_signals: [::std::os::raw::c_uint; 2usize],
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union __pthread_cond_s__bindgen_ty_1 {
+    pub __wseq: ::std::os::raw::c_ulonglong,
+    pub __wseq32: __pthread_cond_s__bindgen_ty_1__bindgen_ty_1,
+    _bindgen_union_align: u64,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __pthread_cond_s__bindgen_ty_1__bindgen_ty_1 {
+    pub __low: ::std::os::raw::c_uint,
+    pub __high: ::std::os::raw::c_uint,
+}
 #[test]
-fn bindgen_test_layout_pthread_mutex_t() {
+fn bindgen_test_layout___pthread_cond_s__bindgen_ty_1__bindgen_ty_1() {
     assert_eq!(
-        ::std::mem::size_of::<pthread_mutex_t>(),
-        40usize,
-        concat!("Size of: ", stringify!(pthread_mutex_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<pthread_mutex_t>(),
+        ::std::mem::size_of::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>(),
         8usize,
-        concat!("Alignment of ", stringify!(pthread_mutex_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_mutex_t>())).__data as *const _ as usize },
-        0usize,
         concat!(
-            "Offset of field: ",
-            stringify!(pthread_mutex_t),
-            "::",
-            stringify!(__data)
+            "Size of: ",
+            stringify!(__pthread_cond_s__bindgen_ty_1__bindgen_ty_1)
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_mutex_t>())).__size as *const _ as usize },
-        0usize,
+        ::std::mem::align_of::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>(),
+        4usize,
         concat!(
-            "Offset of field: ",
-            stringify!(pthread_mutex_t),
-            "::",
-            stringify!(__size)
+            "Alignment of ",
+            stringify!(__pthread_cond_s__bindgen_ty_1__bindgen_ty_1)
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_mutex_t>())).__align as *const _ as usize },
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>())).__low
+                as *const _ as usize
+        },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_mutex_t),
+            stringify!(__pthread_cond_s__bindgen_ty_1__bindgen_ty_1),
             "::",
-            stringify!(__align)
+            stringify!(__low)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>())).__high
+                as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_1__bindgen_ty_1),
+            "::",
+            stringify!(__high)
         )
     );
 }
+#[test]
+fn bindgen_test_layout___pthread_cond_s__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_cond_s__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(__pthread_cond_s__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_cond_s__bindgen_ty_1>(),
+        8usize,
+        concat!("Alignment of ", stringify!(__pthread_cond_s__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_1>())).__wseq as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_1),
+            "::",
+            stringify!(__wseq)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_1>())).__wseq32 as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_1),
+            "::",
+            stringify!(__wseq32)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union __pthread_cond_s__bindgen_ty_2 {
+    pub __g1_start: ::std::os::raw::c_ulonglong,
+    pub __g1_start32: __pthread_cond_s__bindgen_ty_2__bindgen_ty_1,
+    _bindgen_union_align: u64,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __pthread_cond_s__bindgen_ty_2__bindgen_ty_1 {
+    pub __low: ::std::os::raw::c_uint,
+    pub __high: ::std::os::raw::c_uint,
+}
+#[test]
+fn bindgen_test_layout___pthread_cond_s__bindgen_ty_2__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>(),
+        8usize,
+        concat!(
+            "Size of: ",
+            stringify!(__pthread_cond_s__bindgen_ty_2__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(__pthread_cond_s__bindgen_ty_2__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>())).__low
+                as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_2__bindgen_ty_1),
+            "::",
+            stringify!(__low)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>())).__high
+                as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_2__bindgen_ty_1),
+            "::",
+            stringify!(__high)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout___pthread_cond_s__bindgen_ty_2() {
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_cond_s__bindgen_ty_2>(),
+        8usize,
+        concat!("Size of: ", stringify!(__pthread_cond_s__bindgen_ty_2))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_cond_s__bindgen_ty_2>(),
+        8usize,
+        concat!("Alignment of ", stringify!(__pthread_cond_s__bindgen_ty_2))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_2>())).__g1_start as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_2),
+            "::",
+            stringify!(__g1_start)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<__pthread_cond_s__bindgen_ty_2>())).__g1_start32 as *const _
+                as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s__bindgen_ty_2),
+            "::",
+            stringify!(__g1_start32)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout___pthread_cond_s() {
+    assert_eq!(
+        ::std::mem::size_of::<__pthread_cond_s>(),
+        48usize,
+        concat!("Size of: ", stringify!(__pthread_cond_s))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<__pthread_cond_s>(),
+        8usize,
+        concat!("Alignment of ", stringify!(__pthread_cond_s))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_cond_s>())).__g_refs as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s),
+            "::",
+            stringify!(__g_refs)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_cond_s>())).__g_size as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s),
+            "::",
+            stringify!(__g_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_cond_s>())).__g1_orig_size as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s),
+            "::",
+            stringify!(__g1_orig_size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_cond_s>())).__wrefs as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s),
+            "::",
+            stringify!(__wrefs)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<__pthread_cond_s>())).__g_signals as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__pthread_cond_s),
+            "::",
+            stringify!(__g_signals)
+        )
+    );
+}
+pub type pthread_t = ::std::os::raw::c_ulong;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_mutexattr_t {
@@ -2522,182 +2685,6 @@ fn bindgen_test_layout_pthread_mutexattr_t() {
         concat!(
             "Offset of field: ",
             stringify!(pthread_mutexattr_t),
-            "::",
-            stringify!(__align)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union pthread_cond_t {
-    pub __data: pthread_cond_t__bindgen_ty_1,
-    pub __size: [::std::os::raw::c_char; 48usize],
-    pub __align: ::std::os::raw::c_longlong,
-    _bindgen_union_align: [u64; 6usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct pthread_cond_t__bindgen_ty_1 {
-    pub __lock: ::std::os::raw::c_int,
-    pub __futex: ::std::os::raw::c_uint,
-    pub __total_seq: ::std::os::raw::c_ulonglong,
-    pub __wakeup_seq: ::std::os::raw::c_ulonglong,
-    pub __woken_seq: ::std::os::raw::c_ulonglong,
-    pub __mutex: *mut ::std::os::raw::c_void,
-    pub __nwaiters: ::std::os::raw::c_uint,
-    pub __broadcast_seq: ::std::os::raw::c_uint,
-}
-#[test]
-fn bindgen_test_layout_pthread_cond_t__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<pthread_cond_t__bindgen_ty_1>(),
-        48usize,
-        concat!("Size of: ", stringify!(pthread_cond_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<pthread_cond_t__bindgen_ty_1>(),
-        8usize,
-        concat!("Alignment of ", stringify!(pthread_cond_t__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__lock as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__lock)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__futex as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__futex)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__total_seq as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__total_seq)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__wakeup_seq as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__wakeup_seq)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__woken_seq as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__woken_seq)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__mutex as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__mutex)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__nwaiters as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__nwaiters)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_cond_t__bindgen_ty_1>())).__broadcast_seq as *const _
-                as usize
-        },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t__bindgen_ty_1),
-            "::",
-            stringify!(__broadcast_seq)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_pthread_cond_t() {
-    assert_eq!(
-        ::std::mem::size_of::<pthread_cond_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(pthread_cond_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<pthread_cond_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(pthread_cond_t))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_cond_t>())).__data as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t),
-            "::",
-            stringify!(__data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_cond_t>())).__size as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t),
-            "::",
-            stringify!(__size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<pthread_cond_t>())).__align as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_cond_t),
             "::",
             stringify!(__align)
         )
@@ -2747,190 +2734,153 @@ pub type pthread_key_t = ::std::os::raw::c_uint;
 pub type pthread_once_t = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub union pthread_rwlock_t {
-    pub __data: pthread_rwlock_t__bindgen_ty_1,
+pub union pthread_attr_t {
     pub __size: [::std::os::raw::c_char; 56usize],
     pub __align: ::std::os::raw::c_long,
     _bindgen_union_align: [u64; 7usize],
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct pthread_rwlock_t__bindgen_ty_1 {
-    pub __lock: ::std::os::raw::c_int,
-    pub __nr_readers: ::std::os::raw::c_uint,
-    pub __readers_wakeup: ::std::os::raw::c_uint,
-    pub __writer_wakeup: ::std::os::raw::c_uint,
-    pub __nr_readers_queued: ::std::os::raw::c_uint,
-    pub __nr_writers_queued: ::std::os::raw::c_uint,
-    pub __writer: ::std::os::raw::c_int,
-    pub __shared: ::std::os::raw::c_int,
-    pub __rwelision: ::std::os::raw::c_schar,
-    pub __pad1: [::std::os::raw::c_uchar; 7usize],
-    pub __pad2: ::std::os::raw::c_ulong,
-    pub __flags: ::std::os::raw::c_uint,
-}
 #[test]
-fn bindgen_test_layout_pthread_rwlock_t__bindgen_ty_1() {
+fn bindgen_test_layout_pthread_attr_t() {
     assert_eq!(
-        ::std::mem::size_of::<pthread_rwlock_t__bindgen_ty_1>(),
+        ::std::mem::size_of::<pthread_attr_t>(),
         56usize,
-        concat!("Size of: ", stringify!(pthread_rwlock_t__bindgen_ty_1))
+        concat!("Size of: ", stringify!(pthread_attr_t))
     );
     assert_eq!(
-        ::std::mem::align_of::<pthread_rwlock_t__bindgen_ty_1>(),
+        ::std::mem::align_of::<pthread_attr_t>(),
         8usize,
-        concat!("Alignment of ", stringify!(pthread_rwlock_t__bindgen_ty_1))
+        concat!("Alignment of ", stringify!(pthread_attr_t))
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__lock as *const _ as usize
-        },
+        unsafe { &(*(::std::ptr::null::<pthread_attr_t>())).__size as *const _ as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            stringify!(pthread_attr_t),
             "::",
-            stringify!(__lock)
+            stringify!(__size)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__nr_readers as *const _
-                as usize
-        },
-        4usize,
+        unsafe { &(*(::std::ptr::null::<pthread_attr_t>())).__align as *const _ as usize },
+        0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            stringify!(pthread_attr_t),
             "::",
-            stringify!(__nr_readers)
+            stringify!(__align)
         )
     );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union pthread_mutex_t {
+    pub __data: __pthread_mutex_s,
+    pub __size: [::std::os::raw::c_char; 40usize],
+    pub __align: ::std::os::raw::c_long,
+    _bindgen_union_align: [u64; 5usize],
+}
+#[test]
+fn bindgen_test_layout_pthread_mutex_t() {
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__readers_wakeup as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__readers_wakeup)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__writer_wakeup as *const _
-                as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__writer_wakeup)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__nr_readers_queued
-                as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__nr_readers_queued)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__nr_writers_queued
-                as *const _ as usize
-        },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__nr_writers_queued)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__writer as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__writer)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__shared as *const _ as usize
-        },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__shared)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__rwelision as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__rwelision)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__pad1 as *const _ as usize
-        },
-        33usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
-            "::",
-            stringify!(__pad1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__pad2 as *const _ as usize
-        },
+        ::std::mem::size_of::<pthread_mutex_t>(),
         40usize,
+        concat!("Size of: ", stringify!(pthread_mutex_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_mutex_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_mutex_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<pthread_mutex_t>())).__data as *const _ as usize },
+        0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            stringify!(pthread_mutex_t),
             "::",
-            stringify!(__pad2)
+            stringify!(__data)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<pthread_rwlock_t__bindgen_ty_1>())).__flags as *const _ as usize
-        },
-        48usize,
+        unsafe { &(*(::std::ptr::null::<pthread_mutex_t>())).__size as *const _ as usize },
+        0usize,
         concat!(
             "Offset of field: ",
-            stringify!(pthread_rwlock_t__bindgen_ty_1),
+            stringify!(pthread_mutex_t),
             "::",
-            stringify!(__flags)
+            stringify!(__size)
         )
     );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<pthread_mutex_t>())).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(pthread_mutex_t),
+            "::",
+            stringify!(__align)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union pthread_cond_t {
+    pub __data: __pthread_cond_s,
+    pub __size: [::std::os::raw::c_char; 48usize],
+    pub __align: ::std::os::raw::c_longlong,
+    _bindgen_union_align: [u64; 6usize],
+}
+#[test]
+fn bindgen_test_layout_pthread_cond_t() {
+    assert_eq!(
+        ::std::mem::size_of::<pthread_cond_t>(),
+        48usize,
+        concat!("Size of: ", stringify!(pthread_cond_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<pthread_cond_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(pthread_cond_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<pthread_cond_t>())).__data as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(pthread_cond_t),
+            "::",
+            stringify!(__data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<pthread_cond_t>())).__size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(pthread_cond_t),
+            "::",
+            stringify!(__size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<pthread_cond_t>())).__align as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(pthread_cond_t),
+            "::",
+            stringify!(__align)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union pthread_rwlock_t {
+    pub __data: __pthread_rwlock_arch_t,
+    pub __size: [::std::os::raw::c_char; 56usize],
+    pub __align: ::std::os::raw::c_long,
+    _bindgen_union_align: [u64; 7usize],
 }
 #[test]
 fn bindgen_test_layout_pthread_rwlock_t() {
@@ -3407,9 +3357,6 @@ extern "C" {
     pub fn free(__ptr: *mut ::std::os::raw::c_void);
 }
 extern "C" {
-    pub fn cfree(__ptr: *mut ::std::os::raw::c_void);
-}
-extern "C" {
     pub fn alloca(__size: usize) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
@@ -3660,8 +3607,8 @@ extern "C" {
     pub fn getloadavg(__loadavg: *mut f64, __nelem: ::std::os::raw::c_int)
         -> ::std::os::raw::c_int;
 }
-pub type FILE = _IO_FILE;
 pub type __FILE = _IO_FILE;
+pub type FILE = _IO_FILE;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct __mbstate_t {
@@ -4954,7 +4901,7 @@ extern "C" {
     pub fn strcoll_l(
         __s1: *const ::std::os::raw::c_char,
         __s2: *const ::std::os::raw::c_char,
-        __l: __locale_t,
+        __l: locale_t,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -4962,7 +4909,7 @@ extern "C" {
         __dest: *mut ::std::os::raw::c_char,
         __src: *const ::std::os::raw::c_char,
         __n: usize,
-        __l: __locale_t,
+        __l: locale_t,
     ) -> usize;
 }
 extern "C" {
@@ -5050,11 +4997,15 @@ extern "C" {
 extern "C" {
     pub fn strerror_l(
         __errnum: ::std::os::raw::c_int,
-        __l: __locale_t,
+        __l: locale_t,
     ) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn __bzero(__s: *mut ::std::os::raw::c_void, __n: usize);
+    pub fn bcmp(
+        __s1: *const ::std::os::raw::c_void,
+        __s2: *const ::std::os::raw::c_void,
+        __n: usize,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn bcopy(
@@ -5065,13 +5016,6 @@ extern "C" {
 }
 extern "C" {
     pub fn bzero(__s: *mut ::std::os::raw::c_void, __n: usize);
-}
-extern "C" {
-    pub fn bcmp(
-        __s1: *const ::std::os::raw::c_void,
-        __s2: *const ::std::os::raw::c_void,
-        __n: usize,
-    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn index(
@@ -5100,6 +5044,24 @@ extern "C" {
         __s2: *const ::std::os::raw::c_char,
         __n: usize,
     ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn strcasecmp_l(
+        __s1: *const ::std::os::raw::c_char,
+        __s2: *const ::std::os::raw::c_char,
+        __loc: locale_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn strncasecmp_l(
+        __s1: *const ::std::os::raw::c_char,
+        __s2: *const ::std::os::raw::c_char,
+        __n: usize,
+        __loc: locale_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn explicit_bzero(__s: *mut ::std::os::raw::c_void, __n: usize);
 }
 extern "C" {
     pub fn strsep(
@@ -5213,55 +5175,76 @@ extern "C" {
     pub fn _tolower(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isalnum_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isalnum_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isalpha_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isalpha_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn iscntrl_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn iscntrl_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isdigit_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isdigit_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn islower_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn islower_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isgraph_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isgraph_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isprint_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isprint_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn ispunct_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn ispunct_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isspace_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isspace_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isupper_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isupper_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isxdigit_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isxdigit_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn isblank_l(arg1: ::std::os::raw::c_int, arg2: __locale_t) -> ::std::os::raw::c_int;
+    pub fn isblank_l(arg1: ::std::os::raw::c_int, arg2: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn __tolower_l(__c: ::std::os::raw::c_int, __l: __locale_t) -> ::std::os::raw::c_int;
+    pub fn __tolower_l(__c: ::std::os::raw::c_int, __l: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn tolower_l(__c: ::std::os::raw::c_int, __l: __locale_t) -> ::std::os::raw::c_int;
+    pub fn tolower_l(__c: ::std::os::raw::c_int, __l: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn __toupper_l(__c: ::std::os::raw::c_int, __l: __locale_t) -> ::std::os::raw::c_int;
+    pub fn __toupper_l(__c: ::std::os::raw::c_int, __l: locale_t) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn toupper_l(__c: ::std::os::raw::c_int, __l: __locale_t) -> ::std::os::raw::c_int;
+    pub fn toupper_l(__c: ::std::os::raw::c_int, __l: locale_t) -> ::std::os::raw::c_int;
 }
 pub type float_t = f32;
 pub type double_t = f64;
+extern "C" {
+    pub fn __fpclassify(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __signbit(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __isinf(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __finite(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __isnan(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __iseqsig(__x: f64, __y: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __issignaling(__value: f64) -> ::std::os::raw::c_int;
+}
 extern "C" {
     pub fn acos(__x: f64) -> f64;
 }
@@ -5455,12 +5438,6 @@ extern "C" {
     pub fn __fmod(__x: f64, __y: f64) -> f64;
 }
 extern "C" {
-    pub fn __isinf(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __finite(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn isinf(__value: f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -5489,9 +5466,6 @@ extern "C" {
 }
 extern "C" {
     pub fn __nan(__tagb: *const ::std::os::raw::c_char) -> f64;
-}
-extern "C" {
-    pub fn __isnan(__value: f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn isnan(__value: f64) -> ::std::os::raw::c_int;
@@ -5677,12 +5651,6 @@ extern "C" {
     pub fn __fmin(__x: f64, __y: f64) -> f64;
 }
 extern "C" {
-    pub fn __fpclassify(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __signbit(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn fma(__x: f64, __y: f64, __z: f64) -> f64;
 }
 extern "C" {
@@ -5693,6 +5661,27 @@ extern "C" {
 }
 extern "C" {
     pub fn __scalb(__x: f64, __n: f64) -> f64;
+}
+extern "C" {
+    pub fn __fpclassifyf(__value: f32) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __signbitf(__value: f32) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __isinff(__value: f32) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __finitef(__value: f32) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __isnanf(__value: f32) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __iseqsigf(__x: f32, __y: f32) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __issignalingf(__value: f32) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn acosf(__x: f32) -> f32;
@@ -5887,12 +5876,6 @@ extern "C" {
     pub fn __fmodf(__x: f32, __y: f32) -> f32;
 }
 extern "C" {
-    pub fn __isinff(__value: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __finitef(__value: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn isinff(__value: f32) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -5921,9 +5904,6 @@ extern "C" {
 }
 extern "C" {
     pub fn __nanf(__tagb: *const ::std::os::raw::c_char) -> f32;
-}
-extern "C" {
-    pub fn __isnanf(__value: f32) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn isnanf(__value: f32) -> ::std::os::raw::c_int;
@@ -6109,12 +6089,6 @@ extern "C" {
     pub fn __fminf(__x: f32, __y: f32) -> f32;
 }
 extern "C" {
-    pub fn __fpclassifyf(__value: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __signbitf(__value: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn fmaf(__x: f32, __y: f32, __z: f32) -> f32;
 }
 extern "C" {
@@ -6125,6 +6099,27 @@ extern "C" {
 }
 extern "C" {
     pub fn __scalbf(__x: f32, __n: f32) -> f32;
+}
+extern "C" {
+    pub fn __fpclassifyl(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __signbitl(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __isinfl(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __finitel(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __isnanl(__value: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __iseqsigl(__x: f64, __y: f64) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn __issignalingl(__value: f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn acosl(__x: f64) -> f64;
@@ -6319,12 +6314,6 @@ extern "C" {
     pub fn __fmodl(__x: f64, __y: f64) -> f64;
 }
 extern "C" {
-    pub fn __isinfl(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __finitel(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn isinfl(__value: f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -6353,9 +6342,6 @@ extern "C" {
 }
 extern "C" {
     pub fn __nanl(__tagb: *const ::std::os::raw::c_char) -> f64;
-}
-extern "C" {
-    pub fn __isnanl(__value: f64) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn isnanl(__value: f64) -> ::std::os::raw::c_int;
@@ -6541,12 +6527,6 @@ extern "C" {
     pub fn __fminl(__x: f64, __y: f64) -> f64;
 }
 extern "C" {
-    pub fn __fpclassifyl(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __signbitl(__value: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn fmal(__x: f64, __y: f64, __z: f64) -> f64;
 }
 extern "C" {
@@ -6562,12 +6542,6 @@ extern "C" {
     #[link_name = "\u{1}signgam"]
     pub static mut signgam: ::std::os::raw::c_int;
 }
-pub const FP_NAN: _bindgen_ty_2 = 0;
-pub const FP_INFINITE: _bindgen_ty_2 = 1;
-pub const FP_ZERO: _bindgen_ty_2 = 2;
-pub const FP_SUBNORMAL: _bindgen_ty_2 = 3;
-pub const FP_NORMAL: _bindgen_ty_2 = 4;
-pub type _bindgen_ty_2 = u32;
 pub const _LIB_VERSION_TYPE__IEEE_: _LIB_VERSION_TYPE = -1;
 pub const _LIB_VERSION_TYPE__SVID_: _LIB_VERSION_TYPE = 0;
 pub const _LIB_VERSION_TYPE__XOPEN_: _LIB_VERSION_TYPE = 1;
@@ -6928,7 +6902,7 @@ extern "C" {
         __maxsize: usize,
         __format: *const ::std::os::raw::c_char,
         __tp: *const tm,
-        __loc: __locale_t,
+        __loc: locale_t,
     ) -> usize;
 }
 extern "C" {
@@ -7095,36 +7069,6 @@ fn bindgen_test_layout_iovec() {
         )
     );
 }
-extern "C" {
-    pub fn readv(
-        __fd: ::std::os::raw::c_int,
-        __iovec: *const iovec,
-        __count: ::std::os::raw::c_int,
-    ) -> isize;
-}
-extern "C" {
-    pub fn writev(
-        __fd: ::std::os::raw::c_int,
-        __iovec: *const iovec,
-        __count: ::std::os::raw::c_int,
-    ) -> isize;
-}
-extern "C" {
-    pub fn preadv(
-        __fd: ::std::os::raw::c_int,
-        __iovec: *const iovec,
-        __count: ::std::os::raw::c_int,
-        __offset: __off_t,
-    ) -> isize;
-}
-extern "C" {
-    pub fn pwritev(
-        __fd: ::std::os::raw::c_int,
-        __iovec: *const iovec,
-        __count: ::std::os::raw::c_int,
-        __offset: __off_t,
-    ) -> isize;
-}
 pub type socklen_t = __socklen_t;
 pub const __socket_type_SOCK_STREAM: __socket_type = 1;
 pub const __socket_type_SOCK_DGRAM: __socket_type = 2;
@@ -7243,6 +7187,7 @@ pub const MSG_ERRQUEUE: _bindgen_ty_3 = 8192;
 pub const MSG_NOSIGNAL: _bindgen_ty_3 = 16384;
 pub const MSG_MORE: _bindgen_ty_3 = 32768;
 pub const MSG_WAITFORONE: _bindgen_ty_3 = 65536;
+pub const MSG_BATCH: _bindgen_ty_3 = 262144;
 pub const MSG_FASTOPEN: _bindgen_ty_3 = 536870912;
 pub const MSG_CMSG_CLOEXEC: _bindgen_ty_3 = 1073741824;
 pub type _bindgen_ty_3 = u32;
@@ -7585,142 +7530,6 @@ extern "C" {
         __fdtype: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct timezone {
-    pub tz_minuteswest: ::std::os::raw::c_int,
-    pub tz_dsttime: ::std::os::raw::c_int,
-}
-#[test]
-fn bindgen_test_layout_timezone() {
-    assert_eq!(
-        ::std::mem::size_of::<timezone>(),
-        8usize,
-        concat!("Size of: ", stringify!(timezone))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<timezone>(),
-        4usize,
-        concat!("Alignment of ", stringify!(timezone))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<timezone>())).tz_minuteswest as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(timezone),
-            "::",
-            stringify!(tz_minuteswest)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<timezone>())).tz_dsttime as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(timezone),
-            "::",
-            stringify!(tz_dsttime)
-        )
-    );
-}
-pub type __timezone_ptr_t = *mut timezone;
-extern "C" {
-    pub fn gettimeofday(__tv: *mut timeval, __tz: __timezone_ptr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn settimeofday(__tv: *const timeval, __tz: *const timezone) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn adjtime(__delta: *const timeval, __olddelta: *mut timeval) -> ::std::os::raw::c_int;
-}
-pub const __itimer_which_ITIMER_REAL: __itimer_which = 0;
-pub const __itimer_which_ITIMER_VIRTUAL: __itimer_which = 1;
-pub const __itimer_which_ITIMER_PROF: __itimer_which = 2;
-pub type __itimer_which = u32;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct itimerval {
-    pub it_interval: timeval,
-    pub it_value: timeval,
-}
-#[test]
-fn bindgen_test_layout_itimerval() {
-    assert_eq!(
-        ::std::mem::size_of::<itimerval>(),
-        32usize,
-        concat!("Size of: ", stringify!(itimerval))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<itimerval>(),
-        8usize,
-        concat!("Alignment of ", stringify!(itimerval))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<itimerval>())).it_interval as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(itimerval),
-            "::",
-            stringify!(it_interval)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<itimerval>())).it_value as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(itimerval),
-            "::",
-            stringify!(it_value)
-        )
-    );
-}
-pub type __itimer_which_t = ::std::os::raw::c_int;
-extern "C" {
-    pub fn getitimer(__which: __itimer_which_t, __value: *mut itimerval) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn setitimer(
-        __which: __itimer_which_t,
-        __new: *const itimerval,
-        __old: *mut itimerval,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn utimes(
-        __file: *const ::std::os::raw::c_char,
-        __tvp: *const timeval,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn lutimes(
-        __file: *const ::std::os::raw::c_char,
-        __tvp: *const timeval,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn futimes(__fd: ::std::os::raw::c_int, __tvp: *const timeval) -> ::std::os::raw::c_int;
-}
-pub type int_least8_t = ::std::os::raw::c_schar;
-pub type int_least16_t = ::std::os::raw::c_short;
-pub type int_least32_t = ::std::os::raw::c_int;
-pub type int_least64_t = ::std::os::raw::c_long;
-pub type uint_least8_t = ::std::os::raw::c_uchar;
-pub type uint_least16_t = ::std::os::raw::c_ushort;
-pub type uint_least32_t = ::std::os::raw::c_uint;
-pub type uint_least64_t = ::std::os::raw::c_ulong;
-pub type int_fast8_t = ::std::os::raw::c_schar;
-pub type int_fast16_t = ::std::os::raw::c_long;
-pub type int_fast32_t = ::std::os::raw::c_long;
-pub type int_fast64_t = ::std::os::raw::c_long;
-pub type uint_fast8_t = ::std::os::raw::c_uchar;
-pub type uint_fast16_t = ::std::os::raw::c_ulong;
-pub type uint_fast32_t = ::std::os::raw::c_ulong;
-pub type uint_fast64_t = ::std::os::raw::c_ulong;
-pub type intmax_t = ::std::os::raw::c_long;
-pub type uintmax_t = ::std::os::raw::c_ulong;
 pub type in_addr_t = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -7925,33 +7734,6 @@ pub const IPPROTO_DSTOPTS: _bindgen_ty_7 = 60;
 pub const IPPROTO_MH: _bindgen_ty_7 = 135;
 pub type _bindgen_ty_7 = u32;
 pub type in_port_t = u16;
-pub const IPPORT_ECHO: _bindgen_ty_8 = 7;
-pub const IPPORT_DISCARD: _bindgen_ty_8 = 9;
-pub const IPPORT_SYSTAT: _bindgen_ty_8 = 11;
-pub const IPPORT_DAYTIME: _bindgen_ty_8 = 13;
-pub const IPPORT_NETSTAT: _bindgen_ty_8 = 15;
-pub const IPPORT_FTP: _bindgen_ty_8 = 21;
-pub const IPPORT_TELNET: _bindgen_ty_8 = 23;
-pub const IPPORT_SMTP: _bindgen_ty_8 = 25;
-pub const IPPORT_TIMESERVER: _bindgen_ty_8 = 37;
-pub const IPPORT_NAMESERVER: _bindgen_ty_8 = 42;
-pub const IPPORT_WHOIS: _bindgen_ty_8 = 43;
-pub const IPPORT_MTP: _bindgen_ty_8 = 57;
-pub const IPPORT_TFTP: _bindgen_ty_8 = 69;
-pub const IPPORT_RJE: _bindgen_ty_8 = 77;
-pub const IPPORT_FINGER: _bindgen_ty_8 = 79;
-pub const IPPORT_TTYLINK: _bindgen_ty_8 = 87;
-pub const IPPORT_SUPDUP: _bindgen_ty_8 = 95;
-pub const IPPORT_EXECSERVER: _bindgen_ty_8 = 512;
-pub const IPPORT_LOGINSERVER: _bindgen_ty_8 = 513;
-pub const IPPORT_CMDSERVER: _bindgen_ty_8 = 514;
-pub const IPPORT_EFSSERVER: _bindgen_ty_8 = 520;
-pub const IPPORT_BIFFUDP: _bindgen_ty_8 = 512;
-pub const IPPORT_WHOSERVER: _bindgen_ty_8 = 513;
-pub const IPPORT_ROUTESERVER: _bindgen_ty_8 = 520;
-pub const IPPORT_RESERVED: _bindgen_ty_8 = 1024;
-pub const IPPORT_USERRESERVED: _bindgen_ty_8 = 5000;
-pub type _bindgen_ty_8 = u32;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct in6_addr {
@@ -8563,7 +8345,25 @@ extern "C" {
         __sock_in: *mut sockaddr_in6,
     ) -> ::std::os::raw::c_int;
 }
-pub type tcp_seq = u_int32_t;
+pub type int_least8_t = ::std::os::raw::c_schar;
+pub type int_least16_t = ::std::os::raw::c_short;
+pub type int_least32_t = ::std::os::raw::c_int;
+pub type int_least64_t = ::std::os::raw::c_long;
+pub type uint_least8_t = ::std::os::raw::c_uchar;
+pub type uint_least16_t = ::std::os::raw::c_ushort;
+pub type uint_least32_t = ::std::os::raw::c_uint;
+pub type uint_least64_t = ::std::os::raw::c_ulong;
+pub type int_fast8_t = ::std::os::raw::c_schar;
+pub type int_fast16_t = ::std::os::raw::c_long;
+pub type int_fast32_t = ::std::os::raw::c_long;
+pub type int_fast64_t = ::std::os::raw::c_long;
+pub type uint_fast8_t = ::std::os::raw::c_uchar;
+pub type uint_fast16_t = ::std::os::raw::c_ulong;
+pub type uint_fast32_t = ::std::os::raw::c_ulong;
+pub type uint_fast64_t = ::std::os::raw::c_ulong;
+pub type intmax_t = __intmax_t;
+pub type uintmax_t = __uintmax_t;
+pub type tcp_seq = u32;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct tcphdr {
@@ -8579,15 +8379,15 @@ pub union tcphdr__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tcphdr__bindgen_ty_1__bindgen_ty_1 {
-    pub th_sport: u_int16_t,
-    pub th_dport: u_int16_t,
+    pub th_sport: u16,
+    pub th_dport: u16,
     pub th_seq: tcp_seq,
     pub th_ack: tcp_seq,
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub th_flags: u_int8_t,
-    pub th_win: u_int16_t,
-    pub th_sum: u_int16_t,
-    pub th_urp: u_int16_t,
+    pub th_flags: u8,
+    pub th_win: u16,
+    pub th_sum: u16,
+    pub th_urp: u16,
 }
 #[test]
 fn bindgen_test_layout_tcphdr__bindgen_ty_1__bindgen_ty_1() {
@@ -8711,32 +8511,29 @@ fn bindgen_test_layout_tcphdr__bindgen_ty_1__bindgen_ty_1() {
 }
 impl tcphdr__bindgen_ty_1__bindgen_ty_1 {
     #[inline]
-    pub fn th_x2(&self) -> u_int8_t {
+    pub fn th_x2(&self) -> u8 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 4u8) as u8) }
     }
     #[inline]
-    pub fn set_th_x2(&mut self, val: u_int8_t) {
+    pub fn set_th_x2(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::std::mem::transmute(val);
             self._bitfield_1.set(0usize, 4u8, val as u64)
         }
     }
     #[inline]
-    pub fn th_off(&self) -> u_int8_t {
+    pub fn th_off(&self) -> u8 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 4u8) as u8) }
     }
     #[inline]
-    pub fn set_th_off(&mut self, val: u_int8_t) {
+    pub fn set_th_off(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::std::mem::transmute(val);
             self._bitfield_1.set(4usize, 4u8, val as u64)
         }
     }
     #[inline]
-    pub fn new_bitfield_1(
-        th_x2: u_int8_t,
-        th_off: u_int8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
+    pub fn new_bitfield_1(th_x2: u8, th_off: u8) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
             Default::default();
         __bindgen_bitfield_unit.set(0usize, 4u8, {
@@ -8753,14 +8550,14 @@ impl tcphdr__bindgen_ty_1__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tcphdr__bindgen_ty_1__bindgen_ty_2 {
-    pub source: u_int16_t,
-    pub dest: u_int16_t,
-    pub seq: u_int32_t,
-    pub ack_seq: u_int32_t,
+    pub source: u16,
+    pub dest: u16,
+    pub seq: u32,
+    pub ack_seq: u32,
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize], u8>,
-    pub window: u_int16_t,
-    pub check: u_int16_t,
-    pub urg_ptr: u_int16_t,
+    pub window: u16,
+    pub check: u16,
+    pub urg_ptr: u16,
 }
 #[test]
 fn bindgen_test_layout_tcphdr__bindgen_ty_1__bindgen_ty_2() {
@@ -8869,99 +8666,99 @@ fn bindgen_test_layout_tcphdr__bindgen_ty_1__bindgen_ty_2() {
 }
 impl tcphdr__bindgen_ty_1__bindgen_ty_2 {
     #[inline]
-    pub fn res1(&self) -> u_int16_t {
+    pub fn res1(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 4u8) as u16) }
     }
     #[inline]
-    pub fn set_res1(&mut self, val: u_int16_t) {
+    pub fn set_res1(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(0usize, 4u8, val as u64)
         }
     }
     #[inline]
-    pub fn doff(&self) -> u_int16_t {
+    pub fn doff(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 4u8) as u16) }
     }
     #[inline]
-    pub fn set_doff(&mut self, val: u_int16_t) {
+    pub fn set_doff(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(4usize, 4u8, val as u64)
         }
     }
     #[inline]
-    pub fn fin(&self) -> u_int16_t {
+    pub fn fin(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(8usize, 1u8) as u16) }
     }
     #[inline]
-    pub fn set_fin(&mut self, val: u_int16_t) {
+    pub fn set_fin(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(8usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn syn(&self) -> u_int16_t {
+    pub fn syn(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(9usize, 1u8) as u16) }
     }
     #[inline]
-    pub fn set_syn(&mut self, val: u_int16_t) {
+    pub fn set_syn(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(9usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn rst(&self) -> u_int16_t {
+    pub fn rst(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(10usize, 1u8) as u16) }
     }
     #[inline]
-    pub fn set_rst(&mut self, val: u_int16_t) {
+    pub fn set_rst(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(10usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn psh(&self) -> u_int16_t {
+    pub fn psh(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(11usize, 1u8) as u16) }
     }
     #[inline]
-    pub fn set_psh(&mut self, val: u_int16_t) {
+    pub fn set_psh(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(11usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn ack(&self) -> u_int16_t {
+    pub fn ack(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 1u8) as u16) }
     }
     #[inline]
-    pub fn set_ack(&mut self, val: u_int16_t) {
+    pub fn set_ack(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(12usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn urg(&self) -> u_int16_t {
+    pub fn urg(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(13usize, 1u8) as u16) }
     }
     #[inline]
-    pub fn set_urg(&mut self, val: u_int16_t) {
+    pub fn set_urg(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(13usize, 1u8, val as u64)
         }
     }
     #[inline]
-    pub fn res2(&self) -> u_int16_t {
+    pub fn res2(&self) -> u16 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(14usize, 2u8) as u16) }
     }
     #[inline]
-    pub fn set_res2(&mut self, val: u_int16_t) {
+    pub fn set_res2(&mut self, val: u16) {
         unsafe {
             let val: u16 = ::std::mem::transmute(val);
             self._bitfield_1.set(14usize, 2u8, val as u64)
@@ -8969,15 +8766,15 @@ impl tcphdr__bindgen_ty_1__bindgen_ty_2 {
     }
     #[inline]
     pub fn new_bitfield_1(
-        res1: u_int16_t,
-        doff: u_int16_t,
-        fin: u_int16_t,
-        syn: u_int16_t,
-        rst: u_int16_t,
-        psh: u_int16_t,
-        ack: u_int16_t,
-        urg: u_int16_t,
-        res2: u_int16_t,
+        res1: u16,
+        doff: u16,
+        fin: u16,
+        syn: u16,
+        rst: u16,
+        psh: u16,
+        ack: u16,
+        urg: u16,
+        res2: u16,
     ) -> __BindgenBitfieldUnit<[u8; 2usize], u8> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize], u8> =
             Default::default();
@@ -9067,37 +8864,37 @@ pub type tcp_ca_state = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tcp_info {
-    pub tcpi_state: u_int8_t,
-    pub tcpi_ca_state: u_int8_t,
-    pub tcpi_retransmits: u_int8_t,
-    pub tcpi_probes: u_int8_t,
-    pub tcpi_backoff: u_int8_t,
-    pub tcpi_options: u_int8_t,
+    pub tcpi_state: u8,
+    pub tcpi_ca_state: u8,
+    pub tcpi_retransmits: u8,
+    pub tcpi_probes: u8,
+    pub tcpi_backoff: u8,
+    pub tcpi_options: u8,
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub tcpi_rto: u_int32_t,
-    pub tcpi_ato: u_int32_t,
-    pub tcpi_snd_mss: u_int32_t,
-    pub tcpi_rcv_mss: u_int32_t,
-    pub tcpi_unacked: u_int32_t,
-    pub tcpi_sacked: u_int32_t,
-    pub tcpi_lost: u_int32_t,
-    pub tcpi_retrans: u_int32_t,
-    pub tcpi_fackets: u_int32_t,
-    pub tcpi_last_data_sent: u_int32_t,
-    pub tcpi_last_ack_sent: u_int32_t,
-    pub tcpi_last_data_recv: u_int32_t,
-    pub tcpi_last_ack_recv: u_int32_t,
-    pub tcpi_pmtu: u_int32_t,
-    pub tcpi_rcv_ssthresh: u_int32_t,
-    pub tcpi_rtt: u_int32_t,
-    pub tcpi_rttvar: u_int32_t,
-    pub tcpi_snd_ssthresh: u_int32_t,
-    pub tcpi_snd_cwnd: u_int32_t,
-    pub tcpi_advmss: u_int32_t,
-    pub tcpi_reordering: u_int32_t,
-    pub tcpi_rcv_rtt: u_int32_t,
-    pub tcpi_rcv_space: u_int32_t,
-    pub tcpi_total_retrans: u_int32_t,
+    pub tcpi_rto: u32,
+    pub tcpi_ato: u32,
+    pub tcpi_snd_mss: u32,
+    pub tcpi_rcv_mss: u32,
+    pub tcpi_unacked: u32,
+    pub tcpi_sacked: u32,
+    pub tcpi_lost: u32,
+    pub tcpi_retrans: u32,
+    pub tcpi_fackets: u32,
+    pub tcpi_last_data_sent: u32,
+    pub tcpi_last_ack_sent: u32,
+    pub tcpi_last_data_recv: u32,
+    pub tcpi_last_ack_recv: u32,
+    pub tcpi_pmtu: u32,
+    pub tcpi_rcv_ssthresh: u32,
+    pub tcpi_rtt: u32,
+    pub tcpi_rttvar: u32,
+    pub tcpi_snd_ssthresh: u32,
+    pub tcpi_snd_cwnd: u32,
+    pub tcpi_advmss: u32,
+    pub tcpi_reordering: u32,
+    pub tcpi_rcv_rtt: u32,
+    pub tcpi_rcv_space: u32,
+    pub tcpi_total_retrans: u32,
 }
 #[test]
 fn bindgen_test_layout_tcp_info() {
@@ -9414,22 +9211,22 @@ fn bindgen_test_layout_tcp_info() {
 }
 impl tcp_info {
     #[inline]
-    pub fn tcpi_snd_wscale(&self) -> u_int8_t {
+    pub fn tcpi_snd_wscale(&self) -> u8 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 4u8) as u8) }
     }
     #[inline]
-    pub fn set_tcpi_snd_wscale(&mut self, val: u_int8_t) {
+    pub fn set_tcpi_snd_wscale(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::std::mem::transmute(val);
             self._bitfield_1.set(0usize, 4u8, val as u64)
         }
     }
     #[inline]
-    pub fn tcpi_rcv_wscale(&self) -> u_int8_t {
+    pub fn tcpi_rcv_wscale(&self) -> u8 {
         unsafe { ::std::mem::transmute(self._bitfield_1.get(4usize, 4u8) as u8) }
     }
     #[inline]
-    pub fn set_tcpi_rcv_wscale(&mut self, val: u_int8_t) {
+    pub fn set_tcpi_rcv_wscale(&mut self, val: u8) {
         unsafe {
             let val: u8 = ::std::mem::transmute(val);
             self._bitfield_1.set(4usize, 4u8, val as u64)
@@ -9437,8 +9234,8 @@ impl tcp_info {
     }
     #[inline]
     pub fn new_bitfield_1(
-        tcpi_snd_wscale: u_int8_t,
-        tcpi_rcv_wscale: u_int8_t,
+        tcpi_snd_wscale: u8,
+        tcpi_rcv_wscale: u8,
     ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
         let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
             Default::default();
@@ -9457,10 +9254,10 @@ impl tcp_info {
 #[derive(Copy, Clone)]
 pub struct tcp_md5sig {
     pub tcpm_addr: sockaddr_storage,
-    pub __tcpm_pad1: u_int16_t,
-    pub tcpm_keylen: u_int16_t,
-    pub __tcpm_pad2: u_int32_t,
-    pub tcpm_key: [u_int8_t; 80usize],
+    pub __tcpm_pad1: u16,
+    pub tcpm_keylen: u16,
+    pub __tcpm_pad2: u32,
+    pub tcpm_key: [u8; 80usize],
 }
 #[test]
 fn bindgen_test_layout_tcp_md5sig() {
@@ -9528,8 +9325,8 @@ fn bindgen_test_layout_tcp_md5sig() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct tcp_repair_opt {
-    pub opt_code: u_int32_t,
-    pub opt_val: u_int32_t,
+    pub opt_code: u32,
+    pub opt_val: u32,
 }
 #[test]
 fn bindgen_test_layout_tcp_repair_opt() {
@@ -9572,12 +9369,12 @@ pub type _bindgen_ty_10 = u32;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct tcp_cookie_transactions {
-    pub tcpct_flags: u_int16_t,
-    pub __tcpct_pad1: u_int8_t,
-    pub tcpct_cookie_desired: u_int8_t,
-    pub tcpct_s_data_desired: u_int16_t,
-    pub tcpct_used: u_int16_t,
-    pub tcpct_value: [u_int8_t; 536usize],
+    pub tcpct_flags: u16,
+    pub __tcpct_pad1: u8,
+    pub tcpct_cookie_desired: u8,
+    pub tcpct_s_data_desired: u16,
+    pub tcpct_used: u16,
+    pub tcpct_value: [u8; 536usize],
 }
 #[test]
 fn bindgen_test_layout_tcp_cookie_transactions() {
@@ -9663,6 +9460,78 @@ fn bindgen_test_layout_tcp_cookie_transactions() {
             stringify!(tcp_cookie_transactions),
             "::",
             stringify!(tcpct_value)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tcp_repair_window {
+    pub snd_wl1: u32,
+    pub snd_wnd: u32,
+    pub max_window: u32,
+    pub rcv_wnd: u32,
+    pub rcv_wup: u32,
+}
+#[test]
+fn bindgen_test_layout_tcp_repair_window() {
+    assert_eq!(
+        ::std::mem::size_of::<tcp_repair_window>(),
+        20usize,
+        concat!("Size of: ", stringify!(tcp_repair_window))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<tcp_repair_window>(),
+        4usize,
+        concat!("Alignment of ", stringify!(tcp_repair_window))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tcp_repair_window>())).snd_wl1 as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tcp_repair_window),
+            "::",
+            stringify!(snd_wl1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tcp_repair_window>())).snd_wnd as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tcp_repair_window),
+            "::",
+            stringify!(snd_wnd)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tcp_repair_window>())).max_window as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tcp_repair_window),
+            "::",
+            stringify!(max_window)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tcp_repair_window>())).rcv_wnd as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tcp_repair_window),
+            "::",
+            stringify!(rcv_wnd)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<tcp_repair_window>())).rcv_wup as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(tcp_repair_window),
+            "::",
+            stringify!(rcv_wup)
         )
     );
 }
@@ -11323,6 +11192,12 @@ extern "C" {
 extern "C" {
     pub fn fdatasync(__fildes: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
 }
+extern "C" {
+    pub fn getentropy(
+        __buffer: *mut ::std::os::raw::c_void,
+        __length: usize,
+    ) -> ::std::os::raw::c_int;
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct flock {
@@ -11904,12 +11779,13 @@ pub struct soap_blist {
     pub next: *mut soap_blist,
     pub head: *mut soap_bhead,
     pub size: usize,
+    pub item: usize,
 }
 #[test]
 fn bindgen_test_layout_soap_blist() {
     assert_eq!(
         ::std::mem::size_of::<soap_blist>(),
-        24usize,
+        32usize,
         concat!("Size of: ", stringify!(soap_blist))
     );
     assert_eq!(
@@ -11945,6 +11821,16 @@ fn bindgen_test_layout_soap_blist() {
             stringify!(soap_blist),
             "::",
             stringify!(size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap_blist>())).item as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap_blist),
+            "::",
+            stringify!(item)
         )
     );
 }
@@ -12110,8 +11996,9 @@ pub struct soap_clist {
     pub ptr: *mut ::std::os::raw::c_void,
     pub type_: ::std::os::raw::c_int,
     pub size: ::std::os::raw::c_int,
-    pub fdelete:
-        ::std::option::Option<unsafe extern "C" fn(arg1: *mut soap_clist) -> ::std::os::raw::c_int>,
+    pub fdelete: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *mut soap, arg2: *mut soap_clist) -> ::std::os::raw::c_int,
+    >,
 }
 #[test]
 fn bindgen_test_layout_soap_clist() {
@@ -12278,7 +12165,7 @@ pub struct soap_cookie {
     pub value: *mut ::std::os::raw::c_char,
     pub domain: *mut ::std::os::raw::c_char,
     pub path: *mut ::std::os::raw::c_char,
-    pub expire: time_t,
+    pub expire: u64,
     pub maxage: ::std::os::raw::c_long,
     pub version: ::std::os::raw::c_uint,
     pub secure: ::std::os::raw::c_short,
@@ -13574,20 +13461,29 @@ pub struct soap {
     pub double_format: *const ::std::os::raw::c_char,
     pub long_double_format: *const ::std::os::raw::c_char,
     pub dime_id_format: *const ::std::os::raw::c_char,
-    pub http_version: *const ::std::os::raw::c_char,
-    pub http_content: *const ::std::os::raw::c_char,
-    pub encodingStyle: *const ::std::os::raw::c_char,
-    pub actor: *const ::std::os::raw::c_char,
-    pub lang: *const ::std::os::raw::c_char,
+    pub recv_maxlength: u64,
     pub recv_timeout: ::std::os::raw::c_int,
     pub send_timeout: ::std::os::raw::c_int,
+    pub transfer_timeout: ::std::os::raw::c_int,
     pub connect_timeout: ::std::os::raw::c_int,
     pub accept_timeout: ::std::os::raw::c_int,
     pub socket_flags: ::std::os::raw::c_int,
     pub connect_flags: ::std::os::raw::c_int,
     pub bind_flags: ::std::os::raw::c_int,
+    pub bind_v6only: ::std::os::raw::c_int,
     pub accept_flags: ::std::os::raw::c_int,
+    pub sndbuf: ::std::os::raw::c_int,
+    pub rcvbuf: ::std::os::raw::c_int,
     pub linger_time: ::std::os::raw::c_ushort,
+    pub maxlevel: ::std::os::raw::c_uint,
+    pub maxlength: ::std::os::raw::c_long,
+    pub maxoccurs: usize,
+    pub http_version: *const ::std::os::raw::c_char,
+    pub http_content: *const ::std::os::raw::c_char,
+    pub http_extra_header: *const ::std::os::raw::c_char,
+    pub encodingStyle: *const ::std::os::raw::c_char,
+    pub actor: *const ::std::os::raw::c_char,
+    pub lang: *const ::std::os::raw::c_char,
     pub namespaces: *const Namespace,
     pub local_namespaces: *mut Namespace,
     pub nlist: *mut soap_nlist,
@@ -13610,7 +13506,6 @@ pub struct soap {
     pub authrealm: *const ::std::os::raw::c_char,
     pub ntlm_challenge: *const ::std::os::raw::c_char,
     pub ntlm_auth: ::std::os::raw::c_short,
-    pub ntlm_stage: ::std::os::raw::c_short,
     pub fpost: ::std::option::Option<
         unsafe extern "C" fn(
             arg1: *mut soap,
@@ -13619,7 +13514,7 @@ pub struct soap {
             arg4: ::std::os::raw::c_int,
             arg5: *const ::std::os::raw::c_char,
             arg6: *const ::std::os::raw::c_char,
-            arg7: usize,
+            arg7: u64,
         ) -> ::std::os::raw::c_int,
     >,
     pub fget: ::std::option::Option<unsafe extern "C" fn(arg1: *mut soap) -> ::std::os::raw::c_int>,
@@ -13638,7 +13533,7 @@ pub struct soap {
         ) -> ::std::os::raw::c_int,
     >,
     pub fresponse: ::std::option::Option<
-        unsafe extern "C" fn(arg1: *mut soap, arg2: ::std::os::raw::c_int, arg3: usize)
+        unsafe extern "C" fn(arg1: *mut soap, arg2: ::std::os::raw::c_int, arg3: u64)
             -> ::std::os::raw::c_int,
     >,
     pub fparse:
@@ -13753,8 +13648,12 @@ pub struct soap {
         ) -> ::std::os::raw::c_int,
     >,
     pub feltbegout: ::std::option::Option<
-        unsafe extern "C" fn(arg1: *mut soap, arg2: *const ::std::os::raw::c_char)
-            -> ::std::os::raw::c_int,
+        unsafe extern "C" fn(
+            arg1: *mut soap,
+            arg2: *const ::std::os::raw::c_char,
+            arg3: ::std::os::raw::c_int,
+            arg4: *const ::std::os::raw::c_char,
+        ) -> ::std::os::raw::c_int,
     >,
     pub feltendout: ::std::option::Option<
         unsafe extern "C" fn(arg1: *mut soap, arg2: *const ::std::os::raw::c_char)
@@ -13886,8 +13785,9 @@ pub struct soap {
     pub cdata: ::std::os::raw::c_short,
     pub body: ::std::os::raw::c_short,
     pub level: ::std::os::raw::c_uint,
-    pub count: usize,
-    pub length: usize,
+    pub start: u64,
+    pub count: u64,
+    pub length: u64,
     pub labbuf: *mut ::std::os::raw::c_char,
     pub lablen: usize,
     pub labidx: usize,
@@ -13924,18 +13824,28 @@ pub struct soap {
     pub prolog: *const ::std::os::raw::c_char,
     pub ip: ::std::os::raw::c_ulong,
     pub port: ::std::os::raw::c_int,
-    pub keep_alive: ::std::os::raw::c_short,
-    pub tcp_keep_alive: ::std::os::raw::c_short,
+    pub override_host: *const ::std::os::raw::c_char,
+    pub override_port: ::std::os::raw::c_int,
+    pub keep_alive: ::std::os::raw::c_int,
+    pub tcp_keep_alive: ::std::os::raw::c_int,
     pub tcp_keep_idle: ::std::os::raw::c_uint,
     pub tcp_keep_intvl: ::std::os::raw::c_uint,
     pub tcp_keep_cnt: ::std::os::raw::c_uint,
-    pub max_keep_alive: ::std::os::raw::c_uint,
+    pub max_keep_alive: ::std::os::raw::c_int,
     pub proxy_http_version: *const ::std::os::raw::c_char,
     pub proxy_host: *const ::std::os::raw::c_char,
     pub proxy_port: ::std::os::raw::c_int,
     pub proxy_userid: *const ::std::os::raw::c_char,
     pub proxy_passwd: *const ::std::os::raw::c_char,
     pub proxy_from: *const ::std::os::raw::c_char,
+    pub origin: *const ::std::os::raw::c_char,
+    pub cors_origin: *const ::std::os::raw::c_char,
+    pub cors_allow: *const ::std::os::raw::c_char,
+    pub cors_method: *const ::std::os::raw::c_char,
+    pub cors_header: *const ::std::os::raw::c_char,
+    pub cors_methods: *const ::std::os::raw::c_char,
+    pub cors_headers: *const ::std::os::raw::c_char,
+    pub x_frame_options: *const ::std::os::raw::c_char,
     pub status: ::std::os::raw::c_int,
     pub error: ::std::os::raw::c_int,
     pub errmode: ::std::os::raw::c_int,
@@ -13957,6 +13867,8 @@ pub struct soap {
     pub ipv6_multicast_if: ::std::os::raw::c_uint,
     pub ipv4_multicast_if: *mut ::std::os::raw::c_char,
     pub ipv4_multicast_ttl: ::std::os::raw::c_uchar,
+    pub client_port: ::std::os::raw::c_int,
+    pub client_interface: *const ::std::os::raw::c_char,
     pub peer: soap__bindgen_ty_1,
     pub peerlen: usize,
     pub fsslauth: *mut ::std::os::raw::c_void,
@@ -14045,7 +13957,7 @@ fn bindgen_test_layout_soap__bindgen_ty_1() {
 fn bindgen_test_layout_soap() {
     assert_eq!(
         ::std::mem::size_of::<soap>(),
-        162088usize,
+        162240usize,
         concat!("Size of: ", stringify!(soap))
     );
     assert_eq!(
@@ -14144,58 +14056,18 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).http_version as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<soap>())).recv_maxlength as *const _ as usize },
         48usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
             "::",
-            stringify!(http_version)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).http_content as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(soap),
-            "::",
-            stringify!(http_content)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).encodingStyle as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(soap),
-            "::",
-            stringify!(encodingStyle)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).actor as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(soap),
-            "::",
-            stringify!(actor)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).lang as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(soap),
-            "::",
-            stringify!(lang)
+            stringify!(recv_maxlength)
         )
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).recv_timeout as *const _ as usize },
-        88usize,
+        56usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14205,7 +14077,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).send_timeout as *const _ as usize },
-        92usize,
+        60usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14214,8 +14086,18 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).transfer_timeout as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(transfer_timeout)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).connect_timeout as *const _ as usize },
-        96usize,
+        68usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14225,7 +14107,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).accept_timeout as *const _ as usize },
-        100usize,
+        72usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14235,7 +14117,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).socket_flags as *const _ as usize },
-        104usize,
+        76usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14245,7 +14127,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).connect_flags as *const _ as usize },
-        108usize,
+        80usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14255,7 +14137,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).bind_flags as *const _ as usize },
-        112usize,
+        84usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14264,8 +14146,18 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).bind_v6only as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(bind_v6only)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).accept_flags as *const _ as usize },
-        116usize,
+        92usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14274,8 +14166,28 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).sndbuf as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(sndbuf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).rcvbuf as *const _ as usize },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(rcvbuf)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).linger_time as *const _ as usize },
-        120usize,
+        104usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14284,8 +14196,98 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).namespaces as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<soap>())).maxlevel as *const _ as usize },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(maxlevel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).maxlength as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(maxlength)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).maxoccurs as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(maxoccurs)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).http_version as *const _ as usize },
         128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(http_version)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).http_content as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(http_content)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).http_extra_header as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(http_extra_header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).encodingStyle as *const _ as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(encodingStyle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).actor as *const _ as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(actor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).lang as *const _ as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(lang)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).namespaces as *const _ as usize },
+        176usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14295,7 +14297,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).local_namespaces as *const _ as usize },
-        136usize,
+        184usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14305,7 +14307,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).nlist as *const _ as usize },
-        144usize,
+        192usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14315,7 +14317,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).blist as *const _ as usize },
-        152usize,
+        200usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14325,7 +14327,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).clist as *const _ as usize },
-        160usize,
+        208usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14335,7 +14337,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).alist as *const _ as usize },
-        168usize,
+        216usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14345,7 +14347,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).shaky as *const _ as usize },
-        176usize,
+        224usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14355,17 +14357,17 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).iht as *const _ as usize },
-        184usize,
+        232usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(iht))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).pht as *const _ as usize },
-        16176usize,
+        16224usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(pht))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).pblk as *const _ as usize },
-        48944usize,
+        48992usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14375,7 +14377,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).pidx as *const _ as usize },
-        48952usize,
+        49000usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14385,7 +14387,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).header as *const _ as usize },
-        48960usize,
+        49008usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14395,7 +14397,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fault as *const _ as usize },
-        48968usize,
+        49016usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14405,7 +14407,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).idnum as *const _ as usize },
-        48976usize,
+        49024usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14415,7 +14417,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).user as *const _ as usize },
-        48984usize,
+        49032usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14425,7 +14427,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).data as *const _ as usize },
-        48992usize,
+        49040usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14435,7 +14437,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).plugins as *const _ as usize },
-        49024usize,
+        49072usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14445,7 +14447,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).userid as *const _ as usize },
-        49032usize,
+        49080usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14455,7 +14457,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).passwd as *const _ as usize },
-        49040usize,
+        49088usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14465,7 +14467,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).authrealm as *const _ as usize },
-        49048usize,
+        49096usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14475,7 +14477,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ntlm_challenge as *const _ as usize },
-        49056usize,
+        49104usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14485,7 +14487,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ntlm_auth as *const _ as usize },
-        49064usize,
+        49112usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14494,18 +14496,8 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<soap>())).ntlm_stage as *const _ as usize },
-        49066usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(soap),
-            "::",
-            stringify!(ntlm_stage)
-        )
-    );
-    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fpost as *const _ as usize },
-        49072usize,
+        49120usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14515,7 +14507,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fget as *const _ as usize },
-        49080usize,
+        49128usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14525,7 +14517,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fput as *const _ as usize },
-        49088usize,
+        49136usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14535,7 +14527,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdel as *const _ as usize },
-        49096usize,
+        49144usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14545,7 +14537,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fopt as *const _ as usize },
-        49104usize,
+        49152usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14555,7 +14547,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fhead as *const _ as usize },
-        49112usize,
+        49160usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14565,7 +14557,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fform as *const _ as usize },
-        49120usize,
+        49168usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14575,7 +14567,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fposthdr as *const _ as usize },
-        49128usize,
+        49176usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14585,7 +14577,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fresponse as *const _ as usize },
-        49136usize,
+        49184usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14595,7 +14587,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fparse as *const _ as usize },
-        49144usize,
+        49192usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14605,7 +14597,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fparsehdr as *const _ as usize },
-        49152usize,
+        49200usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14615,7 +14607,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fheader as *const _ as usize },
-        49160usize,
+        49208usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14625,7 +14617,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fresolve as *const _ as usize },
-        49168usize,
+        49216usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14635,7 +14627,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fconnect as *const _ as usize },
-        49176usize,
+        49224usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14645,7 +14637,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdisconnect as *const _ as usize },
-        49184usize,
+        49232usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14655,7 +14647,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fclosesocket as *const _ as usize },
-        49192usize,
+        49240usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14665,7 +14657,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fshutdownsocket as *const _ as usize },
-        49200usize,
+        49248usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14675,7 +14667,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fopen as *const _ as usize },
-        49208usize,
+        49256usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14685,7 +14677,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).faccept as *const _ as usize },
-        49216usize,
+        49264usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14695,7 +14687,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fclose as *const _ as usize },
-        49224usize,
+        49272usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14705,7 +14697,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fsend as *const _ as usize },
-        49232usize,
+        49280usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14715,7 +14707,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).frecv as *const _ as usize },
-        49240usize,
+        49288usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14725,7 +14717,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fpoll as *const _ as usize },
-        49248usize,
+        49296usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14735,7 +14727,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fseterror as *const _ as usize },
-        49256usize,
+        49304usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14745,7 +14737,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fignore as *const _ as usize },
-        49264usize,
+        49312usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14755,7 +14747,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fserveloop as *const _ as usize },
-        49272usize,
+        49320usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14765,7 +14757,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fplugin as *const _ as usize },
-        49280usize,
+        49328usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14775,7 +14767,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmalloc as *const _ as usize },
-        49288usize,
+        49336usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14785,7 +14777,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fsvalidate as *const _ as usize },
-        49296usize,
+        49344usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14795,7 +14787,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fwvalidate as *const _ as usize },
-        49304usize,
+        49352usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14805,7 +14797,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).feltbegin as *const _ as usize },
-        49312usize,
+        49360usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14815,7 +14807,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).feltendin as *const _ as usize },
-        49320usize,
+        49368usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14825,7 +14817,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).feltbegout as *const _ as usize },
-        49328usize,
+        49376usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14835,7 +14827,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).feltendout as *const _ as usize },
-        49336usize,
+        49384usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14845,7 +14837,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fprepareinitsend as *const _ as usize },
-        49344usize,
+        49392usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14855,7 +14847,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fprepareinitrecv as *const _ as usize },
-        49352usize,
+        49400usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14865,7 +14857,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fpreparesend as *const _ as usize },
-        49360usize,
+        49408usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14875,7 +14867,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fpreparerecv as *const _ as usize },
-        49368usize,
+        49416usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14885,7 +14877,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fpreparefinalsend as *const _ as usize },
-        49376usize,
+        49424usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14895,7 +14887,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fpreparefinalrecv as *const _ as usize },
-        49384usize,
+        49432usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14905,7 +14897,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).recverror as *const _ as usize },
-        49392usize,
+        49440usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14915,7 +14907,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ffiltersend as *const _ as usize },
-        49400usize,
+        49448usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14925,7 +14917,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ffilterrecv as *const _ as usize },
-        49408usize,
+        49456usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14935,7 +14927,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdimereadopen as *const _ as usize },
-        49416usize,
+        49464usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14945,7 +14937,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdimewriteopen as *const _ as usize },
-        49424usize,
+        49472usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14955,7 +14947,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdimereadclose as *const _ as usize },
-        49432usize,
+        49480usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14965,7 +14957,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdimewriteclose as *const _ as usize },
-        49440usize,
+        49488usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14975,7 +14967,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdimeread as *const _ as usize },
-        49448usize,
+        49496usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14985,7 +14977,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdimewrite as *const _ as usize },
-        49456usize,
+        49504usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -14995,7 +14987,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmimereadopen as *const _ as usize },
-        49464usize,
+        49512usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15005,7 +14997,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmimewriteopen as *const _ as usize },
-        49472usize,
+        49520usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15015,7 +15007,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmimereadclose as *const _ as usize },
-        49480usize,
+        49528usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15025,7 +15017,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmimewriteclose as *const _ as usize },
-        49488usize,
+        49536usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15035,7 +15027,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmimeread as *const _ as usize },
-        49496usize,
+        49544usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15045,7 +15037,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fmimewrite as *const _ as usize },
-        49504usize,
+        49552usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15055,7 +15047,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).master as *const _ as usize },
-        49512usize,
+        49560usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15065,7 +15057,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).socket as *const _ as usize },
-        49516usize,
+        49564usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15075,7 +15067,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).sendsk as *const _ as usize },
-        49520usize,
+        49568usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15085,7 +15077,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).recvsk as *const _ as usize },
-        49524usize,
+        49572usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15095,17 +15087,17 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).os as *const _ as usize },
-        49528usize,
+        49576usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(os))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).is as *const _ as usize },
-        49536usize,
+        49584usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(is))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).sendfd as *const _ as usize },
-        49544usize,
+        49592usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15115,7 +15107,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).recvfd as *const _ as usize },
-        49548usize,
+        49596usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15125,7 +15117,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).bufidx as *const _ as usize },
-        49552usize,
+        49600usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15135,7 +15127,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).buflen as *const _ as usize },
-        49560usize,
+        49608usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15145,7 +15137,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ahead as *const _ as usize },
-        49568usize,
+        49616usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15155,7 +15147,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).cdata as *const _ as usize },
-        49572usize,
+        49620usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15165,7 +15157,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).body as *const _ as usize },
-        49574usize,
+        49622usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15175,7 +15167,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).level as *const _ as usize },
-        49576usize,
+        49624usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15184,8 +15176,18 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).start as *const _ as usize },
+        49632usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(start)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).count as *const _ as usize },
-        49584usize,
+        49640usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15195,7 +15197,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).length as *const _ as usize },
-        49592usize,
+        49648usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15205,7 +15207,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).labbuf as *const _ as usize },
-        49600usize,
+        49656usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15215,7 +15217,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).lablen as *const _ as usize },
-        49608usize,
+        49664usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15225,7 +15227,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).labidx as *const _ as usize },
-        49616usize,
+        49672usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15235,12 +15237,12 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).buf as *const _ as usize },
-        49624usize,
+        49680usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(buf))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).msgbuf as *const _ as usize },
-        115160usize,
+        115216usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15250,7 +15252,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).tmpbuf as *const _ as usize },
-        116184usize,
+        116240usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15260,17 +15262,17 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).tag as *const _ as usize },
-        117208usize,
+        117264usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(tag))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).id as *const _ as usize },
-        118232usize,
+        118288usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(id))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).href as *const _ as usize },
-        119256usize,
+        119312usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15280,7 +15282,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).type_ as *const _ as usize },
-        120280usize,
+        120336usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15290,7 +15292,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).arrayType as *const _ as usize },
-        121304usize,
+        121360usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15300,7 +15302,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).arraySize as *const _ as usize },
-        122328usize,
+        122384usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15310,7 +15312,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).arrayOffset as *const _ as usize },
-        123352usize,
+        123408usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15320,7 +15322,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).other as *const _ as usize },
-        124376usize,
+        124432usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15330,7 +15332,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).root as *const _ as usize },
-        124378usize,
+        124434usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15340,7 +15342,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).position as *const _ as usize },
-        124380usize,
+        124436usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15350,7 +15352,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).positions as *const _ as usize },
-        124384usize,
+        124440usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15360,7 +15362,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).attributes as *const _ as usize },
-        124448usize,
+        124504usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15370,7 +15372,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).encoding as *const _ as usize },
-        124456usize,
+        124512usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15380,7 +15382,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).mustUnderstand as *const _ as usize },
-        124458usize,
+        124514usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15390,7 +15392,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).null as *const _ as usize },
-        124460usize,
+        124516usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15400,12 +15402,12 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ns as *const _ as usize },
-        124462usize,
+        124518usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(ns))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).part as *const _ as usize },
-        124464usize,
+        124520usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15415,7 +15417,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).event as *const _ as usize },
-        124466usize,
+        124522usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15425,7 +15427,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).peeked as *const _ as usize },
-        124468usize,
+        124524usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15435,7 +15437,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).evlev as *const _ as usize },
-        124472usize,
+        124528usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15445,7 +15447,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).alloced as *const _ as usize },
-        124476usize,
+        124532usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15455,7 +15457,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).chunksize as *const _ as usize },
-        124480usize,
+        124536usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15465,7 +15467,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).chunkbuflen as *const _ as usize },
-        124488usize,
+        124544usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15475,7 +15477,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).endpoint as *const _ as usize },
-        124496usize,
+        124552usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15485,7 +15487,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).path as *const _ as usize },
-        125520usize,
+        125576usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15495,7 +15497,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).host as *const _ as usize },
-        126544usize,
+        126600usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15505,7 +15507,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).action as *const _ as usize },
-        127568usize,
+        127624usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15515,7 +15517,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).prolog as *const _ as usize },
-        127576usize,
+        127632usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15525,12 +15527,12 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ip as *const _ as usize },
-        127584usize,
+        127640usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(ip))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).port as *const _ as usize },
-        127592usize,
+        127648usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15539,8 +15541,28 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).override_host as *const _ as usize },
+        127656usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(override_host)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).override_port as *const _ as usize },
+        127664usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(override_port)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).keep_alive as *const _ as usize },
-        127596usize,
+        127668usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15550,7 +15572,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).tcp_keep_alive as *const _ as usize },
-        127598usize,
+        127672usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15560,7 +15582,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).tcp_keep_idle as *const _ as usize },
-        127600usize,
+        127676usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15570,7 +15592,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).tcp_keep_intvl as *const _ as usize },
-        127604usize,
+        127680usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15580,7 +15602,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).tcp_keep_cnt as *const _ as usize },
-        127608usize,
+        127684usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15590,7 +15612,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).max_keep_alive as *const _ as usize },
-        127612usize,
+        127688usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15600,7 +15622,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).proxy_http_version as *const _ as usize },
-        127616usize,
+        127696usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15610,7 +15632,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).proxy_host as *const _ as usize },
-        127624usize,
+        127704usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15620,7 +15642,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).proxy_port as *const _ as usize },
-        127632usize,
+        127712usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15630,7 +15652,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).proxy_userid as *const _ as usize },
-        127640usize,
+        127720usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15640,7 +15662,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).proxy_passwd as *const _ as usize },
-        127648usize,
+        127728usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15650,7 +15672,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).proxy_from as *const _ as usize },
-        127656usize,
+        127736usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15659,8 +15681,88 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).origin as *const _ as usize },
+        127744usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(origin)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).cors_origin as *const _ as usize },
+        127752usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(cors_origin)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).cors_allow as *const _ as usize },
+        127760usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(cors_allow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).cors_method as *const _ as usize },
+        127768usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(cors_method)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).cors_header as *const _ as usize },
+        127776usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(cors_header)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).cors_methods as *const _ as usize },
+        127784usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(cors_methods)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).cors_headers as *const _ as usize },
+        127792usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(cors_headers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).x_frame_options as *const _ as usize },
+        127800usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(x_frame_options)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).status as *const _ as usize },
-        127664usize,
+        127808usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15670,7 +15772,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).error as *const _ as usize },
-        127668usize,
+        127812usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15680,7 +15782,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).errmode as *const _ as usize },
-        127672usize,
+        127816usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15690,7 +15792,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).errnum as *const _ as usize },
-        127676usize,
+        127820usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15700,12 +15802,12 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).dom as *const _ as usize },
-        127680usize,
+        127824usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(dom))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).dime as *const _ as usize },
-        127688usize,
+        127832usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15715,7 +15817,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).mime as *const _ as usize },
-        127784usize,
+        127928usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15725,7 +15827,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).xlist as *const _ as usize },
-        127824usize,
+        127968usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15735,7 +15837,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).logfile as *const _ as usize },
-        127832usize,
+        127976usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15745,7 +15847,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fdebug as *const _ as usize },
-        127856usize,
+        128000usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15755,12 +15857,12 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).mht as *const _ as usize },
-        127880usize,
+        128024usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(mht))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).wsuid as *const _ as usize },
-        160648usize,
+        160792usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15770,7 +15872,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).c14nexclude as *const _ as usize },
-        160656usize,
+        160800usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15780,7 +15882,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).c14ninclude as *const _ as usize },
-        160664usize,
+        160808usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15790,7 +15892,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).cookies as *const _ as usize },
-        160672usize,
+        160816usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15800,7 +15902,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).cookie_domain as *const _ as usize },
-        160680usize,
+        160824usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15810,7 +15912,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).cookie_path as *const _ as usize },
-        160688usize,
+        160832usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15820,7 +15922,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).cookie_max as *const _ as usize },
-        160696usize,
+        160840usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15830,7 +15932,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ipv6_multicast_if as *const _ as usize },
-        160700usize,
+        160844usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15840,7 +15942,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ipv4_multicast_if as *const _ as usize },
-        160704usize,
+        160848usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15850,7 +15952,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ipv4_multicast_ttl as *const _ as usize },
-        160712usize,
+        160856usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15859,8 +15961,28 @@ fn bindgen_test_layout_soap() {
         )
     );
     assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).client_port as *const _ as usize },
+        160860usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(client_port)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<soap>())).client_interface as *const _ as usize },
+        160864usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(soap),
+            "::",
+            stringify!(client_interface)
+        )
+    );
+    assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).peer as *const _ as usize },
-        160720usize,
+        160872usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15870,7 +15992,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).peerlen as *const _ as usize },
-        160848usize,
+        161000usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15880,7 +16002,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fsslauth as *const _ as usize },
-        160856usize,
+        161008usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15890,7 +16012,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).fsslverify as *const _ as usize },
-        160864usize,
+        161016usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15900,22 +16022,22 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).bio as *const _ as usize },
-        160872usize,
+        161024usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(bio))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ssl as *const _ as usize },
-        160880usize,
+        161032usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(ssl))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ctx as *const _ as usize },
-        160888usize,
+        161040usize,
         concat!("Offset of field: ", stringify!(soap), "::", stringify!(ctx))
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).session as *const _ as usize },
-        160896usize,
+        161048usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15925,7 +16047,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).dh_params as *const _ as usize },
-        160904usize,
+        161056usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15935,7 +16057,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).rsa_params as *const _ as usize },
-        160912usize,
+        161064usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15945,7 +16067,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).ssl_flags as *const _ as usize },
-        160920usize,
+        161072usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15955,7 +16077,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).keyfile as *const _ as usize },
-        160928usize,
+        161080usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15965,7 +16087,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).keyid as *const _ as usize },
-        160936usize,
+        161088usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15975,7 +16097,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).password as *const _ as usize },
-        160944usize,
+        161096usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15985,7 +16107,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).cafile as *const _ as usize },
-        160952usize,
+        161104usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -15995,7 +16117,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).capath as *const _ as usize },
-        160960usize,
+        161112usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16005,7 +16127,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).crlfile as *const _ as usize },
-        160968usize,
+        161120usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16015,7 +16137,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).session_host as *const _ as usize },
-        160976usize,
+        161128usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16025,7 +16147,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).session_port as *const _ as usize },
-        162000usize,
+        162152usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16035,7 +16157,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).c_locale as *const _ as usize },
-        162008usize,
+        162160usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16045,7 +16167,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).d_stream as *const _ as usize },
-        162016usize,
+        162168usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16055,7 +16177,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_crc as *const _ as usize },
-        162024usize,
+        162176usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16065,7 +16187,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_dict as *const _ as usize },
-        162032usize,
+        162184usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16075,7 +16197,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_dict_len as *const _ as usize },
-        162040usize,
+        162192usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16085,7 +16207,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).zlib_state as *const _ as usize },
-        162044usize,
+        162196usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16095,7 +16217,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).zlib_in as *const _ as usize },
-        162046usize,
+        162198usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16105,7 +16227,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).zlib_out as *const _ as usize },
-        162048usize,
+        162200usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16115,7 +16237,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_buf as *const _ as usize },
-        162056usize,
+        162208usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16125,7 +16247,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_buflen as *const _ as usize },
-        162064usize,
+        162216usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16135,7 +16257,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_level as *const _ as usize },
-        162072usize,
+        162224usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16145,7 +16267,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_ratio_in as *const _ as usize },
-        162076usize,
+        162228usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16155,7 +16277,7 @@ fn bindgen_test_layout_soap() {
     );
     assert_eq!(
         unsafe { &(*(::std::ptr::null::<soap>())).z_ratio_out as *const _ as usize },
-        162080usize,
+        162232usize,
         concat!(
             "Offset of field: ",
             stringify!(soap),
@@ -16574,7 +16696,39 @@ extern "C" {
     pub fn soap_ssl_init();
 }
 extern "C" {
+    pub fn soap_ssl_noinit();
+}
+extern "C" {
     pub fn soap_poll(arg1: *mut soap) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_GET(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_PUT(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *const ::std::os::raw::c_char,
+        arg4: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_POST(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *const ::std::os::raw::c_char,
+        arg4: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_DELETE(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn soap_connect_command(
@@ -16642,14 +16796,20 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn soap_http_content_type(
+        soap: *mut soap,
+        status: ::std::os::raw::c_int,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
     pub fn soap_puthttphdr(
         arg1: *mut soap,
         status: ::std::os::raw::c_int,
-        count: usize,
+        count: u64,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_get_header_attribute(
+    pub fn soap_http_header_attribute(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
         arg3: *const ::std::os::raw::c_char,
@@ -16779,6 +16939,18 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn soap_send_key(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_send_val(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     pub fn soap_pututf8(arg1: *mut soap, arg2: ::std::os::raw::c_ulong) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -16876,7 +17048,7 @@ extern "C" {
         p: *const ::std::os::raw::c_void,
         a: *const ::std::os::raw::c_void,
         n: ::std::os::raw::c_int,
-        type_: ::std::os::raw::c_int,
+        t: ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -16886,8 +17058,8 @@ extern "C" {
     pub fn soap_enter(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
-        arg3: ::std::os::raw::c_int,
-        arg4: usize,
+        t: ::std::os::raw::c_int,
+        n: usize,
     ) -> *mut soap_ilist;
 }
 extern "C" {
@@ -16914,6 +17086,17 @@ extern "C" {
         a: *const ::std::os::raw::c_void,
         n: ::std::os::raw::c_int,
         t: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_attachment_reference(
+        soap: *mut soap,
+        p: *const ::std::os::raw::c_void,
+        a: *const ::std::os::raw::c_void,
+        n: ::std::os::raw::c_int,
+        t: ::std::os::raw::c_int,
+        id: *const ::std::os::raw::c_char,
+        type_: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -17028,11 +17211,10 @@ extern "C" {
 extern "C" {
     pub fn soap_link(
         arg1: *mut soap,
-        arg2: *mut ::std::os::raw::c_void,
+        arg2: ::std::os::raw::c_int,
         arg3: ::std::os::raw::c_int,
-        arg4: ::std::os::raw::c_int,
         fdelete: ::std::option::Option<
-            unsafe extern "C" fn(arg1: *mut soap_clist) -> ::std::os::raw::c_int,
+            unsafe extern "C" fn(arg1: *mut soap, arg2: *mut soap_clist) -> ::std::os::raw::c_int,
         >,
     ) -> *mut soap_clist;
 }
@@ -17151,8 +17333,8 @@ extern "C" {
     pub fn soap_id_smart(
         soap: *mut soap,
         arg1: *const ::std::os::raw::c_char,
-        arg2: ::std::os::raw::c_int,
-        arg3: usize,
+        t: ::std::os::raw::c_int,
+        n: usize,
     ) -> *mut *mut ::std::os::raw::c_void;
 }
 extern "C" {
@@ -17202,7 +17384,7 @@ extern "C" {
     pub fn soap_force_closesock(arg1: *mut soap) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_new_REQUIRE_lib_v20828(arg1: soap_mode, arg2: soap_mode) -> *mut soap;
+    pub fn soap_new_REQUIRE_lib_v20863(arg1: soap_mode, arg2: soap_mode) -> *mut soap;
 }
 extern "C" {
     pub fn soap_free(arg1: *mut soap);
@@ -17220,7 +17402,7 @@ extern "C" {
     pub fn soap_free_stream(arg1: *mut soap);
 }
 extern "C" {
-    pub fn soap_init_REQUIRE_lib_v20828(arg1: *mut soap, arg2: soap_mode, arg3: soap_mode);
+    pub fn soap_init_REQUIRE_lib_v20863(arg1: *mut soap, arg2: soap_mode, arg3: soap_mode);
 }
 extern "C" {
     pub fn soap_initialize(arg1: *mut soap);
@@ -17269,6 +17451,13 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn soap_match_att(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     pub fn soap_match_array(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
@@ -17280,6 +17469,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: ::std::os::raw::c_int,
         arg4: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_element_start_end_out(
+        arg1: *mut soap,
+        tag: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -17325,6 +17520,12 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn soap_element_empty(
+        arg1: *mut soap,
+        tag: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
     pub fn soap_element_nil(
         arg1: *mut soap,
         tag: *const ::std::os::raw::c_char,
@@ -17359,7 +17560,7 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_element_start_end_out(
+    pub fn soap_element_end(
         arg1: *mut soap,
         tag: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
@@ -17393,6 +17594,9 @@ extern "C" {
 }
 extern "C" {
     pub fn soap_revert(arg1: *mut soap);
+}
+extern "C" {
+    pub fn soap_ignore(arg1: *mut soap) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn soap_memdup(
@@ -17470,9 +17674,6 @@ extern "C" {
     pub fn soap_set_version(arg1: *mut soap, arg2: ::std::os::raw::c_short);
 }
 extern "C" {
-    pub fn soap_get_version(arg1: *mut soap);
-}
-extern "C" {
     pub fn soap_set_namespaces(arg1: *mut soap, arg2: *const Namespace) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -17489,7 +17690,13 @@ extern "C" {
     ) -> *mut soap_nlist;
 }
 extern "C" {
-    pub fn soap_current_namespace(
+    pub fn soap_current_namespace_tag(
+        soap: *mut soap,
+        tag: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn soap_current_namespace_att(
         soap: *mut soap,
         tag: *const ::std::os::raw::c_char,
     ) -> *const ::std::os::raw::c_char;
@@ -17516,10 +17723,17 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_new_block(arg1: *mut soap) -> *mut soap_blist;
+    pub fn soap_alloc_block(arg1: *mut soap) -> *mut soap_blist;
 }
 extern "C" {
     pub fn soap_push_block(
+        arg1: *mut soap,
+        arg2: *mut soap_blist,
+        arg3: usize,
+    ) -> *mut ::std::os::raw::c_void;
+}
+extern "C" {
+    pub fn soap_push_block_max(
         arg1: *mut soap,
         arg2: *mut soap_blist,
         arg3: usize,
@@ -17705,12 +17919,14 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_s2string(
+    pub fn soap_s2char(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut *mut ::std::os::raw::c_char,
+        arg4: ::std::os::raw::c_int,
         minlen: ::std::os::raw::c_long,
         maxlen: ::std::os::raw::c_long,
+        pattern: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -17720,6 +17936,7 @@ extern "C" {
         arg3: *mut *mut ::std::os::raw::c_char,
         minlen: ::std::os::raw::c_long,
         maxlen: ::std::os::raw::c_long,
+        pattern: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -17727,8 +17944,10 @@ extern "C" {
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut *mut wchar_t,
+        arg4: ::std::os::raw::c_int,
         minlen: ::std::os::raw::c_long,
         maxlen: ::std::os::raw::c_long,
+        pattern: *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -17991,9 +18210,10 @@ extern "C" {
         p: *mut *mut wchar_t,
         arg2: *const ::std::os::raw::c_char,
         arg3: ::std::os::raw::c_int,
-        arg4: ::std::os::raw::c_long,
+        arg4: ::std::os::raw::c_int,
         arg5: ::std::os::raw::c_long,
-        arg6: *const ::std::os::raw::c_char,
+        arg6: ::std::os::raw::c_long,
+        arg7: *const ::std::os::raw::c_char,
     ) -> *mut *mut wchar_t;
 }
 extern "C" {
@@ -18185,10 +18405,10 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_move(arg1: *mut soap, arg2: usize) -> ::std::os::raw::c_int;
+    pub fn soap_move(arg1: *mut soap, arg2: u64) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_tell(arg1: *mut soap) -> usize;
+    pub fn soap_tell(arg1: *mut soap) -> u64;
 }
 extern "C" {
     pub fn soap_dime_option(
@@ -18280,6 +18500,12 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn soap_rand_uuid(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
     pub fn soap_register_plugin_arg(
         arg1: *mut soap,
         fcreate: ::std::option::Option<
@@ -18303,6 +18529,7 @@ extern "C" {
         soap: *mut soap,
         name: *const ::std::os::raw::c_char,
         flag: ::std::os::raw::c_int,
+        occurs: ::std::os::raw::c_int,
     ) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
@@ -18317,11 +18544,25 @@ extern "C" {
     pub fn soap_clr_attr(soap: *mut soap);
 }
 extern "C" {
-    pub fn soap_url(
+    pub fn soap_extend_url(
         soap: *mut soap,
         arg1: *const ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
     ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn soap_extend_url_query(
+        soap: *mut soap,
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn soap_url_query(
+        soap: *mut soap,
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *const ::std::os::raw::c_char,
+    );
 }
 extern "C" {
     pub fn soap_encode_url(
@@ -18348,13 +18589,15 @@ pub const ns3__T_USCOREUserState_ns3__T_USCOREUserState__locked: ns3__T_USCOREUs
 pub type ns3__T_USCOREUserState = u32;
 /// \
 /// *
-/// Classes, Structs, and Unions                                               *
+/// Structs and Unions                                                         *
 /// *
 /// \
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns2__GeneralWebserviceException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -18397,7 +18640,9 @@ fn bindgen_test_layout_ns2__GeneralWebserviceException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns3__T_USCOREForeignKey {
+    /// Required nillable (xsi:nil when NULL) element 'ns3:foreignID' of XSD type 'xsd:string'
     pub foreignID: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:foreignSystem' of XSD type 'xsd:string'
     pub foreignSystem: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -18440,8 +18685,9 @@ fn bindgen_test_layout_ns3__T_USCOREForeignKey() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns3__T_USCOREForeignKeyList {
+    /// Sequence of elements 'ns3:ForeignKey' of XSD type 'ns3:T_ForeignKey' stored in dynamic array ForeignKey_ of length __sizeForeignKey
     pub __sizeForeignKey: ::std::os::raw::c_int,
-    pub ForeignKey: *mut ns3__T_USCOREForeignKey,
+    pub ForeignKey_: *mut ns3__T_USCOREForeignKey,
 }
 #[test]
 fn bindgen_test_layout_ns3__T_USCOREForeignKeyList() {
@@ -18470,14 +18716,14 @@ fn bindgen_test_layout_ns3__T_USCOREForeignKeyList() {
     );
     assert_eq!(
         unsafe {
-            &(*(::std::ptr::null::<ns3__T_USCOREForeignKeyList>())).ForeignKey as *const _ as usize
+            &(*(::std::ptr::null::<ns3__T_USCOREForeignKeyList>())).ForeignKey_ as *const _ as usize
         },
         8usize,
         concat!(
             "Offset of field: ",
             stringify!(ns3__T_USCOREForeignKeyList),
             "::",
-            stringify!(ForeignKey)
+            stringify!(ForeignKey_)
         )
     );
 }
@@ -18524,6 +18770,7 @@ fn bindgen_test_layout__ns3__union_UserIDInfo() {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ns3__UserIDInfo {
+    /// Union with union _ns3__union_UserIDInfo variant selector __union_UserIDInfo set to one of: SOAP_UNION__ns3__union_UserIDInfo_userID SOAP_UNION__ns3__union_UserIDInfo_userName
     pub __union_UserIDInfo: ::std::os::raw::c_int,
     pub union_UserIDInfo: _ns3__union_UserIDInfo,
 }
@@ -18567,16 +18814,27 @@ fn bindgen_test_layout_ns3__UserIDInfo() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns3__T_USCOREUser {
+    /// Required element 'ns3:userID' of XSD type 'ns3:id'
     pub userID: i64,
+    /// Required element 'ns3:personID' of XSD type 'ns3:id'
     pub personID: i64,
+    /// Required element 'ns3:username' of XSD type 'xsd:string'
     pub username: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:permissionGroups' of XSD type 'ns3:T_IdList'
     pub permissionGroups: *mut ns3__T_USCOREIdList,
+    /// Required element 'ns3:lastname' of XSD type 'xsd:string'
     pub lastname: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:firstname' of XSD type 'xsd:string'
     pub firstname: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:personalNumber' of XSD type 'xsd:string'
     pub personalNumber: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:email' of XSD type 'xsd:string'
     pub email: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:licenseType' of XSD type 'ns3:T_LicenseType'
     pub licenseType: ns3__T_USCORELicenseType,
+    /// Required element 'ns3:userState' of XSD type 'ns3:T_UserState'
     pub userState: ns3__T_USCOREUserState,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:foreignKeyList' of XSD type 'ns3:T_ForeignKeyList'
     pub foreignKeyList: *mut ns3__T_USCOREForeignKeyList,
 }
 #[test]
@@ -18711,8 +18969,9 @@ fn bindgen_test_layout_ns3__T_USCOREUser() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns3__T_USCOREIdList {
+    /// Sequence of elements 'ns3:ID' of XSD type 'ns3:id' stored in dynamic array ID_ of length __sizeID
     pub __sizeID: ::std::os::raw::c_int,
-    pub ID: *mut i64,
+    pub ID_: *mut i64,
 }
 #[test]
 fn bindgen_test_layout_ns3__T_USCOREIdList() {
@@ -18737,20 +18996,22 @@ fn bindgen_test_layout_ns3__T_USCOREIdList() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ns3__T_USCOREIdList>())).ID as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<ns3__T_USCOREIdList>())).ID_ as *const _ as usize },
         8usize,
         concat!(
             "Offset of field: ",
             stringify!(ns3__T_USCOREIdList),
             "::",
-            stringify!(ID)
+            stringify!(ID_)
         )
     );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__session {
+    /// Required element 'ns3:sessionID' of XSD type 'xsd:string'
     pub sessionID: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:personID' of XSD type 'xsd:long'
     pub personID: i64,
 }
 #[test]
@@ -18789,7 +19050,9 @@ fn bindgen_test_layout__ns3__session() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__LoginRequestParameter {
+    /// Required element 'ns3:username' of XSD type 'xsd:string'
     pub username: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:password' of XSD type 'xsd:string'
     pub password: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -18832,6 +19095,7 @@ fn bindgen_test_layout__ns3__LoginRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__LoginNoAuthRequestParameter {
+    /// Required element 'ns3:username' of XSD type 'xsd:string'
     pub username: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -18866,6 +19130,7 @@ fn bindgen_test_layout__ns3__LoginNoAuthRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__LoginSAMLRequestParameter {
+    /// Required element 'ns3:SAMLartifact' of XSD type 'xsd:string'
     pub SAMLartifact: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -18963,8 +19228,11 @@ fn bindgen_test_layout__ns3__union_LoginImpersonateRequestParameter() {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct _ns3__LoginImpersonateRequestParameter {
+    /// Required element 'ns3:username' of XSD type 'xsd:string'
     pub username: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:password' of XSD type 'xsd:string'
     pub password: *mut ::std::os::raw::c_char,
+    /// Union with union _ns3__union_LoginImpersonateRequestParameter variant selector __union_LoginImpersonateRequestParameter set to one of: SOAP_UNION__ns3__union_LoginImpersonateRequestParameter_ImpersonateUsername SOAP_UNION__ns3__union_LoginImpersonateRequestParameter_ImpersonateUserID SOAP_UNION__ns3__union_LoginImpersonateRequestParameter_ImpersonateForeignKey
     pub __union_LoginImpersonateRequestParameter: ::std::os::raw::c_int,
     pub union_LoginImpersonateRequestParameter: _ns3__union_LoginImpersonateRequestParameter,
 }
@@ -19042,6 +19310,7 @@ fn bindgen_test_layout__ns3__LoginImpersonateRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__LogoutRequestParameter {
+    /// Required element 'ns3:sessionID' of XSD type 'xsd:string'
     pub sessionID: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19072,14 +19341,23 @@ fn bindgen_test_layout__ns3__LogoutRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__createUserRequestParameter {
+    /// Required element 'ns3:sessionID' of XSD type 'xsd:string'
     pub sessionID: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:personID' of XSD type 'ns3:id'
     pub personID: i64,
+    /// Required element 'ns3:username' of XSD type 'xsd:string'
     pub username: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:passwort' of XSD type 'xsd:string'
     pub passwort: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:permissionGroups' of XSD type 'ns3:T_IdList'
     pub permissionGroups: *mut ns3__T_USCOREIdList,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:accessFrom' of XSD type 'xsd:date'
     pub accessFrom: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:accessTo' of XSD type 'xsd:date'
     pub accessTo: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:licenseType' of XSD type 'ns3:T_LicenseType'
     pub licenseType: *mut ns3__T_USCORELicenseType,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:foreignKeyList' of XSD type 'ns3:T_ForeignKeyList'
     pub foreignKeyList: *mut ns3__T_USCOREForeignKeyList,
 }
 #[test]
@@ -19218,16 +19496,27 @@ fn bindgen_test_layout__ns3__createUserRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__searchUserRequestParameter {
+    /// Required element 'ns3:sessionID' of XSD type 'xsd:string'
     pub sessionID: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:username' of XSD type 'xsd:string'
     pub username: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:email' of XSD type 'xsd:string'
     pub email: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:personID' of XSD type 'ns3:id'
     pub personID: *mut i64,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:permissionGroupID' of XSD type 'ns3:id'
     pub permissionGroupID: *mut i64,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:firstname' of XSD type 'xsd:string'
     pub firstname: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:lastname' of XSD type 'xsd:string'
     pub lastname: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:personalNumber' of XSD type 'xsd:string'
     pub personalNumber: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:licenseType' of XSD type 'ns3:T_LicenseType'
     pub licenseType: *mut ns3__T_USCORELicenseType,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:userState' of XSD type 'ns3:T_UserState'
     pub userState: *mut ns3__T_USCOREUserState,
+    /// Required nillable (xsi:nil when NULL) element 'ns3:foreignKey' of XSD type 'ns3:T_ForeignKey'
     pub foreignKey: *mut ns3__T_USCOREForeignKey,
 }
 #[test]
@@ -19391,7 +19680,9 @@ fn bindgen_test_layout__ns3__searchUserRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__deleteUserRequestParameter {
+    /// Required element 'ns3:sessionID' of XSD type 'xsd:string'
     pub sessionID: *mut ::std::os::raw::c_char,
+    /// Required element 'ns3:user' of XSD type 'ns3:UserIDInfo'
     pub user: *mut ns3__UserIDInfo,
 }
 #[test]
@@ -19438,8 +19729,9 @@ fn bindgen_test_layout__ns3__deleteUserRequestParameter() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns3__UserList {
+    /// Sequence of elements 'ns3:User' of XSD type 'ns3:T_User' stored in dynamic array User_ of length __sizeUser
     pub __sizeUser: ::std::os::raw::c_int,
-    pub User: *mut ns3__T_USCOREUser,
+    pub User_: *mut ns3__T_USCOREUser,
 }
 #[test]
 fn bindgen_test_layout__ns3__UserList() {
@@ -19464,20 +19756,22 @@ fn bindgen_test_layout__ns3__UserList() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::std::ptr::null::<_ns3__UserList>())).User as *const _ as usize },
+        unsafe { &(*(::std::ptr::null::<_ns3__UserList>())).User_ as *const _ as usize },
         8usize,
         concat!(
             "Offset of field: ",
             stringify!(_ns3__UserList),
             "::",
-            stringify!(User)
+            stringify!(User_)
         )
     );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns2__UserManagementException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19520,7 +19814,9 @@ fn bindgen_test_layout_ns2__UserManagementException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__WeekFinishedException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19563,7 +19859,9 @@ fn bindgen_test_layout__ns2__WeekFinishedException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidParameterException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19606,7 +19904,9 @@ fn bindgen_test_layout__ns2__InvalidParameterException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__AssertionException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19647,7 +19947,9 @@ fn bindgen_test_layout__ns2__AssertionException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__GeneralWebserviceException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19694,7 +19996,9 @@ fn bindgen_test_layout__ns2__GeneralWebserviceException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ns2__InvalidLicenseException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19737,7 +20041,9 @@ fn bindgen_test_layout_ns2__InvalidLicenseException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidSessionException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19780,7 +20086,9 @@ fn bindgen_test_layout__ns2__InvalidSessionException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidClientException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19823,7 +20131,9 @@ fn bindgen_test_layout__ns2__InvalidClientException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__PermissionDeniedException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19866,7 +20176,9 @@ fn bindgen_test_layout__ns2__PermissionDeniedException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidUsernamePasswordCombinationException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19917,7 +20229,9 @@ fn bindgen_test_layout__ns2__InvalidUsernamePasswordCombinationException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidUsernameException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -19960,7 +20274,9 @@ fn bindgen_test_layout__ns2__InvalidUsernameException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidDatesException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20003,7 +20319,9 @@ fn bindgen_test_layout__ns2__InvalidDatesException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__ServerMaintenanceException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20050,7 +20368,9 @@ fn bindgen_test_layout__ns2__ServerMaintenanceException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__ImpersonatedUserNotFoundException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20101,7 +20421,9 @@ fn bindgen_test_layout__ns2__ImpersonatedUserNotFoundException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidNrOfImpersonationsException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20152,7 +20474,9 @@ fn bindgen_test_layout__ns2__InvalidNrOfImpersonationsException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidNamedLicenseException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20200,7 +20524,9 @@ fn bindgen_test_layout__ns2__InvalidNamedLicenseException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ns2__InvalidConcurrentLicenseException {
+    /// Required nillable (xsi:nil when NULL) element 'ns2:cause' of XSD type 'xsd:anyType'
     pub cause: *mut ::std::os::raw::c_char,
+    /// Required nillable (xsi:nil when NULL) element 'ns2:message' of XSD type 'xsd:string'
     pub message: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20251,21 +20577,37 @@ fn bindgen_test_layout__ns2__InvalidConcurrentLicenseException() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SOAP_ENV__Detail {
+    /// Optional element 'ns2:AssertionException' of XSD type 'ns2:AssertionException'
     pub ns2__AssertionException: *mut _ns2__AssertionException,
+    /// Optional element 'ns2:GeneralWebserviceException' of XSD type 'ns2:GeneralWebserviceException'
     pub ns2__GeneralWebserviceException: *mut _ns2__GeneralWebserviceException,
+    /// Optional element 'ns2:ImpersonatedUserNotFoundException' of XSD type 'ns2:ImpersonatedUserNotFoundException'
     pub ns2__ImpersonatedUserNotFoundException: *mut _ns2__ImpersonatedUserNotFoundException,
+    /// Optional element 'ns2:InvalidClientException' of XSD type 'ns2:InvalidClientException'
     pub ns2__InvalidClientException: *mut _ns2__InvalidClientException,
+    /// Optional element 'ns2:InvalidConcurrentLicenseException' of XSD type 'ns2:InvalidConcurrentLicenseException'
     pub ns2__InvalidConcurrentLicenseException: *mut _ns2__InvalidConcurrentLicenseException,
+    /// Optional element 'ns2:InvalidDatesException' of XSD type 'ns2:InvalidDatesException'
     pub ns2__InvalidDatesException: *mut _ns2__InvalidDatesException,
+    /// Optional element 'ns2:InvalidNamedLicenseException' of XSD type 'ns2:InvalidNamedLicenseException'
     pub ns2__InvalidNamedLicenseException: *mut _ns2__InvalidNamedLicenseException,
+    /// Optional element 'ns2:InvalidNrOfImpersonationsException' of XSD type 'ns2:InvalidNrOfImpersonationsException'
     pub ns2__InvalidNrOfImpersonationsException: *mut _ns2__InvalidNrOfImpersonationsException,
+    /// Optional element 'ns2:InvalidParameterException' of XSD type 'ns2:InvalidParameterException'
     pub ns2__InvalidParameterException: *mut _ns2__InvalidParameterException,
+    /// Optional element 'ns2:InvalidSessionException' of XSD type 'ns2:InvalidSessionException'
     pub ns2__InvalidSessionException: *mut _ns2__InvalidSessionException,
+    /// Optional element 'ns2:InvalidUsernameException' of XSD type 'ns2:InvalidUsernameException'
     pub ns2__InvalidUsernameException: *mut _ns2__InvalidUsernameException,
+    /// Optional element 'ns2:InvalidUsernamePasswordCombinationException' of XSD type 'ns2:InvalidUsernamePasswordCombinationException'
     pub ns2__InvalidUsernamePasswordCombinationException:
         *mut _ns2__InvalidUsernamePasswordCombinationException,
+    /// Optional element 'ns2:PermissionDeniedException' of XSD type 'ns2:PermissionDeniedException'
     pub ns2__PermissionDeniedException: *mut _ns2__PermissionDeniedException,
+    /// Optional element 'ns2:ServerMaintenanceException' of XSD type 'ns2:ServerMaintenanceException'
     pub ns2__ServerMaintenanceException: *mut _ns2__ServerMaintenanceException,
+    /// Any type of element 'fault' assigned to fault with its SOAP_TYPE_T assigned to __type */
+    /// /** Do not create a cyclic data structure throught this member unless SOAP encoding or SOAP_XML_GRAPH are used for id-ref serialization
     pub __type: ::std::os::raw::c_int,
     pub fault: *mut ::std::os::raw::c_void,
     pub __any: *mut ::std::os::raw::c_char,
@@ -20498,6 +20840,7 @@ fn bindgen_test_layout_SOAP_ENV__Detail() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__Login {
+    /// Optional element 'ns3:LoginRequestParameter' of XSD type 'ns3:LoginRequestParameter'
     pub ns3__LoginRequestParameter: *mut _ns3__LoginRequestParameter,
 }
 #[test]
@@ -20528,6 +20871,7 @@ fn bindgen_test_layout___ns1__Login() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__LoginNoAuth {
+    /// Optional element 'ns3:LoginNoAuthRequestParameter' of XSD type 'ns3:LoginNoAuthRequestParameter'
     pub ns3__LoginNoAuthRequestParameter: *mut _ns3__LoginNoAuthRequestParameter,
 }
 #[test]
@@ -20559,6 +20903,7 @@ fn bindgen_test_layout___ns1__LoginNoAuth() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__LoginSAML {
+    /// Optional element 'ns3:LoginSAMLRequestParameter' of XSD type 'ns3:LoginSAMLRequestParameter'
     pub ns3__LoginSAMLRequestParameter: *mut _ns3__LoginSAMLRequestParameter,
 }
 #[test]
@@ -20590,6 +20935,7 @@ fn bindgen_test_layout___ns1__LoginSAML() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__LoginImpersonate {
+    /// Optional element 'ns3:LoginImpersonateRequestParameter' of XSD type 'ns3:LoginImpersonateRequestParameter'
     pub ns3__LoginImpersonateRequestParameter: *mut _ns3__LoginImpersonateRequestParameter,
 }
 #[test]
@@ -20620,14 +20966,12 @@ fn bindgen_test_layout___ns1__LoginImpersonate() {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __ns1__LogoutResponse {
-    pub dummy: ::std::os::raw::c_char,
-}
+pub struct __ns1__LogoutResponse {}
 #[test]
 fn bindgen_test_layout___ns1__LogoutResponse() {
     assert_eq!(
         ::std::mem::size_of::<__ns1__LogoutResponse>(),
-        1usize,
+        0usize,
         concat!("Size of: ", stringify!(__ns1__LogoutResponse))
     );
     assert_eq!(
@@ -20635,20 +20979,11 @@ fn bindgen_test_layout___ns1__LogoutResponse() {
         1usize,
         concat!("Alignment of ", stringify!(__ns1__LogoutResponse))
     );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<__ns1__LogoutResponse>())).dummy as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ns1__LogoutResponse),
-            "::",
-            stringify!(dummy)
-        )
-    );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__Logout {
+    /// Optional element 'ns3:LogoutRequestParameter' of XSD type 'ns3:LogoutRequestParameter'
     pub ns3__LogoutRequestParameter: *mut _ns3__LogoutRequestParameter,
 }
 #[test]
@@ -20680,6 +21015,7 @@ fn bindgen_test_layout___ns1__Logout() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__createUser {
+    /// Optional element 'ns3:createUserRequestParameter' of XSD type 'ns3:createUserRequestParameter'
     pub ns3__createUserRequestParameter: *mut _ns3__createUserRequestParameter,
 }
 #[test]
@@ -20710,14 +21046,12 @@ fn bindgen_test_layout___ns1__createUser() {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __ns1__deleteUserResponse {
-    pub dummy: ::std::os::raw::c_char,
-}
+pub struct __ns1__deleteUserResponse {}
 #[test]
 fn bindgen_test_layout___ns1__deleteUserResponse() {
     assert_eq!(
         ::std::mem::size_of::<__ns1__deleteUserResponse>(),
-        1usize,
+        0usize,
         concat!("Size of: ", stringify!(__ns1__deleteUserResponse))
     );
     assert_eq!(
@@ -20725,20 +21059,11 @@ fn bindgen_test_layout___ns1__deleteUserResponse() {
         1usize,
         concat!("Alignment of ", stringify!(__ns1__deleteUserResponse))
     );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<__ns1__deleteUserResponse>())).dummy as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(__ns1__deleteUserResponse),
-            "::",
-            stringify!(dummy)
-        )
-    );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__deleteUser {
+    /// Optional element 'ns3:deleteUserRequestParameter' of XSD type 'ns3:deleteUserRequestParameter'
     pub ns3__deleteUserRequestParameter: *mut _ns3__deleteUserRequestParameter,
 }
 #[test]
@@ -20770,6 +21095,7 @@ fn bindgen_test_layout___ns1__deleteUser() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __ns1__searchUser {
+    /// Optional element 'ns3:searchUserRequestParameter' of XSD type 'ns3:searchUserRequestParameter'
     pub ns3__searchUserRequestParameter: *mut _ns3__searchUserRequestParameter,
 }
 #[test]
@@ -20800,14 +21126,12 @@ fn bindgen_test_layout___ns1__searchUser() {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct SOAP_ENV__Header {
-    pub dummy: ::std::os::raw::c_char,
-}
+pub struct SOAP_ENV__Header {}
 #[test]
 fn bindgen_test_layout_SOAP_ENV__Header() {
     assert_eq!(
         ::std::mem::size_of::<SOAP_ENV__Header>(),
-        1usize,
+        0usize,
         concat!("Size of: ", stringify!(SOAP_ENV__Header))
     );
     assert_eq!(
@@ -20815,21 +21139,13 @@ fn bindgen_test_layout_SOAP_ENV__Header() {
         1usize,
         concat!("Alignment of ", stringify!(SOAP_ENV__Header))
     );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<SOAP_ENV__Header>())).dummy as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SOAP_ENV__Header),
-            "::",
-            stringify!(dummy)
-        )
-    );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SOAP_ENV__Code {
+    /// Optional element 'SOAP-ENV:Value' of XSD type 'xsd:QName'
     pub SOAP_ENV__Value: *mut ::std::os::raw::c_char,
+    /// Optional element 'SOAP-ENV:Subcode' of XSD type 'SOAP-ENV:Code'
     pub SOAP_ENV__Subcode: *mut SOAP_ENV__Code,
 }
 #[test]
@@ -20870,6 +21186,7 @@ fn bindgen_test_layout_SOAP_ENV__Code() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SOAP_ENV__Reason {
+    /// Optional element 'SOAP-ENV:Text' of XSD type 'xsd:string'
     pub SOAP_ENV__Text: *mut ::std::os::raw::c_char,
 }
 #[test]
@@ -20898,14 +21215,23 @@ fn bindgen_test_layout_SOAP_ENV__Reason() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SOAP_ENV__Fault {
+    /// Optional element 'faultcode' of XSD type 'xsd:QName'
     pub faultcode: *mut ::std::os::raw::c_char,
+    /// Optional element 'faultstring' of XSD type 'xsd:string'
     pub faultstring: *mut ::std::os::raw::c_char,
+    /// Optional element 'faultactor' of XSD type 'xsd:string'
     pub faultactor: *mut ::std::os::raw::c_char,
+    /// Optional element 'detail' of XSD type 'SOAP-ENV:Detail'
     pub detail: *mut SOAP_ENV__Detail,
+    /// Optional element 'SOAP-ENV:Code' of XSD type 'SOAP-ENV:Code'
     pub SOAP_ENV__Code: *mut SOAP_ENV__Code,
+    /// Optional element 'SOAP-ENV:Reason' of XSD type 'SOAP-ENV:Reason'
     pub SOAP_ENV__Reason: *mut SOAP_ENV__Reason,
+    /// Optional element 'SOAP-ENV:Node' of XSD type 'xsd:string'
     pub SOAP_ENV__Node: *mut ::std::os::raw::c_char,
+    /// Optional element 'SOAP-ENV:Role' of XSD type 'xsd:string'
     pub SOAP_ENV__Role: *mut ::std::os::raw::c_char,
+    /// Optional element 'SOAP-ENV:Detail' of XSD type 'SOAP-ENV:Detail'
     pub SOAP_ENV__Detail: *mut SOAP_ENV__Detail,
 }
 #[test]
@@ -21015,8 +21341,8 @@ fn bindgen_test_layout_SOAP_ENV__Fault() {
         )
     );
 }
-pub type _QName = *mut ::std::os::raw::c_char;
 pub type _XML = *mut ::std::os::raw::c_char;
+pub type _QName = *mut ::std::os::raw::c_char;
 pub type xsd__date = *mut ::std::os::raw::c_char;
 pub type ns3__id = i64;
 pub type ns3__optionalInt = ::std::os::raw::c_int;
@@ -21026,7 +21352,7 @@ pub type ns3__optionalLong = i64;
 extern "C" {
     /// \
     /// *
-    /// Client-Side Call Stubs                                                     *
+    /// Client-Side Call Stub Functions                                            *
     /// *
     /// \
     pub fn soap_call___ns1__Login(
@@ -21088,7 +21414,7 @@ extern "C" {
         soap_endpoint: *const ::std::os::raw::c_char,
         soap_action: *const ::std::os::raw::c_char,
         ns3__deleteUserRequestParameter: *mut _ns3__deleteUserRequestParameter,
-        _param_2: *mut __ns1__deleteUserResponse,
+        _param_1: *mut __ns1__deleteUserResponse,
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
@@ -21129,10 +21455,17 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_ignore_element(arg1: *mut soap) -> ::std::os::raw::c_int;
+    pub fn soap_dupelement(
+        arg1: *mut soap,
+        arg2: *const ::std::os::raw::c_void,
+        arg3: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    pub fn soap_default_byte(arg1: *mut soap, arg2: *mut ::std::os::raw::c_char);
+    pub fn soap_delelement(arg1: *const ::std::os::raw::c_void, arg2: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn soap_ignore_element(arg1: *mut soap) -> ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn soap_out_byte(
@@ -21150,6 +21483,9 @@ extern "C" {
         arg3: *mut ::std::os::raw::c_char,
         arg4: *const ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn soap_new_byte(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_char;
 }
 extern "C" {
     pub fn soap_put_byte(
@@ -21201,9 +21537,6 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn soap_default_int(arg1: *mut soap, arg2: *mut ::std::os::raw::c_int);
-}
-extern "C" {
     pub fn soap_out_int(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
@@ -21219,6 +21552,9 @@ extern "C" {
         arg3: *mut ::std::os::raw::c_int,
         arg4: *const ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_new_int(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_int;
 }
 extern "C" {
     pub fn soap_put_int(
@@ -21303,9 +21639,6 @@ extern "C" {
     ) -> *mut i64;
 }
 extern "C" {
-    pub fn soap_default_LONG64(arg1: *mut soap, arg2: *mut i64);
-}
-extern "C" {
     pub fn soap_out_LONG64(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
@@ -21321,6 +21654,9 @@ extern "C" {
         arg3: *mut i64,
         arg4: *const ::std::os::raw::c_char,
     ) -> *mut i64;
+}
+extern "C" {
+    pub fn soap_new_LONG64(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut i64;
 }
 extern "C" {
     pub fn soap_put_LONG64(
@@ -21372,9 +21708,6 @@ extern "C" {
     ) -> *mut f64;
 }
 extern "C" {
-    pub fn soap_default_double(arg1: *mut soap, arg2: *mut f64);
-}
-extern "C" {
     pub fn soap_out_double(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
@@ -21392,6 +21725,9 @@ extern "C" {
     ) -> *mut f64;
 }
 extern "C" {
+    pub fn soap_new_double(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut f64;
+}
+extern "C" {
     pub fn soap_put_double(
         arg1: *mut soap,
         arg2: *const f64,
@@ -21406,9 +21742,6 @@ extern "C" {
         arg3: *const ::std::os::raw::c_char,
         arg4: *const ::std::os::raw::c_char,
     ) -> *mut f64;
-}
-extern "C" {
-    pub fn soap_default_ns3__T_USCOREUserState(arg1: *mut soap, arg2: *mut ns3__T_USCOREUserState);
 }
 extern "C" {
     pub fn soap_out_ns3__T_USCOREUserState(
@@ -21441,6 +21774,12 @@ extern "C" {
     ) -> ::std::os::raw::c_int;
 }
 extern "C" {
+    pub fn soap_new_ns3__T_USCOREUserState(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut ns3__T_USCOREUserState;
+}
+extern "C" {
     pub fn soap_put_ns3__T_USCOREUserState(
         arg1: *mut soap,
         arg2: *const ns3__T_USCOREUserState,
@@ -21455,12 +21794,6 @@ extern "C" {
         arg3: *const ::std::os::raw::c_char,
         arg4: *const ::std::os::raw::c_char,
     ) -> *mut ns3__T_USCOREUserState;
-}
-extern "C" {
-    pub fn soap_default_ns3__T_USCORELicenseType(
-        arg1: *mut soap,
-        arg2: *mut ns3__T_USCORELicenseType,
-    );
 }
 extern "C" {
     pub fn soap_out_ns3__T_USCORELicenseType(
@@ -21491,6 +21824,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut ns3__T_USCORELicenseType,
     ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_new_ns3__T_USCORELicenseType(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut ns3__T_USCORELicenseType;
 }
 extern "C" {
     pub fn soap_put_ns3__T_USCORELicenseType(
@@ -21542,9 +21881,6 @@ extern "C" {
     ) -> *mut xsd__boolean;
 }
 extern "C" {
-    pub fn soap_default_xsd__boolean(arg1: *mut soap, arg2: *mut xsd__boolean);
-}
-extern "C" {
     pub fn soap_out_xsd__boolean(
         arg1: *mut soap,
         arg2: *const ::std::os::raw::c_char,
@@ -21573,6 +21909,9 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut xsd__boolean,
     ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn soap_new_xsd__boolean(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut xsd__boolean;
 }
 extern "C" {
     pub fn soap_put_xsd__boolean(
@@ -21611,6 +21950,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut SOAP_ENV__Fault,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut SOAP_ENV__Fault;
+}
+extern "C" {
+    pub fn soap_new_SOAP_ENV__Fault(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut SOAP_ENV__Fault;
 }
 extern "C" {
@@ -21653,6 +21998,12 @@ extern "C" {
     ) -> *mut SOAP_ENV__Reason;
 }
 extern "C" {
+    pub fn soap_new_SOAP_ENV__Reason(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut SOAP_ENV__Reason;
+}
+extern "C" {
     pub fn soap_put_SOAP_ENV__Reason(
         arg1: *mut soap,
         arg2: *const SOAP_ENV__Reason,
@@ -21689,6 +22040,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut SOAP_ENV__Code,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut SOAP_ENV__Code;
+}
+extern "C" {
+    pub fn soap_new_SOAP_ENV__Code(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut SOAP_ENV__Code;
 }
 extern "C" {
@@ -21731,6 +22088,12 @@ extern "C" {
     ) -> *mut SOAP_ENV__Header;
 }
 extern "C" {
+    pub fn soap_new_SOAP_ENV__Header(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut SOAP_ENV__Header;
+}
+extern "C" {
     pub fn soap_put_SOAP_ENV__Header(
         arg1: *mut soap,
         arg2: *const SOAP_ENV__Header,
@@ -21770,6 +22133,12 @@ extern "C" {
     ) -> *mut __ns1__searchUser;
 }
 extern "C" {
+    pub fn soap_new___ns1__searchUser(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut __ns1__searchUser;
+}
+extern "C" {
     pub fn soap_put___ns1__searchUser(
         arg1: *mut soap,
         arg2: *const __ns1__searchUser,
@@ -21806,6 +22175,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut __ns1__deleteUser,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut __ns1__deleteUser;
+}
+extern "C" {
+    pub fn soap_new___ns1__deleteUser(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut __ns1__deleteUser;
 }
 extern "C" {
@@ -21854,6 +22229,12 @@ extern "C" {
     ) -> *mut __ns1__deleteUserResponse;
 }
 extern "C" {
+    pub fn soap_new___ns1__deleteUserResponse(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut __ns1__deleteUserResponse;
+}
+extern "C" {
     pub fn soap_put___ns1__deleteUserResponse(
         arg1: *mut soap,
         arg2: *const __ns1__deleteUserResponse,
@@ -21890,6 +22271,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut __ns1__createUser,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut __ns1__createUser;
+}
+extern "C" {
+    pub fn soap_new___ns1__createUser(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut __ns1__createUser;
 }
 extern "C" {
@@ -21932,6 +22319,9 @@ extern "C" {
     ) -> *mut __ns1__Logout;
 }
 extern "C" {
+    pub fn soap_new___ns1__Logout(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut __ns1__Logout;
+}
+extern "C" {
     pub fn soap_put___ns1__Logout(
         arg1: *mut soap,
         arg2: *const __ns1__Logout,
@@ -21971,6 +22361,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut __ns1__LogoutResponse,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut __ns1__LogoutResponse;
+}
+extern "C" {
+    pub fn soap_new___ns1__LogoutResponse(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut __ns1__LogoutResponse;
 }
 extern "C" {
@@ -22019,6 +22415,12 @@ extern "C" {
     ) -> *mut __ns1__LoginImpersonate;
 }
 extern "C" {
+    pub fn soap_new___ns1__LoginImpersonate(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut __ns1__LoginImpersonate;
+}
+extern "C" {
     pub fn soap_put___ns1__LoginImpersonate(
         arg1: *mut soap,
         arg2: *const __ns1__LoginImpersonate,
@@ -22055,6 +22457,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut __ns1__LoginSAML,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut __ns1__LoginSAML;
+}
+extern "C" {
+    pub fn soap_new___ns1__LoginSAML(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut __ns1__LoginSAML;
 }
 extern "C" {
@@ -22097,6 +22505,12 @@ extern "C" {
     ) -> *mut __ns1__LoginNoAuth;
 }
 extern "C" {
+    pub fn soap_new___ns1__LoginNoAuth(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut __ns1__LoginNoAuth;
+}
+extern "C" {
     pub fn soap_put___ns1__LoginNoAuth(
         arg1: *mut soap,
         arg2: *const __ns1__LoginNoAuth,
@@ -22136,6 +22550,9 @@ extern "C" {
     ) -> *mut __ns1__Login;
 }
 extern "C" {
+    pub fn soap_new___ns1__Login(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut __ns1__Login;
+}
+extern "C" {
     pub fn soap_put___ns1__Login(
         arg1: *mut soap,
         arg2: *const __ns1__Login,
@@ -22172,6 +22589,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut SOAP_ENV__Detail,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut SOAP_ENV__Detail;
+}
+extern "C" {
+    pub fn soap_new_SOAP_ENV__Detail(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut SOAP_ENV__Detail;
 }
 extern "C" {
@@ -22220,6 +22643,12 @@ extern "C" {
     ) -> *mut _ns2__InvalidConcurrentLicenseException;
 }
 extern "C" {
+    pub fn soap_new__ns2__InvalidConcurrentLicenseException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__InvalidConcurrentLicenseException;
+}
+extern "C" {
     pub fn soap_put__ns2__InvalidConcurrentLicenseException(
         arg1: *mut soap,
         arg2: *const _ns2__InvalidConcurrentLicenseException,
@@ -22262,6 +22691,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__InvalidNamedLicenseException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__InvalidNamedLicenseException;
+}
+extern "C" {
+    pub fn soap_new__ns2__InvalidNamedLicenseException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__InvalidNamedLicenseException;
 }
 extern "C" {
@@ -22310,6 +22745,12 @@ extern "C" {
     ) -> *mut _ns2__InvalidNrOfImpersonationsException;
 }
 extern "C" {
+    pub fn soap_new__ns2__InvalidNrOfImpersonationsException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__InvalidNrOfImpersonationsException;
+}
+extern "C" {
     pub fn soap_put__ns2__InvalidNrOfImpersonationsException(
         arg1: *mut soap,
         arg2: *const _ns2__InvalidNrOfImpersonationsException,
@@ -22352,6 +22793,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__ImpersonatedUserNotFoundException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__ImpersonatedUserNotFoundException;
+}
+extern "C" {
+    pub fn soap_new__ns2__ImpersonatedUserNotFoundException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__ImpersonatedUserNotFoundException;
 }
 extern "C" {
@@ -22400,6 +22847,12 @@ extern "C" {
     ) -> *mut _ns2__ServerMaintenanceException;
 }
 extern "C" {
+    pub fn soap_new__ns2__ServerMaintenanceException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__ServerMaintenanceException;
+}
+extern "C" {
     pub fn soap_put__ns2__ServerMaintenanceException(
         arg1: *mut soap,
         arg2: *const _ns2__ServerMaintenanceException,
@@ -22442,6 +22895,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__InvalidDatesException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__InvalidDatesException;
+}
+extern "C" {
+    pub fn soap_new__ns2__InvalidDatesException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__InvalidDatesException;
 }
 extern "C" {
@@ -22490,6 +22949,12 @@ extern "C" {
     ) -> *mut _ns2__InvalidUsernameException;
 }
 extern "C" {
+    pub fn soap_new__ns2__InvalidUsernameException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__InvalidUsernameException;
+}
+extern "C" {
     pub fn soap_put__ns2__InvalidUsernameException(
         arg1: *mut soap,
         arg2: *const _ns2__InvalidUsernameException,
@@ -22532,6 +22997,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__InvalidUsernamePasswordCombinationException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__InvalidUsernamePasswordCombinationException;
+}
+extern "C" {
+    pub fn soap_new__ns2__InvalidUsernamePasswordCombinationException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__InvalidUsernamePasswordCombinationException;
 }
 extern "C" {
@@ -22580,6 +23051,12 @@ extern "C" {
     ) -> *mut _ns2__PermissionDeniedException;
 }
 extern "C" {
+    pub fn soap_new__ns2__PermissionDeniedException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__PermissionDeniedException;
+}
+extern "C" {
     pub fn soap_put__ns2__PermissionDeniedException(
         arg1: *mut soap,
         arg2: *const _ns2__PermissionDeniedException,
@@ -22622,6 +23099,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__InvalidClientException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__InvalidClientException;
+}
+extern "C" {
+    pub fn soap_new__ns2__InvalidClientException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__InvalidClientException;
 }
 extern "C" {
@@ -22670,6 +23153,12 @@ extern "C" {
     ) -> *mut _ns2__InvalidSessionException;
 }
 extern "C" {
+    pub fn soap_new__ns2__InvalidSessionException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__InvalidSessionException;
+}
+extern "C" {
     pub fn soap_put__ns2__InvalidSessionException(
         arg1: *mut soap,
         arg2: *const _ns2__InvalidSessionException,
@@ -22712,6 +23201,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut ns2__InvalidLicenseException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut ns2__InvalidLicenseException;
+}
+extern "C" {
+    pub fn soap_new_ns2__InvalidLicenseException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut ns2__InvalidLicenseException;
 }
 extern "C" {
@@ -22760,6 +23255,12 @@ extern "C" {
     ) -> *mut _ns2__GeneralWebserviceException;
 }
 extern "C" {
+    pub fn soap_new__ns2__GeneralWebserviceException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__GeneralWebserviceException;
+}
+extern "C" {
     pub fn soap_put__ns2__GeneralWebserviceException(
         arg1: *mut soap,
         arg2: *const _ns2__GeneralWebserviceException,
@@ -22802,6 +23303,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__AssertionException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__AssertionException;
+}
+extern "C" {
+    pub fn soap_new__ns2__AssertionException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__AssertionException;
 }
 extern "C" {
@@ -22850,6 +23357,12 @@ extern "C" {
     ) -> *mut _ns2__InvalidParameterException;
 }
 extern "C" {
+    pub fn soap_new__ns2__InvalidParameterException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns2__InvalidParameterException;
+}
+extern "C" {
     pub fn soap_put__ns2__InvalidParameterException(
         arg1: *mut soap,
         arg2: *const _ns2__InvalidParameterException,
@@ -22892,6 +23405,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns2__WeekFinishedException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns2__WeekFinishedException;
+}
+extern "C" {
+    pub fn soap_new__ns2__WeekFinishedException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns2__WeekFinishedException;
 }
 extern "C" {
@@ -22940,6 +23459,12 @@ extern "C" {
     ) -> *mut ns2__UserManagementException;
 }
 extern "C" {
+    pub fn soap_new_ns2__UserManagementException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut ns2__UserManagementException;
+}
+extern "C" {
     pub fn soap_put_ns2__UserManagementException(
         arg1: *mut soap,
         arg2: *const ns2__UserManagementException,
@@ -22976,6 +23501,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns3__UserList,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns3__UserList;
+}
+extern "C" {
+    pub fn soap_new__ns3__UserList(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns3__UserList;
 }
 extern "C" {
@@ -23024,6 +23555,12 @@ extern "C" {
     ) -> *mut _ns3__deleteUserRequestParameter;
 }
 extern "C" {
+    pub fn soap_new__ns3__deleteUserRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns3__deleteUserRequestParameter;
+}
+extern "C" {
     pub fn soap_put__ns3__deleteUserRequestParameter(
         arg1: *mut soap,
         arg2: *const _ns3__deleteUserRequestParameter,
@@ -23066,6 +23603,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns3__searchUserRequestParameter,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns3__searchUserRequestParameter;
+}
+extern "C" {
+    pub fn soap_new__ns3__searchUserRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns3__searchUserRequestParameter;
 }
 extern "C" {
@@ -23114,6 +23657,12 @@ extern "C" {
     ) -> *mut _ns3__createUserRequestParameter;
 }
 extern "C" {
+    pub fn soap_new__ns3__createUserRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns3__createUserRequestParameter;
+}
+extern "C" {
     pub fn soap_put__ns3__createUserRequestParameter(
         arg1: *mut soap,
         arg2: *const _ns3__createUserRequestParameter,
@@ -23156,6 +23705,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns3__LogoutRequestParameter,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns3__LogoutRequestParameter;
+}
+extern "C" {
+    pub fn soap_new__ns3__LogoutRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns3__LogoutRequestParameter;
 }
 extern "C" {
@@ -23204,6 +23759,12 @@ extern "C" {
     ) -> *mut _ns3__LoginImpersonateRequestParameter;
 }
 extern "C" {
+    pub fn soap_new__ns3__LoginImpersonateRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns3__LoginImpersonateRequestParameter;
+}
+extern "C" {
     pub fn soap_put__ns3__LoginImpersonateRequestParameter(
         arg1: *mut soap,
         arg2: *const _ns3__LoginImpersonateRequestParameter,
@@ -23246,6 +23807,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut _ns3__LoginSAMLRequestParameter,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut _ns3__LoginSAMLRequestParameter;
+}
+extern "C" {
+    pub fn soap_new__ns3__LoginSAMLRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut _ns3__LoginSAMLRequestParameter;
 }
 extern "C" {
@@ -23294,6 +23861,12 @@ extern "C" {
     ) -> *mut _ns3__LoginNoAuthRequestParameter;
 }
 extern "C" {
+    pub fn soap_new__ns3__LoginNoAuthRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns3__LoginNoAuthRequestParameter;
+}
+extern "C" {
     pub fn soap_put__ns3__LoginNoAuthRequestParameter(
         arg1: *mut soap,
         arg2: *const _ns3__LoginNoAuthRequestParameter,
@@ -23339,6 +23912,12 @@ extern "C" {
     ) -> *mut _ns3__LoginRequestParameter;
 }
 extern "C" {
+    pub fn soap_new__ns3__LoginRequestParameter(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut _ns3__LoginRequestParameter;
+}
+extern "C" {
     pub fn soap_put__ns3__LoginRequestParameter(
         arg1: *mut soap,
         arg2: *const _ns3__LoginRequestParameter,
@@ -23378,6 +23957,9 @@ extern "C" {
     ) -> *mut _ns3__session;
 }
 extern "C" {
+    pub fn soap_new__ns3__session(soap: *mut soap, n: ::std::os::raw::c_int) -> *mut _ns3__session;
+}
+extern "C" {
     pub fn soap_put__ns3__session(
         arg1: *mut soap,
         arg2: *const _ns3__session,
@@ -23414,6 +23996,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut ns3__T_USCOREIdList,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut ns3__T_USCOREIdList;
+}
+extern "C" {
+    pub fn soap_new_ns3__T_USCOREIdList(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut ns3__T_USCOREIdList;
 }
 extern "C" {
@@ -23456,6 +24044,12 @@ extern "C" {
     ) -> *mut ns3__T_USCOREUser;
 }
 extern "C" {
+    pub fn soap_new_ns3__T_USCOREUser(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut ns3__T_USCOREUser;
+}
+extern "C" {
     pub fn soap_put_ns3__T_USCOREUser(
         arg1: *mut soap,
         arg2: *const ns3__T_USCOREUser,
@@ -23492,6 +24086,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut ns3__UserIDInfo,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut ns3__UserIDInfo;
+}
+extern "C" {
+    pub fn soap_new_ns3__UserIDInfo(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut ns3__UserIDInfo;
 }
 extern "C" {
@@ -23540,6 +24140,12 @@ extern "C" {
     ) -> *mut ns3__T_USCOREForeignKeyList;
 }
 extern "C" {
+    pub fn soap_new_ns3__T_USCOREForeignKeyList(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut ns3__T_USCOREForeignKeyList;
+}
+extern "C" {
     pub fn soap_put_ns3__T_USCOREForeignKeyList(
         arg1: *mut soap,
         arg2: *const ns3__T_USCOREForeignKeyList,
@@ -23585,6 +24191,12 @@ extern "C" {
     ) -> *mut ns3__T_USCOREForeignKey;
 }
 extern "C" {
+    pub fn soap_new_ns3__T_USCOREForeignKey(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
+    ) -> *mut ns3__T_USCOREForeignKey;
+}
+extern "C" {
     pub fn soap_put_ns3__T_USCOREForeignKey(
         arg1: *mut soap,
         arg2: *const ns3__T_USCOREForeignKey,
@@ -23627,6 +24239,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut ns2__GeneralWebserviceException,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut ns2__GeneralWebserviceException;
+}
+extern "C" {
+    pub fn soap_new_ns2__GeneralWebserviceException(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut ns2__GeneralWebserviceException;
 }
 extern "C" {
@@ -25200,9 +25818,6 @@ extern "C" {
     ) -> *mut *mut ::std::os::raw::c_char;
 }
 extern "C" {
-    pub fn soap_default_string(arg1: *mut soap, arg2: *mut *mut ::std::os::raw::c_char);
-}
-extern "C" {
     pub fn soap_serialize_string(arg1: *mut soap, arg2: *const *const ::std::os::raw::c_char);
 }
 extern "C" {
@@ -25220,6 +25835,12 @@ extern "C" {
         arg2: *const ::std::os::raw::c_char,
         arg3: *mut *mut ::std::os::raw::c_char,
         arg4: *const ::std::os::raw::c_char,
+    ) -> *mut *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn soap_new_string(
+        soap: *mut soap,
+        n: ::std::os::raw::c_int,
     ) -> *mut *mut ::std::os::raw::c_char;
 }
 extern "C" {

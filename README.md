@@ -19,3 +19,10 @@ Create create libary with the name libsoap.a:
 ## Create C Bindings with bindgen
 
 How to install: 
+
+* cargo install rusfmt-nightly
+* cargo install bindgen
+
+Generate bindings: 
+* cd src/gsoap
+* bindgen --blacklist-type _bindgen_ty_2 --blacklist-type_bindgen_ty_8 soapH.h > ../binding.rs
