@@ -1,6 +1,7 @@
 extern crate gcc;
 
 fn main() {
+    /*
     gcc::Build::new()
         .files(&[
             "src/gsoap/blueant.c",
@@ -9,4 +10,5 @@ fn main() {
         ])
         .flag("-Wno-unused-function")
         .compile("blueant");
+        */
 }

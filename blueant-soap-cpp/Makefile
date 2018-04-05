@@ -1,5 +1,8 @@
 ARCH=$(shell uname -s)
 
+$(ARCH)/libblueant.dylib: $(ARCH)/blueant
+	g++ -dynamiclib -o $(ARCH)/libblueant.dylib $(ARCH)/soapBaseBindingProxy.o $(ARCH)/soapC.o $(ARCH)/main.o -lstdc++ -lgsoapssl++ -lssl -lcrypto -lz
+
 $(ARCH)/blueant: $(ARCH) $(ARCH)/soapBaseBindingProxy.o $(ARCH)/soapC.o $(ARCH)/main.o 
 	cc -o $(ARCH)/blueant $(ARCH)/main.o $(ARCH)/soapBaseBindingProxy.o $(ARCH)/soapC.o -lstdc++ -lgsoapssl++ -lssl -lcrypto -lz
 
