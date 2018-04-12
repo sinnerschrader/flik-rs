@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ns2="http://exception.blueant.axis.proventis.net/"
+    xmlns:ns1="http://blueant.axis.proventis.net/"
+    xmlns:ns3="http://base.blueant.axis.proventis.net/">
+ <SOAP-ENV:Body>
+  <ns3:UserList>
+   <ns3:User>
+    <ns3:userID>0</ns3:userID>
+    <ns3:personID>0</ns3:personID>
+    <ns3:username></ns3:username>
+    <ns3:permissionGroups>
+     <ns3:ID>0</ns3:ID>
+    </ns3:permissionGroups>
+    <ns3:lastname></ns3:lastname>
+    <ns3:firstname></ns3:firstname>
+    <ns3:personalNumber></ns3:personalNumber>
+    <ns3:email></ns3:email>
+    <ns3:licenseType>named</ns3:licenseType>
+    <ns3:userState>active</ns3:userState>
+    <ns3:foreignKeyList>
+     <ns3:ForeignKey>
+      <ns3:foreignID></ns3:foreignID>
+      <ns3:foreignSystem></ns3:foreignSystem>
+     </ns3:ForeignKey>
+    </ns3:foreignKeyList>
+   </ns3:User>
+  </ns3:UserList>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
