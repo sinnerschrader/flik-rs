@@ -14,8 +14,8 @@ mod binding;
 // #[link_args = "-L/tmp/flik-rs/blueant-soap-cpp/Darwin"]
 #[link(name = "blueant")]
 extern "C" {
-    fn newBlueantBase() -> *const libc::c_char;
-    fn deleteBlueantBase(blueantBase: *const libc::c_char);
+    fn newBlueantBase() -> *mut binding::soap;
+    fn deleteBlueantBase(blueantBase: *mut binding::soap);
     fn blueantLogin(
         blueantBase: *const binding::soap,
         username: *const libc::c_char,
@@ -23,32 +23,27 @@ extern "C" {
         session: *const binding::_ns3__session,
     ) -> libc::c_int;
 }
-#[link(name = "gsoap")]
-extern "C" {
-    fn soap_new() -> binding::soap;
-    fn soap_destroy(soap: *const binding::soap);
-}
 
 fn main() {
-    let username = CString::new("").unwrap();
-    let password = CString::new("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq").unwrap();
-    let mut blueantBase = unsafe { &mut soap_new() };
+    let mut username = CString::new("").unwrap();
+    let mut password = CString::new("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq").unwrap();
+    let mut loginParams = binding::_ns3__LoginRequestParameter {
+        username: username.into_raw(),
+        password: password.into_raw()
+    };
+
+    let mut blueantBase = unsafe { newBlueantBase() };
     let mut session = binding::_ns3__session {
-        sessionID: &mut 0i8,
+        sessionID: std::ptr::null_mut(),
         personID: 0,
     };
 
-    let mut v42: libc::c_int;
+    let mut v42: std::os::raw::c_int;
     {
         let session_ptr = unsafe { &mut session };
 
         v42 = unsafe {
-            blueantLogin(
-                blueantBase,
-                username.as_ptr(),
-                password.as_ptr(),
-                session_ptr,
-            )
+           binding::soap_call___ns1__Login(blueantBase, std::ptr::null(), std::ptr::null(), &mut loginParams, session_ptr)
         };
     }
 
@@ -56,10 +51,27 @@ fn main() {
         CString::from_raw(session.sessionID)
     });
 
+    let mut log: std::os::raw::c_int = unsafe 
+    {
+        binding::soap_call___ns1__Logout(blueantBase,
+         std::ptr::null(),
+         std::ptr::null(),
+         &mut binding::_ns3__LogoutRequestParameter {sessionID: session.sessionID},
+         &mut binding::__ns1__LogoutResponse {} )
+    };
+
+    println!("Brot {:?}", log);
+    let mut log: std::os::raw::c_int = unsafe 
+    {
+        binding::soap_call___ns1__Logout(blueantBase,
+         std::ptr::null(),
+         std::ptr::null(),
+         &mut binding::_ns3__LogoutRequestParameter {sessionID: std::ptr::null_mut()},
+         &mut binding::__ns1__LogoutResponse {} )
+    };
+    println!("ZweitBrot {:?}", log);
     unsafe {
-        soap_destroy(blueantBase);
-        binding::soap_end(blueantBase);
-        binding::soap_free(blueantBase);
+        deleteBlueantBase(blueantBase);
     }
 
     let sout = |a: &String| {
