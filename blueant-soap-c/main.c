@@ -1,5 +1,8 @@
 #include "BaseBinding.nsmap" // XML namespace mapping table (only needed once at the global level)
-#include "soapH.h"    // client stubs, serializers, etc.
+#include "WorktimeAccountingBinding.nsmap" // XML namespace mapping table (only needed once at the global level)
+
+#include "baseServiceH.h"    // client stubs, serializers, etc.
+#include "workTimeAccountingServiceH.h"    // client stubs, serializers, etc.
 
 
 struct soap *newBlueantBase() {
