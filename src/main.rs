@@ -1,8 +1,3 @@
-// For now to disable the binding.rs warnings ...
-#![allow(non_upper_case_globals)]
-#![allow(non_camel_case_types)]
-#![allow(non_snake_case)]
-#![allow(dead_code)]
 extern crate flik_lib;
 extern crate libc;
 extern crate rpassword;
@@ -12,24 +7,25 @@ use flik_lib::app;
 
 use std::ffi::CString;
 
-mod binding;
+mod baseServiceBinding;
+mod worktimeAccountingServiceBinding;
 
 #[link(name = "blueant")]
 extern "C" {
-    fn newBlueantBase() -> *mut binding::soap;
-    fn deleteBlueantBase(blueantBase: *mut binding::soap);
+    fn newBlueantBase() -> *mut baseServiceBinding::soap;
+    fn deleteBlueantBase(blueant_base: *mut baseServiceBinding::soap);
 }
 
 fn main() {
     let username = CString::new("").unwrap();
     let password = CString::new("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq").unwrap();
-    let mut loginParams = binding::_baseService3__LoginRequestParameter {
+    let mut login_params = baseServiceBinding::_baseService3__LoginRequestParameter {
         username: username.into_raw(),
         password: password.into_raw(),
     };
 
-    let blueantBase = unsafe { newBlueantBase() };
-    let mut session = binding::_baseService3__session {
+    let blueant_base = unsafe { newBlueantBase() };
+    let mut session = baseServiceBinding::_baseService3__session {
         sessionID: std::ptr::null_mut(),
         personID: 0,
     };
@@ -37,11 +33,11 @@ fn main() {
     let v42: std::os::raw::c_int;
     {
         v42 = unsafe {
-            binding::soap_call___baseService1__Login(
-                blueantBase,
+            baseServiceBinding::soap_call___baseService1__Login(
+                blueant_base,
                 std::ptr::null(),
                 std::ptr::null(),
-                &mut loginParams,
+                &mut login_params,
                 &mut session,
             )
         };
@@ -52,20 +48,20 @@ fn main() {
     });
 
     let log: std::os::raw::c_int = unsafe {
-        binding::soap_call___baseService1__Logout(
-            blueantBase,
+        baseServiceBinding::soap_call___baseService1__Logout(
+            blueant_base,
             std::ptr::null(),
             std::ptr::null(),
-            &mut binding::_baseService3__LogoutRequestParameter {
+            &mut baseServiceBinding::_baseService3__LogoutRequestParameter {
                 sessionID: session.sessionID,
             },
-            &mut binding::__baseService1__LogoutResponse { dummy: 0i8 },
+            &mut baseServiceBinding::__baseService1__LogoutResponse { dummy: 0i8 },
         )
     };
     println!("Brot {:?}", log);
 
     unsafe {
-        deleteBlueantBase(blueantBase);
+        deleteBlueantBase(blueant_base);
     }
 
     let sout = |a: &String| {

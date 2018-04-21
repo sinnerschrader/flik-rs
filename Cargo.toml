@@ -14,6 +14,7 @@ assert_cli = "0.5.4"
 
 [build-dependencies]
 gcc = "0.3"
+bindgen = "0.36"
 
 [lib]
 name = "flik_lib"

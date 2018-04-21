@@ -1,4 +1,5 @@
 extern crate gcc;
+extern crate bindgen;
 
 use std::env;
 use std::path::PathBuf;
@@ -26,6 +27,7 @@ fn main() {
 
     generate_gsoap_code(&services_to_build, &destination_path);
     compile_soap_lib(&services_to_build, &destination_path);
+    generate_rust_bindings(&services_to_build, &destination_path);
 }
 
 fn generate_gsoap_code(services_to_build: &[BlueantService], destination_path: &PathBuf) {
@@ -113,4 +115,47 @@ fn compile_soap_lib(services_to_build: &[BlueantService], destination_path: &Pat
         .flag("-Wno-unused-function")
         .shared_flag(true)
         .compile("blueant");
+}
+
+fn generate_rust_bindings(services_to_build: &[BlueantService], destination_path: &PathBuf) {
+    for service in services_to_build {
+        if !destination_path
+            .join(&destination_path.join(service.service_name.to_owned() + "binding.rs"))
+            .as_path()
+            .exists()
+            {
+            let bindings = bindgen::Builder::default()
+                .header(
+                    destination_path.join(service.service_name.to_owned() + "H.h")
+                        .to_str()
+                        .unwrap()
+                        .clone(),
+                )
+                .layout_tests(false)
+                .blacklist_type("_bindgen_ty_2")
+                .blacklist_type("_bindgen_ty_8")
+                .generate()
+                .expect("Unable to generate bindings");
+
+            bindings
+                .write_to_file(&destination_path.join(service.service_name.to_owned() + "binding.rs"))
+                .expect("Couldn't write bindings!");
+        }
+    }
+
+    //Build one binding file with every binding in it
+
+    // let bindings = bindgen::Builder::default();
+
+    // let generated_bindings = bindings.blacklist_type("_bindgen_ty_2")
+    //     .header(destination_path.join("baseServiceH.h").to_str().unwrap().clone())
+    //     .header(destination_path.join("worktimeAccountingServiceH.h").to_str().unwrap().clone())
+    //     .blacklist_type("_bindgen_ty_8")
+    //     .layout_tests(false)
+    //     .generate()
+    //     .expect("Unable to generate bindings");
+
+    // generated_bindings
+    //     .write_to_file(&destination_path.join("binding.rs"))
+    //     .expect("Couldn't write bindings!");
 }
