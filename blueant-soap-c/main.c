@@ -46,3 +46,4 @@ void deleteBlueantBase(struct soap *soap) {
 //   soap_end(soap);     // delete allocated data
 //   soap_free(soap);    // free the soap struct context data
 // }
+

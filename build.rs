@@ -13,6 +13,8 @@ struct BlueantService {
 }
 
 fn main() {
+    println!("cargo:rerun-if-changed=build.rs");
+
     let destination_path = PathBuf::from(env::var_os("OUT_DIR").unwrap());
     let services_to_build = [
         BlueantService {
@@ -113,7 +115,6 @@ fn compile_soap_lib(services_to_build: &[BlueantService], destination_path: &Pat
     gcc::Build::new()
         .files(services_to_compile.as_slice())
         .flag("-Wno-unused-function")
-        .shared_flag(true)
         .compile("blueant");
 }
 
