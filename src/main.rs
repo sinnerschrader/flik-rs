@@ -55,7 +55,7 @@ fn main() {
             &mut baseServiceBinding::_baseService3__LogoutRequestParameter {
                 sessionID: session.sessionID,
             },
-            &mut baseServiceBinding::__baseService1__LogoutResponse { dummy: 0i8 },
+            &mut baseServiceBinding::__baseService1__LogoutResponse {},
         )
     };
     println!("Brot {:?}", log);
