@@ -21,15 +21,15 @@ fn main() {
             service_name: "baseService",
             wsdl_url: "https://blueant.sinnerschrader.com/blueant/services/BaseService?wsdl",
         },
-        BlueantService {
-            service_name: "worktimeAccountingService",
-            wsdl_url: "https://blueant.sinnerschrader.com/blueant/services/WorktimeAccountingService?wsdl",
-        },
+        //BlueantService {
+            //service_name: "worktimeAccountingService",
+            //wsdl_url: "https://blueant.sinnerschrader.com/blueant/services/WorktimeAccountingService?wsdl",
+        //},
     ];
 
-    generate_gsoap_code(&services_to_build, &destination_path);
-    compile_soap_lib(&services_to_build, &destination_path);
-    generate_rust_bindings(&services_to_build, &destination_path);
+     generate_gsoap_code(&services_to_build, &destination_path);
+     compile_soap_lib(&services_to_build, &destination_path);
+     generate_rust_bindings(&services_to_build, &destination_path);
 }
 
 fn generate_gsoap_code(services_to_build: &[BlueantService], destination_path: &PathBuf) {
@@ -99,25 +99,27 @@ fn compile_soap_lib(services_to_build: &[BlueantService], destination_path: &Pat
     copy(
         PathBuf::from("blueant-soap-c/main.c"),
         &destination_path.join("main.c"),
-    ).expect("Could not copy main.c to build dir");
 
-    println!("cargo:rustc-link-lib=gsoapssl");
-    println!("cargo:rustc-link-lib=ssl");
-    println!("cargo:rustc-link-lib=crypto");
-    println!("cargo:rustc-link-lib=z");
+        ).expect("Could not copy main.c to build dir");
 
     let mut services_to_compile = vec![destination_path.join("main.c"), destination_path.join("envC.c")];
 
     for service in services_to_build {
         services_to_compile.push(destination_path.join(service.service_name.to_owned() + "ClientLib.c"));
+        services_to_compile.push(destination_path.join(service.service_name.to_owned() + "C.c"));
     }
 
     gcc::Build::new()
         .files(services_to_compile.as_slice())
         .flag("-Wno-unused-function")
         .compile("blueant");
-}
+    
+    println!("cargo:rustc-link-lib=gsoapssl");
+    println!("cargo:rustc-link-lib=ssl");
+    println!("cargo:rustc-link-lib=crypto");
+    println!("cargo:rustc-link-lib=z");
 
+}
 fn generate_rust_bindings(services_to_build: &[BlueantService], destination_path: &PathBuf) {
     for service in services_to_build {
         if !destination_path

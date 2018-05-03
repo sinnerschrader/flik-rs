@@ -1,12 +1,12 @@
 ARCH=$(shell uname -s)
 CFLAGS=-fpic
 
-$(ARCH)/libblueant.dylib: $(ARCH)/blueant
+$(ARCH)/libblueant.dylib: $(ARCH) $(ARCH)/envC.o $(ARCH)/worktimeAccountingServiceClientLib.o $(ARCH)/baseServiceClientLib.o $(ARCH)/main.o 
 	cc $(CFLAGS) -shared -o $(ARCH)/libblueant.so $(ARCH)/worktimeAccountingServiceClientLib.o $(ARCH)/baseServiceClientLib.o $(ARCH)/envC.o $(ARCH)/main.o -lgsoapssl -lssl -lcrypto -lz
 	#g++ -dynamiclib -o $(ARCH)/libblueant.dylib $(ARCH)/soapClient.o $(ARCH)/soapC.o $(ARCH)/main.o -lgsoapssl -lssl -lcrypto -lz
 
-$(ARCH)/blueant: $(ARCH) $(ARCH)/envC.o $(ARCH)/worktimeAccountingServiceClientLib.o $(ARCH)/baseServiceClientLib.o $(ARCH)/main.o 
-	cc $(CFLAGS) -o $(ARCH)/blueant $(ARCH)/main.o $(ARCH)/worktimeAccountingServiceClientLib.o $(ARCH)/baseServiceClientLib.o $(ARCH)/envC.o -lgsoapssl -lssl -lcrypto -lz
+#$(ARCH)/blueant: $(ARCH) $(ARCH)/envC.o $(ARCH)/worktimeAccountingServiceClientLib.o $(ARCH)/baseServiceClientLib.o $(ARCH)/main.o 
+	#cc $(CFLAGS) -o $(ARCH)/blueant $(ARCH)/main.o $(ARCH)/worktimeAccountingServiceClientLib.o $(ARCH)/baseServiceClientLib.o $(ARCH)/envC.o -lgsoapssl -lssl -lcrypto -lz
 
 $(ARCH)/main.o: main.c
 	echo "Do main"

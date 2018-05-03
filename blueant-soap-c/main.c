@@ -1,10 +1,10 @@
 #include "baseServiceStub.h" // get quote Service stub 
-#include "worktimeAccountingServiceStub.h" // get rate Service stub 
+/*#include "worktimeAccountingServiceStub.h" // get rate Service stub */
 #include "envH.h"
 
 #include "soap.nsmap" // get quote namespace bindings 
 #include "baseService.nsmap" // get quote namespace bindings 
-#include "worktimeAccountingService.nsmap" // get rate namespace bindings 
+/*#include "worktimeAccountingService.nsmap" // get rate namespace bindings */
 
 struct soap *newBlueantBase() {
   struct soap *soap = soap_new(); // allocate and initalize a context
