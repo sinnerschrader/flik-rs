@@ -2,19 +2,14 @@
 authors = ["Mario Nebl <hello@mario-nebl.de>"]
 name = "flik-rs"
 version = "0.1.0"
-build = "build.rs"
 
 [dependencies]
 clap = "2.29.2"
 rpassword = "1.0.0"
-libc = "0.2"
+reqwest = "0.8"
 
 [dev-dependencies]
 assert_cli = "0.5.4"
-
-[build-dependencies]
-gcc = "0.3"
-bindgen = "0.36"
 
 [lib]
 name = "flik_lib"
