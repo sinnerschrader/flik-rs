@@ -1,28 +1,57 @@
 extern crate flik_lib;
+extern crate pyo3;
 extern crate reqwest;
 extern crate rpassword;
 
 use flik_lib::app;
 use std::collections::HashMap;
 use std::io::{self, Write};
+use pyo3::{ObjectProtocol, PyDict, PyResult, Python};
 
 fn main() {
-    let mut params = HashMap::new();
-    params.insert("username", "");
-    params.insert("password", "uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq");
+    let gil = Python::acquire_gil();
+    let py = gil.python();
+    let zeep_module = py.import("zeep").unwrap();
 
-    let client = reqwest::Client::new();
-    let res = client
-        .post("https://blueant-uat.sinnerschrader.com/blueant/services/BaseService/Login")
-        .form(&params)
-        .build()
+    let locals = PyDict::new(py);
+    locals.set_item("zeep", zeep_module).unwrap();
+
+    let client = py.eval(
+        "zeep.Client('https://blueant.sinnerschrader.com/blueant/services/BaseService?wsdl')",
+        None,
+        Some(&locals),
+    ).unwrap();
+
+    let locals = PyDict::new(py);
+    locals.set_item("client", client).unwrap();
+    locals.set_item("username", "").unwrap();
+    locals
+        .set_item("password", "uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq")
         .unwrap();
 
-    println!("Request: {:?}, {:?}", res, res.body());
+    println!(
+        "{:?}",
+        py.eval(
+            "client.service.Login(username, password)",
+            None,
+            Some(&locals)
+        ).unwrap()
+            .get("sessionID")
+            .unwrap()
+    );
 
-    let mut result = client.execute(res).unwrap();
+    // let client = reqwest::Client::new();
+    // let res = client
+    //     .post("https://blueant-uat.sinnerschrader.com/blueant/services/BaseService/Login")
+    //     .form(&params)
+    //     .build()
+    //     .unwrap();
 
-    println!("Result: {:?}", result.text().unwrap());
+    // println!("Request: {:?}, {:?}", res, res.body());
+
+    // let mut result = client.execute(res).unwrap();
+
+    // println!("Result: {:?}", result.text().unwrap());
 
     //let sout = |a: &String| {
     //io::stdout().write(a.as_bytes()).unwrap();
