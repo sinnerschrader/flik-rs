@@ -1,44 +1,16 @@
 extern crate flik_lib;
-extern crate pyo3;
 extern crate reqwest;
 extern crate rpassword;
 
 use flik_lib::app;
+use flik_lib::BaseService;
+
 use std::collections::HashMap;
 use std::io::{self, Write};
-use pyo3::{ObjectProtocol, PyDict, PyResult, Python};
 
 fn main() {
-    let gil = Python::acquire_gil();
-    let py = gil.python();
-    let zeep_module = py.import("zeep").unwrap();
-
-    let locals = PyDict::new(py);
-    locals.set_item("zeep", zeep_module).unwrap();
-
-    let client = py.eval(
-        "zeep.Client('https://blueant.sinnerschrader.com/blueant/services/BaseService?wsdl')",
-        None,
-        Some(&locals),
-    ).unwrap();
-
-    let locals = PyDict::new(py);
-    locals.set_item("client", client).unwrap();
-    locals.set_item("username", "").unwrap();
-    locals
-        .set_item("password", "uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq")
-        .unwrap();
-
-    println!(
-        "{:?}",
-        py.eval(
-            "client.service.Login(username, password)",
-            None,
-            Some(&locals)
-        ).unwrap()
-            .get("sessionID")
-            .unwrap()
-    );
+    let base_service = BaseService::new();
+    base_service.login("", "uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq");
 
     // let client = reqwest::Client::new();
     // let res = client
