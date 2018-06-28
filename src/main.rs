@@ -9,8 +9,12 @@ use std::collections::HashMap;
 use std::io::{self, Write};
 
 fn main() {
-    let base_service = BaseService::new();
-    base_service.login("", "uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq");
+    let python_gil = BaseService::get_python_gil();
+    let base_service = BaseService::new(&python_gil);
+    base_service.login(
+        &String::from(""),
+        &String::from("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq"),
+    );
 
     // let client = reqwest::Client::new();
     // let res = client

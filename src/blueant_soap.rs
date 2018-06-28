@@ -1,20 +1,19 @@
-extern crate pyo3;
+use pyo3::{GILGuard, ObjectProtocol, PyDict, PyObjectRef, PyResult, Python};
 
-use pyo3::{ObjectProtocol, PyDict, PyResult, Python};
-
-pub struct BaseService {
-    python: Python;
-    client: &PyObjectRef;
+pub struct BaseService<'a> {
+    python: Python<'a>,
+    client: &'a PyObjectRef,
 }
 
-impl BaseService {
+impl<'a> BaseService<'a> {
+    pub fn get_python_gil() -> GILGuard {
+        Python::acquire_gil()
+    }
 
-    pub fn new(): self {
-        let gil = Python::acquire_gil();
+    pub fn new(gil: &'a GILGuard) -> Self {
         let python = gil.python();
-
-        let zeep_module = self.python.import("zeep").unwrap();
-        let locals = PyDict::new(self.python);
+        let zeep_module = python.import("zeep").unwrap();
+        let locals = PyDict::new(python);
         locals.set_item("zeep", zeep_module).unwrap();
 
         let client = python.eval(
@@ -24,29 +23,28 @@ impl BaseService {
         ).unwrap();
 
         BaseService {
-            python,
-            client
+            python: python,
+            client,
         }
     }
 
     pub fn login(&self, username: &String, password: &String) {
+        let zeep_module = self.python.import("zeep").unwrap();
+
         let locals = PyDict::new(self.python);
+        locals.set_item("zeep", zeep_module).unwrap();
         locals.set_item("client", self.client).unwrap();
         locals.set_item("username", username).unwrap();
         locals.set_item("password", password).unwrap();
 
-        println!(
-            "{:?}",
-            self.python.eval(
-                "client.service.Login(username, password)",
+        let result = self.python
+            .eval(
+                "dict(zeep.helpers.serialize_object(client.service.Login(username, password)))",
                 None,
-                Some(&locals)
-            ).unwrap()
-                .get("sessionID")
-                .unwrap()
-        );
+                Some(&locals),
+            )
+            .unwrap();
+
+        println!("{:?}", result);
     }
 }
-
- 
-    
