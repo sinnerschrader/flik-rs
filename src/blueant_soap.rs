@@ -1,11 +1,19 @@
 use pyo3::{GILGuard, ObjectProtocol, PyDict, PyObjectRef, PyResult, Python};
+use serde_json;
 
-pub struct BaseService<'a> {
-    python: Python<'a>,
-    client: &'a PyObjectRef,
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Session {
+    personID: i32,
+    sessionID: String,
 }
 
-impl<'a> BaseService<'a> {
+pub struct BlueantService<'a> {
+    python: Python<'a>,
+    baseClient: &'a PyObjectRef,
+    worktimeAccountingClient: &'a PyObjectRef,
+}
+
+impl<'a> BlueantService<'a> {
     pub fn get_python_gil() -> GILGuard {
         Python::acquire_gil()
     }
@@ -16,35 +24,46 @@ impl<'a> BaseService<'a> {
         let locals = PyDict::new(python);
         locals.set_item("zeep", zeep_module).unwrap();
 
-        let client = python.eval(
+        let baseClient = python.eval(
             "zeep.Client('https://blueant.sinnerschrader.com/blueant/services/BaseService?wsdl')",
             None,
             Some(&locals),
         ).unwrap();
 
-        BaseService {
+        let worktimeAccountingClient = python.eval(
+            "zeep.Client('https://blueant.sinnerschrader.com/blueant/services/WorktimeAccountingService?wsdl')",
+            None,
+            Some(&locals),
+        ).unwrap();
+
+        BlueantService {
             python: python,
-            client,
+            baseClient,
+            worktimeAccountingClient,
         }
     }
 
-    pub fn login(&self, username: &String, password: &String) {
+    pub fn login(&self, username: &String, password: &String) -> Result<Session, serde_json::Error> {
         let zeep_module = self.python.import("zeep").unwrap();
+        let json_module = self.python.import("json").unwrap();
 
         let locals = PyDict::new(self.python);
         locals.set_item("zeep", zeep_module).unwrap();
-        locals.set_item("client", self.client).unwrap();
+        locals.set_item("json", json_module).unwrap();
+        locals.set_item("client", self.baseClient).unwrap();
         locals.set_item("username", username).unwrap();
         locals.set_item("password", password).unwrap();
 
-        let result = self.python
+        let result: String = self.python
             .eval(
-                "dict(zeep.helpers.serialize_object(client.service.Login(username, password)))",
+                "json.dumps(zeep.helpers.serialize_object(client.service.Login(username, password)))",
                 None,
                 Some(&locals),
             )
-            .unwrap();
-
-        println!("{:?}", result);
+            .unwrap().extract().unwrap();
+        let session: Session = serde_json::from_str(&result)?;
+        println!("{:?}", session);
+        Ok(session)
     }
+
 }

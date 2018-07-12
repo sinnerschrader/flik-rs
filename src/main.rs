@@ -3,14 +3,14 @@ extern crate reqwest;
 extern crate rpassword;
 
 use flik_lib::app;
-use flik_lib::BaseService;
+use flik_lib::BlueantService;
 
 use std::collections::HashMap;
 use std::io::{self, Write};
 
 fn main() {
-    let python_gil = BaseService::get_python_gil();
-    let base_service = BaseService::new(&python_gil);
+    let python_gil = BlueantService::get_python_gil();
+    let base_service = BlueantService::new(&python_gil);
     base_service.login(
         &String::from(""),
         &String::from("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq"),
