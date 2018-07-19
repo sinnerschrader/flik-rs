@@ -67,11 +67,7 @@ impl<'a> BlueantService<'a> {
         }
     }
 
-    pub fn login(
-        &self,
-        username: &String,
-        password: &String,
-    ) -> Result<Session, serde_json::Error> {
+    pub fn login(&self, username: &String, password: &String) -> Result<Session, Error> {
         let zeep_module = self.python.import("zeep").unwrap();
         let json_module = self.python.import("json").unwrap();
 
@@ -82,16 +78,24 @@ impl<'a> BlueantService<'a> {
         locals.set_item("username", username).unwrap();
         locals.set_item("password", password).unwrap();
 
-        let result: String = self.python
-            .eval(
-                "json.dumps(zeep.helpers.serialize_object(client.service.Login(username, password)))",
-                None,
-                Some(&locals),
-            )
-            .unwrap().extract().unwrap();
-        let session: Session = serde_json::from_str(&result)?;
+        let result = self.python.eval(
+            "json.dumps(zeep.helpers.serialize_object(client.service.Login(username, password)))",
+            None,
+            Some(&locals),
+        );
 
-        Ok(session)
+        let extracted_value: PyResult<String> = match result {
+            Ok(v) => v.extract(),
+            Err(e) => Err(e),
+        };
+
+        match extracted_value {
+            Ok(json) => Ok(deserealize(&json)?),
+            Err(e) => {
+                e.print(self.python);
+                Err(Error::PythonErr)
+            }
+        }
     }
 
     pub fn get_projects(&self, session: &Session) -> Result<Vec<Project>, Error> {
@@ -112,15 +116,17 @@ impl<'a> BlueantService<'a> {
             Some(&locals),
         );
 
-        match result {
-            Ok(v) => {
-                let extracted_value: PyResult<String> = v.extract();
-                match extracted_value {
-                    Ok(json) => Ok(deserealize(&json)?),
-                    Err(python_err) => Err(Error::PythonErr),
-                }
+        let extracted_value: PyResult<String> = match result {
+            Ok(v) => v.extract(),
+            Err(e) => Err(e),
+        };
+
+        match extracted_value {
+            Ok(json) => Ok(deserealize(&json)?),
+            Err(e) => {
+                e.print(self.python);
+                Err(Error::PythonErr)
             }
-            Err(e) => Err(Error::PythonErr),
         }
     }
 }
