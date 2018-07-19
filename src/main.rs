@@ -11,23 +11,14 @@ use std::io::{self, Write};
 fn main() {
     let python_gil = BlueantService::get_python_gil();
     let base_service = BlueantService::new(&python_gil);
-    base_service.login(
-        &String::from(""),
-        &String::from("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq"),
-    );
-
-    // let client = reqwest::Client::new();
-    // let res = client
-    //     .post("https://blueant-uat.sinnerschrader.com/blueant/services/BaseService/Login")
-    //     .form(&params)
-    //     .build()
-    //     .unwrap();
-
-    // println!("Request: {:?}, {:?}", res, res.body());
-
-    // let mut result = client.execute(res).unwrap();
-
-    // println!("Result: {:?}", result.text().unwrap());
+    let session = base_service
+        .login(
+            &String::from(""),
+            &String::from("uGH~mvVnLw(~bHV@eb~4A{P3-i34wkYHhjk;f3U,mq"),
+        )
+        .expect("Could not get a session");
+    println!("{:?}", session);
+    println!("{:?}", base_service.get_projects(&session).unwrap());
 
     //let sout = |a: &String| {
     //io::stdout().write(a.as_bytes()).unwrap();
